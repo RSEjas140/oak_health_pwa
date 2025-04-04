@@ -120,3 +120,29 @@ footer img {
         font-size: 14px;
     }
 }
+
+/* Back Button */
+.back-btn {
+    background-color: #4CAF50; /* Same as splash page buttons */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+.back-btn img {
+    width: 30px;
+    height: auto;
+}
+
+.back-btn:hover {
+    background-color: #45a049;
+}
