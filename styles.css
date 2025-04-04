@@ -7,153 +7,7 @@ body {
     background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure full height of viewport */
-}
-
-/* Header */
-header {
-    background-color: #4CAF50;
-    padding: 20px;
-    color: white;
-}
-
-/* Content */
-.content {
-    margin: 50px auto;
-    padding: 20px;
-    max-width: 600px; /* This may be too wide for small screens */
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex-grow: 1;
-}
-
-/* Button */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 32px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-/* Footer */
-footer {
-    padding: 10px;
-    background-color: #333;
-    text-align: center;
-    margin-top: auto;
-}
-
-footer img {
-    max-width: 100%; /* Ensures image fits in screen size */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Media Queries for Responsiveness */
-
-/* For small screens (mobile phones) */
-@media (max-width: 480px) {
-    .content {
-        margin: 20px; /* Reduce margin for mobile */
-        padding: 10px; /* Reduce padding for mobile */
-        max-width: 100%; /* Full width on small screens */
-    }
-
-    button {
-        padding: 12px 28px; /* Slightly smaller button on small screens */
-        font-size: 14px;
-    }
-}
-
-/* For medium screens (tablets) */
-@media (max-width: 768px) {
-    .content {
-        margin: 30px;
-        padding: 15px;
-        max-width: 90%; /* Allow more space on tablets */
-    }
-
-    button {
-        padding: 14px 30px;
-        font-size: 15px;
-    }
-}
-
-/* For large screens (desktop) */
-@media (min-width: 1024px) {
-    .content {
-        max-width: 800px; /* Increase max width for large screens */
-    }
-
-    button {
-        padding: 16px 36px;
-        font-size: 18px;
-    }
-}
-
-/* JavaScript Disabled Warning */
-.warning {
-    background-color: #d32f2f; /* A richer red tone */
-    color: #fff;              /* White text */
-    padding: 15px 20px;
-    font-weight: bold;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 9999;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Specific Page Styles */
-#logOak, #reportError, #faq, #contactUs {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: none;  /* These pages will be hidden initially */
-    padding: 20px;
-}
-
-/* Navigation Button Styles */
-.nav-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px 40px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px;
-    width: 250px;
-}
-
-.nav-btn:hover {
-    background-color: #45a049;
-}
-
-/* Page Visibility Control */
-.page {
-    display: none; /* Hide all pages initially */
-    padding: 20px;
-}
-
-#buttonsContainer {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
+    min-height: 100vh;
 }
 
 /* Splash Page */
@@ -167,6 +21,15 @@ footer img {
     padding: 20px;
 }
 
+/* Buttons Container */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
 /* Buttons */
 .nav-btn {
     background-color: #4CAF50;
@@ -176,7 +39,6 @@ footer img {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 10px;
     width: 250px;
 }
 
@@ -189,6 +51,30 @@ h1, h2 {
     margin-bottom: 20px;
 }
 
-button {
-    margin-top: 20px;
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+footer img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Warning Message for No JS */
+.warning {
+    background-color: #d32f2f;
+    color: #fff;
+    padding: 15px 20px;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9999;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
