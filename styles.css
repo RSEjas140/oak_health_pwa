@@ -154,3 +154,29 @@ footer img {
     width: 30px; /* Adjust size */
     height: auto;
 }
+
+/* Header Styling */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 10px;
+    background: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Ensure pages have space below the fixed header */
+.page {
+    padding-top: 60px;
+}
+
+/* Hide header on splash page only */
+#splashPage .page-header {
+    display: none;
+}
