@@ -1,5 +1,8 @@
 /* General Styles */
-body {
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
@@ -8,6 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    box-sizing: border-box;
 }
 
 /* Splash Page */
@@ -20,13 +24,18 @@ body {
     visibility: hidden; /* Keep all pages invisible by default */
     opacity: 0;
     transition: opacity 0.5s ease-in-out, visibility 0s 0.5s; /* Keep the fade transition */
-    padding: 20px;
-
-    /* New properties to force all pages to start from the top */
+    padding: 5vw; /* Use relative padding instead of fixed values */
     position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn’t cause overflow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center;
 }
 
 /* Active Page */
@@ -49,12 +58,13 @@ body {
 .nav-btn {
     background-color: #4CAF50;
     color: white;
-    padding: 20px 40px;
-    font-size: 18px;
+    padding: 15px 30px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 250px;
+    width: 80%; /* Make buttons take 80% of the screen width */
+    max-width: 300px; /* Prevent them from being too big on larger screens */
 }
 
 .nav-btn:hover {
@@ -92,4 +102,19 @@ footer img {
     right: 0;
     height: 100%;
     transition: opacity 0.5s ease-in-out;
+}
+
+/* Responsive Styles for Mobile */
+@media screen and (max-width: 600px) {
+    .page {
+        padding: 5%;
+    }
+    
+    .nav-btn {
+        width: 90%; /* Increase width on smaller screens */
+    }
+    
+    h1, h2, p {
+        font-size: 14px; /* Reduce text size slightly to fit better */
+    }
 }
