@@ -21,10 +21,15 @@ let questions = [
     // Add remaining 16 questions as per spreadsheet
 ];
 
-let answers = Array(questions.length).fill("");
+// extra two for unique ID and positional data
+let answers = Array(questions.length + 2).fill("");
 let currentQuestion = 0;
 
 function startLogging() {
+    
+    //create a unique ID
+    globalID = crypto.randomUUID();
+    answers[answers.length] = globalID
     showPage("questionPage");
     loadQuestion();
 }
@@ -114,7 +119,7 @@ function downloadCSV() {
     let encodedUri = encodeURI(csvContent);
     let link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "oak_tree_data.csv");
+    link.setAttribute("download", "oak_tree_data_${answers[answers.length]}.csv");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
