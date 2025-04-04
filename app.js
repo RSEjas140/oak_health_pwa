@@ -12,7 +12,4 @@ function showPage(pageId) {
     }
 
     // Scroll to the top of the page
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, Opera
 }
