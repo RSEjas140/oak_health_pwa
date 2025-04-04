@@ -30,6 +30,14 @@ html, body {
     left: 0;
 }
 
+#splashHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between logos and text */
+    padding: 20px 0;
+}
+
 /* Main title */
 #splashPage h1 {
     font-size: 32px; /* Larger text */
@@ -202,6 +210,11 @@ footer img {
     }
 
     .nav-btn {
+        width: auto;
+        font-size: 24px;
+    }
+
+    .main-btn {
         width: 100%;
         font-size: 24px;
     }
