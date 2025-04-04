@@ -65,27 +65,27 @@
     <!-- If functionality not available on their devices -->
     <script>
       
-      // Check for Service Worker support
+      // Check for Service Worker support app will not work without this functionality
       
-      if ('nonExistentFeature' in navigator) {
+      if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js')
           .then(reg => console.log('✅ Service Worker registered:', reg.scope))
           .catch(err => console.error('❌ Service Worker registration failed:', err));
       } else {
-        alert('⚠️ Your browser does not support service workers. Offline functionality will not work.');
+        alert('⚠️ This site requires service-workers to log trees. Unfortunately, your device does not support this. Offline functionality will not work. Please try a different device. ');
       }
 
-      // Check for Geolocation support
+      // Check for Geolocation support cannot get long lat without
       if (!('geolocation' in navigator)) {
-        alert('⚠️ Geolocation is not supported by your browser. GPS tagging will not work.');
+        alert('⚠️ This site requires location services to log trees. Unfortunately, your device does not support this or you have withheld access. Please allow access or try a different device.');
       }
 
-      // Check for Local Storage support
+      // Check for Local Storage support cannot save to users device without
       if (!('localStorage' in window)) {
-        alert('⚠️ Local storage is not supported. Your data will not be saved.');
+        alert('⚠️ This site requires access to your local storage to log trees. Either it is not supported or you have rejected access. Please allow access or try a different device.');
       }
 
-      // Optional: Detect if app is running in PWA mode
+      // Change behaviour based on app mode or webmode - currently does nothing but log.
       if (window.matchMedia('(display-mode: standalone)').matches) {
         console.log('✅ App is running in standalone/PWA mode');
       } else {
