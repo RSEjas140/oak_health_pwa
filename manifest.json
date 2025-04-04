@@ -1,6 +1,6 @@
 {
-    "name": "TreeLogger",
-    "short_name": "TreeLogger",
+    "name": "OakLogger",
+    "short_name": "OakLogger",
     "start_url": "/oak_health_pwa/",  
     "display": "standalone",  
     "background_color": "#ffffff",  

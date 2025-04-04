@@ -1,6 +1,6 @@
 // Service-worker is a background script that controls network requestes and cache responses ; enables offline functionality 
 
-const CACHE_NAME = 'treeLogger-v1';
+const CACHE_NAME = 'oakLogger-v1';
 
 // What we have access to in offline mode
 const STATIC_ASSETS = [
