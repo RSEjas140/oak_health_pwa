@@ -22,7 +22,7 @@ let questions = [
 ];
 
 // extra two for unique ID and positional data
-let answers = Array(questions.length + 2).fill("");
+let answers = Array(questions.length + 3).fill("");
 let currentQuestion = 0;
 
 function startLogging() {
@@ -113,6 +113,10 @@ function prevQuestion() {
 }
 
 function downloadCSV() {
+    questions.push({ label: "Long"})
+    questions.push({ label: "Lat"})
+    questions.push({ label: "ID"})
+
     let csvContent = "data:text/csv;charset=utf-8," +
         questions.map((q, i) => `${q.label},${answers[i]}`).join("\n");
     
