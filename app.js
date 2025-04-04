@@ -100,6 +100,7 @@ function nextQuestion() {
 
     if (currentQuestion < questions.length) {
         loadQuestion(currentQuestion);
+    }
 }
 
 function prevQuestion() {
