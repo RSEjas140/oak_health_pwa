@@ -56,18 +56,18 @@
 
     <!-- If javascript is not available on their device or turned off -->
     <noscript>
-      <div class="no-js-warning">
+      <div class="warning">
         ⚠️ This site requires JavaScript to log trees. Please enable JavaScript in your browser settings or use a device that supports it.
       </div>
     </noscript>
 
-    <script>
-        // Optional: Add logic for prompting the user to install the PWA here
-    </script>
 
+    <!-- If functionality not available on their devices -->
     <script>
+      
       // Check for Service Worker support
-      if ('serviceWorker' in navigator) {
+      
+      if ('nonExistentFeature' in navigator) {
         navigator.serviceWorker.register('service-worker.js')
           .then(reg => console.log('✅ Service Worker registered:', reg.scope))
           .catch(err => console.error('❌ Service Worker registration failed:', err));
@@ -93,5 +93,10 @@
       }
 
     </script>
+
+    <script>
+        // Optional: Add logic for prompting the user to install the PWA here
+    </script>
+
 </body>
 </html>
