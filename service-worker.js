@@ -1,4 +1,8 @@
+// Service-worker is a background script that controls network requestes and cache responses ; enables offline functionality 
+
 const CACHE_NAME = 'treeLogger-v1';
+
+// What we have access to in offline mode
 const STATIC_ASSETS = [
     './',
     './index.html',
@@ -7,16 +11,20 @@ const STATIC_ASSETS = [
     './manifest.json'
 ];
 
+//intialises on install
 self.addEventListener('install', async (event) => {
     const cache = await caches.open(CACHE_NAME);
     await cache.addAll(STATIC_ASSETS);
     self.skipWaiting();
 });
 
+//SW takes control
 self.addEventListener('activate', (event) => {
     self.clients.claim();
 });
 
+
+//triggered whenever a resource is requested
 self.addEventListener('fetch', (event) => {
     event.respondWith(
         fetch(event.request)
