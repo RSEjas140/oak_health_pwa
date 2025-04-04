@@ -18,7 +18,7 @@ html, body {
 #splashPage {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh; /* Ensures full screen height */
     width: 100%;
