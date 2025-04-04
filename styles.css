@@ -99,4 +99,20 @@ footer img {
         padding: 16px 36px;
         font-size: 18px;
     }
+
+/* JavaScript Disabled Warning */
+noscript .no-js-warning {
+    background-color: #ffdddd;
+    padding: 15px;
+    color: #900;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
 }
