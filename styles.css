@@ -116,3 +116,32 @@ footer img {
     text-align: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
+
+
+#logOak, #reportError, #faq, #contactUs {
+    /* Specific styles for pages can go here */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    width: 250px;
+}
+
+.nav-btn:hover {
+    background-color: #45a049;
+}
+
+.page {
+    display: none; /* Hide all pages initially */
+    padding: 20px;
+}
