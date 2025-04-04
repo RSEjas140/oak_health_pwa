@@ -16,7 +16,13 @@ html, body {
 
 /* Splash Page */
 #splashPage {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Center splash page content */
+    text-align: center;
+    padding: 20px;
 }
 
 /* Pages */
@@ -45,21 +51,37 @@ html, body {
     transition: opacity 0.5s ease-in-out, visibility 0s 0s;
 }
 
+/* Button Container */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
 /* Buttons */
 .nav-btn {
     background-color: #4CAF50;
     color: white;
     padding: 15px 30px;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    width: 80%;
+    width: 100%;
     max-width: 300px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 .nav-btn:hover {
     background-color: #45a049;
+    transform: scale(1.05);
 }
 
 /* Footer */
@@ -80,8 +102,13 @@ footer img {
         padding: 5%;
     }
 
-    .nav-btn {
+    .button-container {
         width: 90%;
+    }
+
+    .nav-btn {
+        width: 100%;
+        font-size: 16px;
     }
 
     h1, h2, p {
