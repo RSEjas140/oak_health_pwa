@@ -25,6 +25,10 @@
         </div>
     </div>
 
+
+
+
+
     <!-- Pages -->
     <div id="logOak" class="page">
     <div class="subpage-header">
@@ -34,7 +38,23 @@
         <h1 class="subpage-title">Log an Oak</h1>
     </div>
     <p>Here, you can log oak trees and record their health data.</p>
+    <button class="nav-btn" onclick="startLogging()">Start</button>
 </div>
+
+
+    <!-- Dynamic Question Page -->
+<div id="questionPage" class="page">
+    <h2 id="questionTitle"></h2>
+    <div id="questionContainer"></div>
+    
+    <div class="button-container">
+        <button class="nav-btn" id="backBtn" onclick="prevQuestion()">Back</button>
+        <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+        <button class="nav-btn" id="submitBtn" onclick="downloadCSV()" style="display:none;">Submit & Download CSV</button>
+    </div>
+</div>
+
+
 
 <!-- Report an Error Page -->
 <div id="reportError" class="page">
