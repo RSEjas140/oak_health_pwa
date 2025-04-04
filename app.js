@@ -131,7 +131,7 @@ function downloadCSV() {
     document.body.removeChild(link);
 
     // Reset questionnaire data
-    answers = Array(questions.length).fill("");  
+    answers = Array(questions.length + 3).fill("");  
     currentQuestion = 0;  
 
     // Return to splash page
@@ -140,7 +140,7 @@ function downloadCSV() {
 
 function cancelSubmission() {
     currentQuestion = 0; // Reset questionnaire
-    answers = Array(questions.length).fill(""); // Clear collected answers
+    answers = Array(questions.length + 3).fill(""); // Clear collected answers
     showPage('splashPage'); // Navigate back to the splash page
 }
 
