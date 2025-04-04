@@ -21,7 +21,7 @@ let questions = [
     // Add remaining 16 questions as per spreadsheet
 ];
 
-let responses = Array(questions.length).fill("");
+let answers = Array(questions.length).fill("");
 let currentQuestion = 0;
 
 function startLogging() {
@@ -108,7 +108,7 @@ function prevQuestion() {
 
 function downloadCSV() {
     let csvContent = "data:text/csv;charset=utf-8," +
-        questions.map((q, i) => `${q.label},${responses[i]}`).join("\n");
+        questions.map((q, i) => `${q.label},${answers[i]}`).join("\n");
     
     let encodedUri = encodeURI(csvContent);
     let link = document.createElement("a");
