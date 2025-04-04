@@ -41,32 +41,27 @@
     </header>
  
  <!-- Navigation buttons -->
-    <div class="button-container">
-        <button class="nav-btn" onclick="showPage('logOak')">Log an Oak</button>
-        <button class="nav-btn" onclick="showPage('reportError')">Report an Error</button>
-        <button class="nav-btn" onclick="showPage('faq')">FAQ</button>
-        <button class="nav-btn" onclick="showPage('contactUs')">Contact Us</button>
-    </div>
+  <div id="buttonsContainer">
+    <button onclick="showPage('logOak')">Log an oak</button>
+    <button onclick="showPage('reportError')">Report an Error</button>
+    <button onclick="showPage('faq')">FAQ</button>
+    <button onclick="showPage('contactUs')">Contact us</button>
+  </div>
 
   <!-- Pages (Content Views) -->
-    <div id="logOak" class="page">
-        <h2>Log an Oak</h2>
-        <p>Here, you can log your oak tree data.</p>
-    </div>
-
-    <div id="reportError" class="page">
-        <h2>Report an Error</h2>
-        <p>Report any issues or bugs here.</p>
-    </div>
-
-    <div id="faq" class="page">
-        <h2>FAQ</h2>
-        <p>Frequently Asked Questions about using this app.</p>
-    </div>
-
-    <div id="contactUs" class="page">
-        <h2>Contact Us</h2>
-        <p>Get in touch with us for more information.</p>
+    <div id="pageContent">
+      <div id="logOak" class="page">
+        <!-- Content for "Log an oak" -->
+      </div>
+      <div id="reportError" class="page">
+        <!-- Content for "Report an Error" -->
+      </div>
+      <div id="faq" class="page">
+        <!-- Content for "FAQ" -->
+      </div>
+      <div id="contactUs" class="page">
+        <!-- Content for "Contact Us" -->
+      </div>
     </div>
 
     <script src="app.js"></script>
