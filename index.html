@@ -1,37 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-
 <head>
-
-    <!-- MEta data forpage -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Dark Green -->
     <meta name="theme-color" content="#103012">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Title of app or tab in browser -->
     <title>Oak Logging App</title>
-    
-    <!-- Icons need to match manifest -->
     <link rel="icon" href="graphics/icons/icon-192.png" sizes="192x192">
     <link rel="icon" href="graphics/icons/icon-512.png" sizes="512x512">
     <link rel="icon" href="graphics/icons/favicon.ico" type="image/x-icon">
 </head>
-
-
-
-
-
 <body>
-    <!-- Visable content -->
 
     <!-- Splash Page -->
     <div id="splashPage" class="page active">
-        <!-- Title -->
         <h1>Welcome to Tree Logger</h1>
         <p>Capture and log tree health data easily. Start by logging an oak, reporting an error, or exploring our FAQs.</p>
         <div class="button-container">
@@ -42,52 +25,25 @@
         </div>
     </div>
 
-    <!-- Log an Oak Page -->
+    <!-- Pages -->
     <div id="logOak" class="page">
-        <header class="page-header">
-            <button class="back-btn" onclick="showPage('splashPage')">
-                <img src="graphics/arrow.png" alt="Back">
-            </button>
-            <h1 class="page-title">Log an Oak</h1>
-        </header>
         <p>Here, you can log oak trees and record their health data.</p>
     </div>
 
-    <!-- Report an Error Page -->
     <div id="reportError" class="page">
-        <header class="page-header">
-            <button class="back-btn" onclick="showPage('splashPage')">
-                <img src="graphics/arrow.png" alt="Back">
-            </button>
-            <h1 class="page-title">Report an Error</h1>
-        </header>
         <p>If you find an error, please report it here.</p>
     </div>
 
-    <!-- FAQ Page -->
     <div id="faq" class="page">
-        <header class="page-header">
-            <button class="back-btn" onclick="showPage('splashPage')">
-                <img src="graphics/arrow.png" alt="Back">
-            </button>
-            <h1 class="page-title">FAQ</h1>
-        </header>
         <p>Here you can find frequently asked questions about Tree Logger.</p>
     </div>
 
-    <!-- Contact Us Page -->
     <div id="contactUs" class="page">
-        <header class="page-header">
-            <button class="back-btn" onclick="showPage('splashPage')">
-                <img src="graphics/arrow.png" alt="Back">
-            </button>
-            <h1 class="page-title">Contact Us</h1>
-        </header>
         <p>If you have any questions, reach out to us here.</p>
     </div>
 
     <script src="app.js"></script>
-    
+
     <footer>
         <img src="graphics/footer.png" alt="Footer Image">
     </footer>
@@ -121,5 +77,6 @@
             console.log('ℹ️ App is running in browser/tab mode');
         }
     </script>
+
 </body>
 </html>

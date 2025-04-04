@@ -17,22 +17,19 @@ html, body {
 /* Splash Page */
 #splashPage {
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    transition: opacity 0.5s ease-in-out;
 }
 
 /* Pages */
 .page {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
     padding: 5vw;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -43,7 +40,9 @@ html, body {
 
 /* Active Page */
 .page.active {
-    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out, visibility 0s 0s;
 }
 
 /* Buttons */
@@ -80,47 +79,12 @@ footer img {
     .page {
         padding: 5%;
     }
-    
+
     .nav-btn {
         width: 90%;
     }
-    
+
     h1, h2, p {
         font-size: 14px;
     }
-}
-
-/* Header Styling */
-.page-header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    padding: 10px;
-    background: white;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-}
-
-/* Push page content below the fixed header */
-.page {
-    padding-top: 60px;
-}
-
-/* Back Button */
-.back-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-    margin-right: 10px;
-}
-
-.back-btn img {
-    width: 30px;
-    height: auto;
 }
