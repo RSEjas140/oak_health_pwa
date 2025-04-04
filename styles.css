@@ -155,3 +155,40 @@ footer img {
     left: 20px;
     z-index: 10;
 }
+
+/* Splash Page */
+#splashPage {
+    display: block;
+}
+
+/* Pages */
+.page {
+    display: none; /* Hide all pages by default */
+    padding: 20px;
+}
+
+/* Buttons */
+.nav-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    width: 250px;
+}
+
+.nav-btn:hover {
+    background-color: #45a049;
+}
+
+/* Header */
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+button {
+    margin-top: 20px;
+}
