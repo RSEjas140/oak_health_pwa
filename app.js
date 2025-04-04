@@ -100,9 +100,6 @@ function nextQuestion() {
 
     if (currentQuestion < questions.length) {
         loadQuestion(currentQuestion);
-    } else {
-        generateCSV();
-    }
 }
 
 function prevQuestion() {
@@ -129,7 +126,7 @@ function downloadCSV() {
     document.body.removeChild(link);
 
     // Reset questionnaire data
-    responses = Array(questions.length).fill("");  
+    answers = Array(questions.length).fill("");  
     currentQuestion = 0;  
 
     // Return to splash page
@@ -138,6 +135,6 @@ function downloadCSV() {
 
 function cancelSubmission() {
     currentQuestion = 0; // Reset questionnaire
-    responses = Array(questions.length).fill(""); // Clear collected answers
+    answers = Array(questions.length).fill(""); // Clear collected answers
     showPage('splashPage'); // Navigate back to the splash page
 }
