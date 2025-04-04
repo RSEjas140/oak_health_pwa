@@ -125,3 +125,9 @@ function downloadCSV() {
     // Return to splash page
     showPage("splashPage");
 }
+
+function cancelSubmission() {
+    currentQuestion = 0; // Reset questionnaire
+    responses = Array(questions.length).fill(""); // Clear collected answers
+    showPage('splashPage'); // Navigate back to the splash page
+}
