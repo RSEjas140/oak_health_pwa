@@ -1,16 +1,102 @@
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure full height of viewport */
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
     padding: 20px;
+    color: white;
 }
 
+/* Content */
+.content {
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 600px; /* This may be too wide for small screens */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+}
+
+/* Button */
 button {
-    font-size: 1.2em;
-    padding: 10px;
-    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
-form {
-    margin-top: 20px;
+button:hover {
+    background-color: #45a049;
+}
+
+/* Footer */
+footer {
+    padding: 10px;
+    background-color: #333;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer img {
+    max-width: 100%; /* Ensures image fits in screen size */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For small screens (mobile phones) */
+@media (max-width: 480px) {
+    .content {
+        margin: 20px; /* Reduce margin for mobile */
+        padding: 10px; /* Reduce padding for mobile */
+        max-width: 100%; /* Full width on small screens */
+    }
+
+    button {
+        padding: 12px 28px; /* Slightly smaller button on small screens */
+        font-size: 14px;
+    }
+}
+
+/* For medium screens (tablets) */
+@media (max-width: 768px) {
+    .content {
+        margin: 30px;
+        padding: 15px;
+        max-width: 90%; /* Allow more space on tablets */
+    }
+
+    button {
+        padding: 14px 30px;
+        font-size: 15px;
+    }
+}
+
+/* For large screens (desktop) */
+@media (min-width: 1024px) {
+    .content {
+        max-width: 800px; /* Increase max width for large screens */
+    }
+
+    button {
+        padding: 16px 36px;
+        font-size: 18px;
+    }
 }
