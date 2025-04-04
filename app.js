@@ -112,12 +112,15 @@ function prevQuestion() {
 }
 
 function downloadCSV() {
-    questions.push({ label: "Long"})
-    questions.push({ label: "Lat"})
-    questions.push({ label: "ID"})
+
+    questionstemp = questions
+
+    questionstemp.push({ label: "Long"})
+    questionstemp.push({ label: "Lat"})
+    questionstemp.push({ label: "ID"})
 
     let csvContent = "data:text/csv;charset=utf-8," +
-        questions.map((q, i) => `${q.label},${answers[i]}`).join("\n");
+        questionstemp.map((q, i) => `${q.label},${answers[i]}`).join("\n");
     
     let encodedUri = encodeURI(csvContent);
     let link = document.createElement("a");
