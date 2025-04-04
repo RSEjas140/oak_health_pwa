@@ -44,9 +44,10 @@ html, body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
+    padding-top: 70px; /* Ensure content starts below back button */
 }
 
 /* Active Page */
@@ -54,6 +55,49 @@ html, body {
     visibility: visible;
     opacity: 1;
     transition: opacity 0.5s ease-in-out, visibility 0s 0s;
+}
+
+/* Subpage Header */
+.subpage-header {
+    position: relative;
+    width: 100%;
+    height: 70px;            /* Set the header height */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the title horizontally */
+    margin-bottom: 20px;     /* Space below the header */
+}
+
+.subpage-title {
+    margin: 0;
+    font-size: 24px;         /* Adjust the title size as needed */
+}
+
+/* Back Button */
+.back-btn {
+    background-color: #4CAF50; /* Same as splash page buttons */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.back-btn img {
+    width: 30px;
+    height: auto;
+}
+
+.back-btn:hover {
+    background-color: #45a049;
 }
 
 /* Button Container */
@@ -119,35 +163,4 @@ footer img {
     h1, h2, p {
         font-size: 14px;
     }
-}
-
-/* Back Button */
-.back-btn {
-    background-color: #4CAF50; /* Same as splash page buttons */
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-}
-
-.back-btn img {
-    width: 30px;
-    height: auto;
-}
-
-.back-btn:hover {
-    background-color: #45a049;
-}
-
-/* Ensure page content starts below the back button */
-.page {
-    padding-top: 70px; /* 50px (button height) + 20px extra space */
 }
