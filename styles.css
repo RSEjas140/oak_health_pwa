@@ -55,6 +55,7 @@ html, body {
     visibility: visible;
     opacity: 1;
     transition: opacity 0.5s ease-in-out, visibility 0s 0s;
+    padding-top: 70px;
 }
 
 /* Subpage Header */
