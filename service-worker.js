@@ -19,8 +19,17 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
     event.respondWith(
-        caches.match(event.request).then(cachedResponse => {
-            return cachedResponse || fetch(event.request);
-        })
+        fetch(event.request)
+            .then(networkResponse => {
+                // If we got a response from the network, update the cache
+                return caches.open(CACHE_NAME).then(cache => {
+                    cache.put(event.request, networkResponse.clone());
+                    return networkResponse;
+                });
+            })
+            .catch(() => {
+                // If network fails, try to serve from cache
+                return caches.match(event.request);
+            })
     );
 });

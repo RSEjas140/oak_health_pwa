@@ -80,5 +80,34 @@
     <script>
         // Optional: Add logic for prompting the user to install the PWA here
     </script>
+
+    <script>
+  // Check for Service Worker support
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(reg => console.log('✅ Service Worker registered:', reg.scope))
+      .catch(err => console.error('❌ Service Worker registration failed:', err));
+  } else {
+    alert('⚠️ Your browser does not support service workers. Offline functionality will not work.');
+  }
+
+  // Check for Geolocation support
+  if (!('geolocation' in navigator)) {
+    alert('⚠️ Geolocation is not supported by your browser. GPS tagging will not work.');
+  }
+
+  // Check for Local Storage support
+  if (!('localStorage' in window)) {
+    alert('⚠️ Local storage is not supported. Your data will not be saved.');
+  }
+
+  // Optional: Detect if app is running in PWA mode
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    console.log('✅ App is running in standalone/PWA mode');
+  } else {
+    console.log('ℹ️ App is running in browser/tab mode');
+  }
+
+</script>
 </body>
 </html>
