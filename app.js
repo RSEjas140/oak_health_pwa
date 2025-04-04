@@ -1,15 +1,15 @@
-// Function to show the selected page
+// Function to show the selected page with smooth transition
 function showPage(pageId) {
-    // Hide all pages
+    // Hide all pages by removing the 'active' class
     const pages = document.querySelectorAll('.page');
     pages.forEach(page => {
-        page.style.display = 'none';
+        page.classList.remove('active');
     });
 
-    // Show the selected page
+    // Show the selected page by adding the 'active' class
     const selectedPage = document.getElementById(pageId);
     if (selectedPage) {
-        selectedPage.style.display = 'block';
+        selectedPage.classList.add('active');
     }
 }
 

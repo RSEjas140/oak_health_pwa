@@ -78,3 +78,33 @@ footer img {
     text-align: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
+
+/* General Page Transition */
+.page {
+    display: none; /* Hide pages initially */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Fade transition */
+}
+
+/* Active Page */
+.page.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Buttons */
+.nav-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 250px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: #45a049;
+}
