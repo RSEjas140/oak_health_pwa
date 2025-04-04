@@ -30,6 +30,27 @@ html, body {
     left: 0;
 }
 
+/* Main title */
+#splashPage h1 {
+    font-size: 32px; /* Larger text */
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* Style for the logos */
+.splash-logo {
+    width: 80px; /* Default size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Make logos smaller on mobile */
+@media screen and (max-width: 600px) {
+    .splash-logo {
+        width: 60px; /* Reduce size for smaller screens */
+    }
+}
+
 /* Pages */
 .page {
     visibility: hidden;
@@ -182,11 +203,11 @@ footer img {
 
     .nav-btn {
         width: 100%;
-        font-size: 16px;
+        font-size: 24px;
     }
 
     h1, h2, p {
-        font-size: 14px;
+        font-size: 28px;
     }
 }
 
