@@ -219,8 +219,12 @@ footer img {
         font-size: 24px;
     }
 
-    h1, h2, p {
+    h1, h2 {
         font-size: 28px;
+    }
+
+    p {
+        font-size: 24px;
     }
 }
 
