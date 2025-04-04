@@ -112,6 +112,30 @@ html, body {
     max-width: 400px;
 }
 
+
+/* Buttons */
+.main-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%; 
+    max-width: 300px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.main-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+
 /* Buttons */
 .nav-btn {
     background-color: #4CAF50;
