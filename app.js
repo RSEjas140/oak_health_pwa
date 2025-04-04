@@ -1,15 +1,13 @@
-function showPage(pageId) {
+function showPage(pageId, title = "Default Title") {
     // Hide all pages
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => {
-        page.classList.remove('active');  // Remove 'active' class to hide pages
-    });
+    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
 
     // Show the selected page
     const selectedPage = document.getElementById(pageId);
     if (selectedPage) {
-        selectedPage.classList.add('active');  // Add 'active' class to show it
+        selectedPage.classList.add('active');
     }
 
-    // Scroll to the top of the page
+    // Update the page title dynamically
+    document.getElementById('page-title').textContent = title;
 }
