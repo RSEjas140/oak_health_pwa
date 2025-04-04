@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Progressive Web App</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TreeLogger</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <script defer src="app.js"></script>
 </head>
 <body>
-  <h1>Welcome to My PWA</h1>
-  <p>This is a simple progressive web app template.</p>
-  <script src="app.js"></script>
+    <h1>Welcome to TreeLogger</h1>
+    <p>Record tree data offline & export it as CSV.</p>
+    <button id="startBtn">Start Logging a Tree</button>
+
+    <div id="app"></div>
+
+    <button id="exportBtn" style="display:none;">📥 Export CSV</button>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js').catch(console.error);
+        }
+    </script>
 </body>
 </html>
