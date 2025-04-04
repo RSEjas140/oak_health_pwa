@@ -13,15 +13,15 @@
 </head>
 <body>
     <!-- Global Header -->
-    <header class="page-header">
-        <button class="back-btn" onclick="showPage('splashPage')">
-            <img src="arrow.png" alt="Back">
-        </button>
-        <h1 id="page-title">Tree Logger</h1>
+    <header id="page-header" class="page-header" style="display: none;">
+    <button class="back-btn" onclick="showPage('splashPage')">
+        <img src="arrow.png" alt="Back">
+    </button>
+      <h1 id="page-title" class="page-title">Tree Logger</h1>
     </header>
 
     <!-- Splash Page -->
-    <div id="splashPage" class="page active">
+    <div id="splashPage" class="page active" onclick="hideHeader()">
         <h1>Welcome to Tree Logger</h1>
         <p>Capture and log tree health data easily. Start by logging an oak, reporting an error, or exploring our FAQs.</p>
         <div class="button-container">
