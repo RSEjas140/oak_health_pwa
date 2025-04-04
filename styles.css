@@ -231,6 +231,12 @@ footer img {
         padding: 0 5%; /* Less padding on very small screens */
         max-width: 90%; /* Ensures text doesn't go too wide */
     }
+
+        .input-field {
+        font-size: 18px;
+        padding: 16px;
+        height: auto; /* let content decide */
+    }
 }
 
 .cancel-btn {
@@ -251,4 +257,14 @@ footer img {
 
 .cancel-btn:hover {
     background-color: #c9302c; /* Darker red */
+}
+
+.input-field {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
 }

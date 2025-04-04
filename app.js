@@ -49,6 +49,7 @@ function loadQuestion() {
         });
     }
     
+    input.classList.add("input-field");
     input.value = answers[currentQuestion] || "";
     input.oninput = () => answers[currentQuestion] = input.value;
     container.appendChild(input);
