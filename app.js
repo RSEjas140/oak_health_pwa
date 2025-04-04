@@ -62,9 +62,40 @@ function updateButtons() {
 }
 
 function nextQuestion() {
-    if (currentQuestion < questions.length - 1) {
-        currentQuestion++;
-        loadQuestion();
+    const question = questions[currentQuestionIndex]; // Get the current question
+    let answer = null;
+
+    if (question.type === "text" || question.type === "number") {
+        // Get text/number input values
+        const inputElement = document.getElementById(question.id);
+        if (inputElement) {
+            answer = inputElement.value;
+        }
+    } else if (question.type === "radio") {
+        // Get selected radio button value
+        const selectedRadio = document.querySelector(`input[name="${question.id}"]:checked`);
+        if (selectedRadio) {
+            answer = selectedRadio.value;
+        }
+    } else if (question.type === "checkbox") {
+        // Get all selected checkboxes
+        const selectedCheckboxes = document.querySelectorAll(`input[name="${question.id}"]:checked`);
+        answer = Array.from(selectedCheckboxes).map(cb => cb.value).join(", "); // Store as comma-separated string
+    }
+
+    if (answer !== null) {
+        answers[question.id] = answer; // Store the answer
+    }
+
+    console.log("Stored Answers:", answers); // Debugging
+
+    // Move to next question or finish
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+        loadQuestion(currentQuestionIndex);
+    } else {
+        generateCSV();
     }
 }
 
