@@ -29,7 +29,7 @@ function startLogging() {
     
     //create a unique ID
     globalID = crypto.randomUUID();
-    answers[answers.length] = globalID
+    answers[answers.length-1] = globalID
     showPage("questionPage");
     loadQuestion();
 }
@@ -123,7 +123,7 @@ function downloadCSV() {
     let encodedUri = encodeURI(csvContent);
     let link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "oak_tree_data_${answers[answers.length]}.csv");
+    link.setAttribute("download", `oak_tree_data_${answers[answers.length - 1]}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
