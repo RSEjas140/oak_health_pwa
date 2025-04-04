@@ -226,6 +226,11 @@ footer img {
     p {
         font-size: 24px;
     }
+
+    .text-container {
+        padding: 0 5%; /* Less padding on very small screens */
+        max-width: 90%; /* Ensures text doesn't go too wide */
+    }
 }
 
 .cancel-btn {
