@@ -17,10 +17,16 @@ body {
 
 /* Pages */
 .page {
-    visibility: hidden; /* Make all pages invisible by default */
+    visibility: hidden; /* Keep all pages invisible by default */
     opacity: 0;
-    transition: opacity 0.5s ease-in-out, visibility 0s 0.5s; /* Fade transition */
+    transition: opacity 0.5s ease-in-out, visibility 0s 0.5s; /* Keep the fade transition */
     padding: 20px;
+
+    /* New properties to force all pages to start from the top */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 /* Active Page */
