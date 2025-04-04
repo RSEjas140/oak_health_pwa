@@ -1,13 +1,19 @@
-function showPage(pageId, title = "Default Title") {
-    // Hide all pages
-    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+<script>
+    function showPage(pageId, title) {
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
 
-    // Show the selected page
-    const selectedPage = document.getElementById(pageId);
-    if (selectedPage) {
-        selectedPage.classList.add('active');
+        const header = document.getElementById('page-header');
+
+        if (pageId === 'splashPage') {
+            header.style.display = 'none';  // Hide header on splash page
+        } else {
+            header.style.display = 'flex';  // Show header on all other pages
+            document.getElementById('page-title').textContent = title; // Update title
+        }
     }
 
-    // Update the page title dynamically
-    document.getElementById('page-title').textContent = title;
-}
+    function hideHeader() {
+        document.getElementById('page-header').style.display = 'none';
+    }
+</script>
