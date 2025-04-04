@@ -1,19 +1,13 @@
-// Function to show the selected page with smooth transition
 function showPage(pageId) {
-    // Hide all pages by removing the 'active' class
+    // Hide all pages
     const pages = document.querySelectorAll('.page');
     pages.forEach(page => {
-        page.classList.remove('active');
+        page.classList.remove('show');  // Remove the show class to fade out
     });
 
-    // Show the selected page by adding the 'active' class
+    // Show the selected page
     const selectedPage = document.getElementById(pageId);
     if (selectedPage) {
-        selectedPage.classList.add('active');
+        selectedPage.classList.add('show');  // Add the show class to fade in
     }
 }
-
-// Show the splash page by default when the app loads
-document.addEventListener('DOMContentLoaded', () => {
-    showPage('splashPage');
-});
