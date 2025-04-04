@@ -34,7 +34,7 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Space between logos and text */
+    gap: 20px; /* Space between logos and text */
     padding: 20px 0;
 }
 
