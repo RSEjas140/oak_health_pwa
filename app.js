@@ -12,10 +12,12 @@ function showPage(pageId) {
 }
 
 let questions = [
+    { label: "Woodland compartment name", type: "text" },
+    { label: "Sub Compartment", type: "select", options: ["Compartment1", "Compartment2", "Compartment3"] },
     { label: "Tree ID", type: "text" },
-    { label: "Location (Latitude)", type: "number" },
-    { label: "Location (Longitude)", type: "number" },
+    { label: "Tree Species", type: "select", options: ["Oak", "Oak2", "Oak3"] },
     { label: "Health Condition", type: "select", options: ["Healthy", "Diseased", "Dead"] },
+    { label: "Social Class", id: "social_class", type: "radio", options: [{ value: 1, text: "1" },{ value: 2, text: "2" },{ value: 3, text: "3" },{ value: 4, text: "4" },{ value: 5, text: "5" }],required: true}
     // Add remaining 16 questions as per spreadsheet
 ];
 
