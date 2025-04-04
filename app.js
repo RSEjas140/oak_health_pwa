@@ -117,4 +117,11 @@ function downloadCSV() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+
+    // Reset questionnaire data
+    responses = Array(questions.length).fill("");  
+    currentQuestion = 0;  
+
+    // Return to splash page
+    showPage("splashPage");
 }
