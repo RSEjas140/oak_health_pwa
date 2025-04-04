@@ -113,7 +113,7 @@ function prevQuestion() {
 
 function downloadCSV() {
 
-    questionstemp = questions
+    let questionstemp = [...questions];
 
     questionstemp.push({ label: "Long"})
     questionstemp.push({ label: "Lat"})
