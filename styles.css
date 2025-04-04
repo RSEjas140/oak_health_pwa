@@ -146,3 +146,8 @@ footer img {
 .back-btn:hover {
     background-color: #45a049;
 }
+
+/* Ensure page content starts below the back button */
+.page {
+    padding-top: 70px; /* 50px (button height) + 20px extra space */
+}
