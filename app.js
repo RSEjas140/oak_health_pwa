@@ -49,8 +49,8 @@ function loadQuestion() {
         });
     }
     
-    input.value = responses[currentQuestion] || "";
-    input.oninput = () => responses[currentQuestion] = input.value;
+    input.value = answers[currentQuestion] || "";
+    input.oninput = () => answers[currentQuestion] = input.value;
     container.appendChild(input);
     updateButtons();
 }
