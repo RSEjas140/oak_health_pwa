@@ -62,7 +62,7 @@ function updateButtons() {
 }
 
 function nextQuestion() {
-    const question = questions[currentQuestionIndex]; // Get the current question
+    const question = questions[currentQuestion]; // Get the current question
     let answer = null;
 
     if (question.type === "text" || question.type === "number") {
@@ -90,10 +90,10 @@ function nextQuestion() {
     console.log("Stored Answers:", answers); // Debugging
 
     // Move to next question or finish
-    currentQuestionIndex++;
+    currentQuestion++;
 
-    if (currentQuestionIndex < questions.length) {
-        loadQuestion(currentQuestionIndex);
+    if (currentQuestion < questions.length) {
+        loadQuestion(currentQuestion);
     } else {
         generateCSV();
     }
