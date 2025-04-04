@@ -1,5 +1,4 @@
-<script>
-    function showPage(pageId, title) {
+function showPage(pageId, title) {
         document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
         document.getElementById(pageId).classList.add('active');
 
@@ -16,4 +15,3 @@
     function hideHeader() {
         document.getElementById('page-header').style.display = 'none';
     }
-</script>
