@@ -13,3 +13,4 @@ function showPage(pageId) {
         header.style.display = 'flex';  // Show on all other pages
     }
 }
+

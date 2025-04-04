@@ -22,21 +22,19 @@
 
     <!-- Hide header script -->
     <script>
-    function hideHeader() {
-        document.getElementById('page-header').style.display = 'none';
-    }
+    
     </script>
 
     <!-- Splash Page -->
-    <div id="splashPage" class="page active" onclick="hideHeader()">
-        <h1>Welcome to Tree Logger</h1>
-        <p>Capture and log tree health data easily. Start by logging an oak, reporting an error, or exploring our FAQs.</p>
-        <div class="button-container">
-            <button class="nav-btn" onclick="showPage('logOak', 'Log an Oak')">Log an Oak</button>
-            <button class="nav-btn" onclick="showPage('reportError', 'Report an Error')">Report an Error</button>
-            <button class="nav-btn" onclick="showPage('faq', 'FAQ')">FAQ</button>
-            <button class="nav-btn" onclick="showPage('contactUs', 'Contact Us')">Contact Us</button>
-        </div>
+    <div id="splashPage" class="page active">
+    <h1>Welcome to Tree Logger</h1>
+    <p>Capture and log tree health data easily. Start by logging an oak, reporting an error, or exploring our FAQs.</p>
+      <div class="button-container">
+        <button class="nav-btn" onclick="showPage('logOak', 'Log an Oak')">Log an Oak</button>
+        <button class="nav-btn" onclick="showPage('reportError', 'Report an Error')">Report an Error</button>
+        <button class="nav-btn" onclick="showPage('faq', 'FAQ')">FAQ</button>
+        <button class="nav-btn" onclick="showPage('contactUs', 'Contact Us')">Contact Us</button>
+      </div>
     </div>
 
     <!-- Pages -->
