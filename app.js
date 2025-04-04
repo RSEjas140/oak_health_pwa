@@ -30,6 +30,7 @@ function startLogging() {
     //create a unique ID
     globalID = crypto.randomUUID();
     answers[answers.length-1] = globalID
+    getUserLocation()
     showPage("questionPage");
     loadQuestion();
 }
@@ -138,4 +139,28 @@ function cancelSubmission() {
     currentQuestion = 0; // Reset questionnaire
     answers = Array(questions.length).fill(""); // Clear collected answers
     showPage('splashPage'); // Navigate back to the splash page
+}
+
+
+function getUserLocation() {
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                let lat = position.coords.latitude;
+                let long = position.coords.longitude;
+                console.log(`Latitude: ${lat}, Longitude: ${long}`);
+
+                // Store in answers array (assuming last two slots are for lat/long)
+                answers[answers.length - 3] = lat;
+                answers[answers.length - 2] = long;
+            },
+            (error) => {
+                console.error("Error getting location:", error.message);
+                alert("Unable to retrieve location. Please check your permissions.");
+            },
+            { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        );
+    } else {
+        alert("Geolocation is not supported by your browser.");
+    }
 }
