@@ -5,6 +5,7 @@ console.log("Questions loaded:", questions);
 
 // Set up container based on length of quesitons to store answers
 let allAnswers = [];
+let answers = [];
 // Track what questions we are answering
 let currentQuestion = 0;
 let totalTreesToLog = 0;   // How many trees the user plans to log
@@ -44,6 +45,7 @@ const navMap = {
     logOakBackBtn: () => showPage("splash"),
     faqBackBtn: () => showPage("splash"),
     readyToLogBackBtn: () => showPage("logOak")
+
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -102,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("Metadata array is ready:", metadata);
 
                 answers = allAnswers[treesLogged];
-                answers.push(...metadata);
+                answers.unshift(...metadata);
 
                 startLogging(); // Now move to questions
             });
@@ -312,9 +314,8 @@ function downloadCSV() {
 }
 
 function cancelSubmission() {
-    currentQuestion = 0; // Reset questionnaire
-    answers = Array(questions.length + 3).fill(""); // Clear collected answers
-    showPage('splashPage'); // Navigate back to the splash page
+    totalTreesToLog = totalTreesToLog -1;
+    treesLogged = treesLogged - 1;  
 }
 
 
