@@ -210,6 +210,15 @@ function loadQuestion() {
     // Dropdown selection
     } else if (question.type === "select") {
         input = document.createElement("select");
+        // set the default as select so they have to choose
+        let placeholder = document.createElement("option");
+        placeholder.value = "";
+        placeholder.textContent = "-- Select --";
+        placeholder.disabled = true;
+        placeholder.selected = true;
+        input.appendChild(placeholder);
+
+
         // create option list
         question.options.forEach(option => {
             let opt = document.createElement("option");
@@ -312,6 +321,13 @@ function nextQuestion() {
         answer = Array.from(selectedCheckboxes).map(cb => cb.value).join(", "); // Store as comma-separated string
     }
 
+    if (question.type === "text" || question.type === "number" || question.type === "select") {
+        const inputElement = document.getElementById(question.id);
+        if (inputElement) {
+            answer = inputElement.value;
+        }
+    }
+
     if (question.required && (!answer || answer.trim() === "")) {
         alert(`This question is compulsory`);
         return; // Prevent moving to next question
@@ -393,7 +409,7 @@ function downloadCSV() {
 function cancelSubmission() {
     
     //if we havent logged any trees then cancel everything
-    if (treesLogged == 0){
+    if (treesLogged === 0){
         allAnswers = [];  
         answers = []
         currentQuestion = 0;  
