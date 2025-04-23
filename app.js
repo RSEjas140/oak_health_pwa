@@ -26,7 +26,7 @@ const navMap = {
     logOakBtn: startLogging,
     reportErrorBtn: () => showPage("reportError"),
     faqBtn: () => showPage("faq"),
-    contactUsBtn: () => showPage("contactUs")
+    contactUsBtn: () => showPage("contactUs"),
     reportErrorBackBtn: () => showPage("splash")
 };
 
