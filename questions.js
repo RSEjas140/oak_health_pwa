@@ -7,18 +7,19 @@ export const headers = ['compartment_id','compartment name', 'subcompartment_id'
 
 export const questions = [
     {
+        "id": 0,
         "label": "Compartment ID",
         "type": "select",
-        "options": [
-            1,2,3,4,5,6,7,8,9
-        ],
+        "options": [1, 2, 3, 4, 5, 6, 7, 8, 9],
         "required": true
     },
     {
+        "id": 1,
         "label": "Compartment Name",
         "type": "text"
     },
     {
+        "id": 2,
         "label": "Sub-compartment ID",
         "type": "select",
         "options": [
@@ -28,95 +29,93 @@ export const questions = [
         "required": true
     },
     {
+        "id": 3,
         "label": "Sub-compartment Name",
         "type": "text"
     },
     {
+        "id": 4,
         "label": "Tree Identifier",
         "type": "text",
         "required": true
     },
     {
+        "id": 5,
         "label": "Species",
         "type": "select",
-        "options": [
-            "Quercus robur",
-            "Quercus petraea"
-        ],
+        "options": ["Quercus robur", "Quercus petraea"],
         "required": true
     },
     {
+        "id": 6,
         "label": "Social Class",
         "type": "radio",
-        "options": [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"
-        ],
+        "options": ["1", "2", "3", "4", "5"],
         "required": true
     },
     {
+        "id": 7,
         "label": "Where are you standing to collect your data ?",
         "type": "radio",
-        "options": [
-            "Under Tree",
-            "Away from Tree"
-        ]
+        "options": ["Under Tree", "Away from Tree"]
     },
     {
+        "id": 8,
         "label": "How much of the tree crown is transparent ?",
         "type": "range",
         "note": ""
     },
     {
+        "id": 9,
         "label": "How much of tree crown is missing ?",
         "type": "range",
         "note": ""
     },
     {
+        "id": 10,
         "label": "Are there signs of defoliation",
         "type": "radio",
-        "options": [
-            "Yes",
-            "No"
-        ]
+        "options": ["Yes", "No"]
     },
     {
+        "id": 11,
         "label": "What is the height of the lowest living crown ?",
         "type": "text"
     },
     {
+        "id": 12,
         "label": "What is the height of the tree ?",
         "type": "text"
     },
     {
+        "id": 13,
         "label": "What is the circumference at your breast height ?",
         "type": "text"
     },
     {
+        "id": 14,
         "label": "What is the average number of active bleeds ?",
         "type": "text"
     },
     {
+        "id": 15,
         "label": "What is the average length of the bleeds in centimetres ?",
         "type": "text"
     },
     {
+        "id": 16,
         "label": "What is the average number of black stains ?",
         "type": "text"
     },
     {
+        "id": 17,
         "label": "What is the average length of the stains in centimetres ?",
         "type": "text"
     },
     {
+        "id": 18,
         "label": "Is there evidence of fungal growth ?",
         "type": "radio",
-        "options": [
-            "Yes",
-            "No"
-        ]
+        "options": ["Yes", "No"]
     }
 ];
