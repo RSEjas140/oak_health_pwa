@@ -3,6 +3,8 @@ import { questions } from './questions.js';
 //debug check to test if questions have loaded
 console.log("Questions loaded:", questions);
 
+//GLOBAL VARS
+
 // Set up container based on length of quesitons to store answers
 let allAnswers = [];
 let answers = [];
@@ -10,9 +12,6 @@ let answers = [];
 let currentQuestion = 0;
 let totalTreesToLog = 0;   // How many trees the user plans to log
 let treesLogged = 0;       // Counter to track how many have been logged so far
-
-
-
 
 
 
@@ -34,6 +33,8 @@ function showPage(pageId) {
     }
 }
 
+
+
 // Map button IDs to their click handler functions, slightly overkill but allows customisation.
 const navMap = {
     logOakBtn: () => showPage("logOak"),
@@ -48,6 +49,7 @@ const navMap = {
 
 };
 
+// check that everything has loaded and then add the user meta input that are not part of the standard questions 
 document.addEventListener("DOMContentLoaded", () => {
     // Set up navigation buttons from the navMap
     for (const [btnId, handler] of Object.entries(navMap)) {
@@ -106,7 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 answers = allAnswers[treesLogged];
                 answers.unshift(...metadata);
 
-                startLogging(); // Now move to questions
+                showPage("question");
+                loadQuestion();
             });
         });
     } else {
@@ -115,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
+// get user location
 function getUserLocation(callback) {
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
@@ -136,12 +139,6 @@ function getUserLocation(callback) {
     }
 }
 
-// start the proces of logging trees:
-function startLogging() {
-    
-    showPage("questionPage");
-    loadQuestion();
-}
 
 
 // Load prev/next questions based on the question file. If you add a new type of question type (e.g., multiple checkbox) this section will need to be adapted to deal with the question.
