@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const input = document.getElementById("treeCountInput");
             const count = parseInt(input.value);
 
-            if (isNaN(count) || count < 1 || count > 100 || ) {
+            if (isNaN(count) || count < 1 || count > 100) {
                 alert("Please enter a number between 1 and 100.");
                 return;
             }
@@ -89,7 +89,7 @@ function startLogging() {
     
     //create a unique ID
     let uniqueID = crypto.randomUUID();
-    answers[answers.length-1] = globalID
+    answers[answers.length-1] = uniqueID
     getUserLocation()
     showPage("questionPage");
     loadQuestion();
