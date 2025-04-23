@@ -45,13 +45,29 @@ document.addEventListener("DOMContentLoaded", () => {
             console.warn(`Button with ID '${btnId}' not found in DOM.`);
         }
     }
+
+    document.getElementById("startLoggingBtn").addEventListener("click", () => {
+    const input = document.getElementById("treeCountInput");
+    const count = parseInt(input.value);
+
+    if (isNaN(count) || count < 1) {
+        alert("Please enter a valid number of trees to log.");
+        return;
+    }
+
+    totalTreesToLog = count;
+    treesLogged = 0;
+
+    startLogging(); // Launch the questionnaire
+    });
 });
 
 // Set up container based on length of quesitons to store answers
 let answers = Array(questions.length).fill("");
 // Track what questions we are answering
 let currentQuestion = 0;
-
+let totalTreesToLog = 0;   // How many trees the user plans to log
+let treesLogged = 0;       // Counter to track how many have been logged so far
 
 // start the proces of logging trees:
 function startLogging() {
