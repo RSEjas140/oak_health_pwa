@@ -53,9 +53,21 @@
         <p>To start logging Oaks, please enter how many trees you intend to log:</p>
 
          <input type="number" id="treeCountInput" class="input-field" min="1" max="100" placeholder="e.g. 5">
-         
+
         <button class="nav-btn" id="startLoggingBtn">Start</button>
     </div>
+
+    <!-- Ready to log page - ensures that GEO/TS/UID are collected at the correct time. -->
+    <div id="readyToLogPage" class="page">
+    <div class="subpage-header">
+        <button class="back-btn" id="readyToLogBackBtn">
+            <img src="graphics/arrow.png" alt="Back">
+        </button>
+        <h1 class="subpage-title">Ready to Begin</h1>
+    </div>
+    <p>Please ensure you're standing next to the tree you wish to log. Starting will record your location and begin the logging process.</p>
+    <button class="nav-btn" id="confirmTreeBtn">Start Logging This Tree</button>
+</div>
 
     <!-- Dynamic Question Page -->
     <div id="questionPage" class="page">

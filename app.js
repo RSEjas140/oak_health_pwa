@@ -3,6 +3,16 @@ import { questions } from './questions.js';
 //debug check to test if questions have loaded
 console.log("Questions loaded:", questions);
 
+// Set up container based on length of quesitons to store answers
+let allAnswers = [];
+// Track what questions we are answering
+let currentQuestion = 0;
+let totalTreesToLog = 0;   // How many trees the user plans to log
+let treesLogged = 0;       // Counter to track how many have been logged so far
+
+
+
+
 
 
 // Function that controls opening pages
@@ -23,7 +33,7 @@ function showPage(pageId) {
     }
 }
 
-// Map button IDs to their click handler functions
+// Map button IDs to their click handler functions, slightly overkill but allows customisation.
 const navMap = {
     logOakBtn: () => showPage("logOak"),
     reportErrorBtn: () => showPage("reportError"),
@@ -33,6 +43,7 @@ const navMap = {
     contactUsBackBtn: () => showPage("splash"),
     logOakBackBtn: () => showPage("splash"),
     faqBackBtn: () => showPage("splash"),
+    readyToLogBackBtn: () => showPage("logOak"),: 
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -45,40 +56,39 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // ✅ Check first before attaching the listener
+    // Check first before attaching the listener
     const startBtn = document.getElementById("startLoggingBtn");
     if (startBtn) {
         startBtn.addEventListener("click", () => {
             const input = document.getElementById("treeCountInput");
             const count = parseInt(input.value);
 
-            if (isNaN(count) || count < 1) {
-                alert("Please enter a valid number of trees to log.");
+            if (isNaN(count) || count < 1 || count > 100 || ) {
+                alert("Please enter a number between 1 and 100.");
                 return;
             }
 
             totalTreesToLog = count;
             treesLogged = 0;
 
+            // set up data structure to store all data
+            allAnswers = Array.from({ length: totalTreesToLog }, () => Array(questions.length).fill(""));
+
             startLogging(); // Launch the questionnaire
         });
+
     } else {
         console.warn("startLoggingBtn not found in DOM.");
     }
 });
 
-// Set up container based on length of quesitons to store answers
-let answers = Array(questions.length).fill("");
-// Track what questions we are answering
-let currentQuestion = 0;
-let totalTreesToLog = 0;   // How many trees the user plans to log
-let treesLogged = 0;       // Counter to track how many have been logged so far
+
 
 // start the proces of logging trees:
 function startLogging() {
     
     //create a unique ID
-    globalID = crypto.randomUUID();
+    let uniqueID = crypto.randomUUID();
     answers[answers.length-1] = globalID
     getUserLocation()
     showPage("questionPage");
