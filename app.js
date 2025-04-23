@@ -21,10 +21,6 @@ function showPage(pageId) {
     }
 }
 
-window.showPage = function(index) {
-    currentQuestion = index;
-    loadQuestion();
-};
 
 
 // Set up container based on length of quesitons to store answers
