@@ -27,6 +27,7 @@ const navMap = {
     reportErrorBtn: () => showPage("reportError"),
     faqBtn: () => showPage("faq"),
     contactUsBtn: () => showPage("contactUs")
+    reportErrorBackBtn: () => showPage("splash")
 };
 
 // Set up event listeners after the DOM is ready
