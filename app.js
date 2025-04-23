@@ -3,6 +3,10 @@ import { questions } from './questions.js';
 //debug check to test if questions have loaded
 console.log("Questions loaded:", questions);
 
+window.addEventListener('load', () => {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+});
+
 // Function that controls opening pages
 function showPage(pageId) {
     // Hide all pages

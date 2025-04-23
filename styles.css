@@ -228,10 +228,22 @@ footer img {
     margin: 0 auto;
 }
 
+:root {
+    --vh: 100vh;
+}
+
 /* Responsive Styles for Mobile */
 @media screen and (max-width: 600px) {
+    .wrapper {
+        min-height: calc(var(--vh, 1vh) * 100);
+    }
+
     .page {
+        flex: 1 0 auto;
         padding: 5%;
+        box-sizing: border-box;
+        overflow-y: auto;
+        max-height: none; /* ensure no clipping */
     }
 
     .button-container {
