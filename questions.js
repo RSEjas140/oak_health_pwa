@@ -68,12 +68,12 @@ export const questions = [
     {
         "label": "How much of the tree crown is transparent ?",
         "type": "range",
-        "note": Null
+        "note": ""
     },
     {
         "label": "How much of tree crown is missing ?",
         "type": "range",
-        "note": Null
+        "note": ""
     },
     {
         "label": "Are there signs of defoliation",
