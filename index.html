@@ -13,18 +13,16 @@
 </head>
 <body>
 
-<div class = wrapper>
-    <!-- The index file hosts most of the website blurb, the layout and small amounts of essential scripts -->
-
-    <!-- Splash/Landing Page -->
+<div class="wrapper">
+    <!-- Splash Page -->
     <div id="splashPage" class="page active">
         <div id="splashHeader">
-    <img src="graphics/icons/icon-512.png" alt="Left Logo" class="splash-logo left">
-    <h1>Oak Logger</h1>
-    <img src="graphics/aberlogo.png" alt="Right Logo" class="splash-logo right">
+            <img src="graphics/icons/icon-512.png" alt="Left Logo" class="splash-logo left">
+            <h1>Oak Logger</h1>
+            <img src="graphics/aberlogo.png" alt="Right Logo" class="splash-logo right">
         </div>
         <div class="text-container">
-        <p>Capture and log Oak tree health data easily. Click Start to logging trees. If you have any questions please check our FAQ's, reach out, or report an error.</p>
+            <p>Capture and log Oak tree health data easily. Click Start to begin logging trees. If you have any questions, please check our FAQs, reach out, or report an error.</p>
         </div>
         <div class="button-container">
             <button class="main-btn" id="logOakBtn">Log an Oak</button>
@@ -34,25 +32,22 @@
         </div>
     </div>
 
-
-    <!-- Sumbit an oak Page -->
+    <!-- Log Oak Page -->
     <div id="logOak" class="page">
-    <div class="subpage-header">
-        <button class="back-btn" id="logOakBackBtn">
-              <img src="graphics/arrow.png" alt="Back">
-           </button>
-        <h1 class="subpage-title">Log an Oak</h1>
-    </div>
-    <p>Here, you can log oak trees and record their health data.</p>
-    <button class="nav-btn" onclick="startLogging()">Start</button>
+        <div class="subpage-header">
+            <button class="back-btn" id="logOakBackBtn">
+                <img src="graphics/arrow.png" alt="Back">
+            </button>
+            <h1 class="subpage-title">Log an Oak</h1>
+        </div>
+        <p>Here, you can log oak trees and record their health data.</p>
+        <button class="nav-btn" onclick="startLogging()">Start</button>
     </div>
 
-
-    <!-- Dynamic Question Page: main section, allows user to sumbit and download information for each tree, logic is managed in the JS file -->
+    <!-- Dynamic Question Page -->
     <div id="questionPage" class="page">
         <h2 id="questionTitle"></h2>
         <div id="questionContainer"></div>
-        
         <div class="button-container">
             <button id="cancelButton" class="nav-btn cancel-btn" onclick="cancelSubmission()">Cancel</button>
             <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">Next</button>
@@ -61,14 +56,12 @@
         </div>
     </div>
 
-
-
-    <!-- Report an Error Page, might make more sense in the future to impliment as a webform to apply structure around reporting -->
+    <!-- Report Error Page -->
     <div id="reportErrorPage" class="page">
         <div class="subpage-header">
-           <button class="back-btn" id="reportErrorBackBtn">
-              <img src="graphics/arrow.png" alt="Back">
-           </button>
+            <button class="back-btn" id="reportErrorBackBtn">
+                <img src="graphics/arrow.png" alt="Back">
+            </button>
             <h1 class="subpage-title">Report an Error</h1>
         </div>
         <p>If something doesn’t seem to be working correctly, please let us know.</p>
@@ -76,152 +69,67 @@
         <p>Please provide as much detail as possible, including what went wrong and the conditions under which it occurred.</p>
     </div>
 
-
-    <!-- FAQ Page - general high level faq this is not related to the hints and tips for each questions that is dealt with seperately in the questions section, might want to import to clean up index page (depends on the length of FAQs) -->
+    <!-- FAQ Page -->
     <div id="faqPage" class="page">
         <div class="subpage-header">
             <button class="back-btn" id="faqBackBtn">
-              <img src="graphics/arrow.png" alt="Back">
-           </button>
+                <img src="graphics/arrow.png" alt="Back">
+            </button>
             <h1 class="subpage-title">FAQ</h1>
         </div>
-        <p>
-            Below you'll find answers to common questions about using the Oak Logger app.
-            For tips and guidance on individual questions during logging, tap the “?” icon next to each prompt.
-        </p>
-
-        <p>
-            <strong>1. What should I do if I can’t get a GPS signal?</strong><br>
-            If GPS isn't working, try moving to an open area with a clearer view of the sky. If it still doesn’t work, you can continue logging, but location data may be incomplete.
-        </p>
-
-        <p>
-            <strong>2. Can I edit a tree entry after I’ve submitted it?</strong><br>
-            Currently, the app does not support editing after submission. If a mistake was made you will need to start again.
-        </p>
-
-        <p>
-            <strong>3. Why are some fields optional while others are required?</strong><br>
-            Required fields are essential for data consistency and analysis. Optional fields help provide more context but won’t prevent submission if left blank.
-        </p>
-
-        <p>
-            <strong>4. I’ve found a bug. How do I report it?</strong><br>
-            Head to the “Report an Error” section from the home screen, and provide as much detail as possible about the issue you encountered.
-        </p>
-
-        <p>
-            Below you'll find answers to common questions about using the Oak Logger app.
-            For tips and guidance on individual questions during logging, tap the “?” icon next to each prompt.
-        </p>
-
-        <p>
-            <strong>1. What should I do if I can’t get a GPS signal?</strong><br>
-            If GPS isn't working, try moving to an open area with a clearer view of the sky. If it still doesn’t work, you can continue logging, but location data may be incomplete.
-        </p>
-
-        <p>
-            <strong>2. Can I edit a tree entry after I’ve submitted it?</strong><br>
-            Currently, the app does not support editing after submission. If a mistake was made you will need to start again.
-        </p>
-
-        <p>
-            <strong>3. Why are some fields optional while others are required?</strong><br>
-            Required fields are essential for data consistency and analysis. Optional fields help provide more context but won’t prevent submission if left blank.
-        </p>
-
-        <p>
-            <strong>4. I’ve found a bug. How do I report it?</strong><br>
-            Head to the “Report an Error” section from the home screen, and provide as much detail as possible about the issue you encountered.
-        </p>
-
-        <p>
-            Below you'll find answers to common questions about using the Oak Logger app.
-            For tips and guidance on individual questions during logging, tap the “?” icon next to each prompt.
-        </p>
-
-        <p>
-            <strong>1. What should I do if I can’t get a GPS signal?</strong><br>
-            If GPS isn't working, try moving to an open area with a clearer view of the sky. If it still doesn’t work, you can continue logging, but location data may be incomplete.
-        </p>
-
-        <p>
-            <strong>2. Can I edit a tree entry after I’ve submitted it?</strong><br>
-            Currently, the app does not support editing after submission. If a mistake was made you will need to start again.
-        </p>
-
-        <p>
-            <strong>3. Why are some fields optional while others are required?</strong><br>
-            Required fields are essential for data consistency and analysis. Optional fields help provide more context but won’t prevent submission if left blank.
-        </p>
-
-        <p>
-            <strong>4. I’ve found a bug. How do I report it?</strong><br>
-            Head to the “Report an Error” section from the home screen, and provide as much detail as possible about the issue you encountered.
-        </p>
+        <p>Below you'll find answers to common questions about using the Oak Logger app. For tips and guidance on individual questions during logging, tap the “?” icon next to each prompt.</p>
+        <p><strong>1. What should I do if I can’t get a GPS signal?</strong><br>If GPS isn't working, try moving to an open area. If it still doesn’t work, you can continue logging, but location data may be incomplete.</p>
+        <p><strong>2. Can I edit a tree entry after I’ve submitted it?</strong><br>Currently, the app does not support editing after submission. If a mistake was made, re-log the tree with corrected details.</p>
+        <p><strong>3. Why are some fields optional while others are required?</strong><br>Required fields ensure consistent data collection. Optional fields offer additional context but won’t block submission.</p>
+        <p><strong>4. I’ve found a bug. How do I report it?</strong><br>Use the “Report an Error” option from the home screen and include as much detail as possible.</p>
     </div>
 
-
-    <!-- Contact Us Page (change contact email and auto subject here) might want to be changed to a webform at some point to apply some structure to feedback/questions from users -->
-
+    <!-- Contact Us Page -->
     <div id="contactUsPage" class="page">
         <div class="subpage-header">
             <button class="back-btn" id="contactUsBackBtn">
-              <img src="graphics/arrow.png" alt="Back">
-           </button>
+                <img src="graphics/arrow.png" alt="Back">
+            </button>
             <h1 class="subpage-title">Contact Us</h1>
         </div>
         <p>If your question isn’t answered in the FAQ, feel free to get in touch by clicking the link below. We’re happy to help.</p>
-          <a href="mailto:support@example.com?subject=Oak Health Web-App Query">Contact Us</a>
+        <a href="mailto:support@example.com?subject=Oak Health Web-App Query">Contact Us</a>
     </div>
 
     <footer>
         <img src="graphics/footer.png" alt="Footer Image">
     </footer>
-
-
-    <!-- Checks Javascript is available on the users device -->
-    <noscript>
-        <div class="warning">
-            This web app requires JavaScript for you to log trees. Please enable JavaScript in your browser settings or use a device that supports JavaScript.
-        </div>
-    </noscript>
-
-
-    <!-- Call the main JS file -->
-    <script type="module" src="app.js"></script>
-
-
-    <!-- Checks requirments are available on the users device, have tested as much as possible (i.e., turned off/denied access on device and error messages appear) Have not tested with different devices/conditions -->
-    <script>
-        
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js')
-                .then(reg => console.log('Service Worker registered:', reg.scope))
-                .catch(err => console.error('Service Worker registration failed:', err));
-        
-        } else {
-            alert('This site requires service-workers to log trees.');
-        }
-
-        if (!('geolocation' in navigator)) {
-            alert('Geolocation is required to log a tree.');
-        }
-
-        if (!('localStorage' in window)) {
-            alert('Local storage is required to download your logged trees to your device.');
-        }
-
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-            console.log('App is running in PWA mode');
-        
-        } else {
-            console.log('App is running in browser/tab mode');
-        }
-    
-    </script>
-
-
 </div>
+
+<noscript>
+    <div class="warning">
+        This web app requires JavaScript to function. Please enable JavaScript in your browser settings.
+    </div>
+</noscript>
+
+<script type="module" src="app.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+            .then(reg => console.log('Service Worker registered:', reg.scope))
+            .catch(err => console.error('Service Worker registration failed:', err));
+    } else {
+        alert('This site requires service-workers to log trees.');
+    }
+
+    if (!('geolocation' in navigator)) {
+        alert('Geolocation is required to log a tree.');
+    }
+
+    if (!('localStorage' in window)) {
+        alert('Local storage is required to download your logged trees to your device.');
+    }
+
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        console.log('App is running in PWA mode');
+    } else {
+        console.log('App is running in browser/tab mode');
+    }
+</script>
 </body>
 </html>
