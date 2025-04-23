@@ -1,0 +1,116 @@
+// Full set of questions user is asked. Seperated to a different file for readability can be placed into app.js if desired.
+
+let questions = [
+    {
+        "label": "Compartment ID",
+        "type": "select",
+        "options": [
+            "1 - 9"
+        ],
+        "required": true
+    },
+    {
+        "label": "Compartment Name",
+        "type": "text"
+    },
+    {
+        "label": "Sub-compartment ID",
+        "type": "select",
+        "options": [
+            "A-z"
+        ],
+        "required": true
+    },
+    {
+        "label": "Sub-compartment Name",
+        "type": "text"
+    },
+    {
+        "label": "Tree Identifier",
+        "type": "text",
+        "required": true
+    },
+    {
+        "label": "Species",
+        "type": "select",
+        "options": [
+            "Quercus robur",
+            "Quercus petraea"
+        ],
+        "required": true
+    },
+    {
+        "label": "Social Class",
+        "type": "radio",
+        "options": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+        ],
+        "required": true
+    },
+    {
+        "label": "Where are you standing to collect your data ?",
+        "type": "radio",
+        "options": [
+            "Under Tree",
+            "Away from Tree"
+        ]
+    },
+    {
+        "label": "How much of the tree crown is transparent ?",
+        "type": "range",
+        "note": "Sliding scale of 5 % increments"
+    },
+    {
+        "label": "How much of tree crown is missing ?",
+        "type": "range",
+        "note": "Sliding scale of 5 % increments"
+    },
+    {
+        "label": "Are there signs of defoliation",
+        "type": "radio",
+        "options": [
+            "Yes",
+            "No"
+        ]
+    },
+    {
+        "label": "What is the height of the lowest living crown ?",
+        "type": "text"
+    },
+    {
+        "label": "What is the height of the tree ?",
+        "type": "text"
+    },
+    {
+        "label": "What is the circumference at your breast height ?",
+        "type": "text"
+    },
+    {
+        "label": "What is the average number of active bleeds ?",
+        "type": "text"
+    },
+    {
+        "label": "What is the average length of the bleeds in centimetres ?",
+        "type": "text"
+    },
+    {
+        "label": "What is the average number of black stains ?",
+        "type": "text"
+    },
+    {
+        "label": "What is the average length of the stains in centimetres ?",
+        "type": "text"
+    },
+    {
+        "label": "Is there evidence of fungal growth ?",
+        "type": "radio",
+        "options": [
+            "Yes",
+            "No"
+        ]
+    }
+];

@@ -1,30 +1,27 @@
+// questions stored in questions.js
+import { questions } from './questions.js';
+
+// function that controls opening pages
 function showPage(pageId) {
-    // Hide all pages
+    // Hide existing pages
     document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
     });
 
-    // Show the selected page
+    // Show the new selected page
     const activePage = document.getElementById(pageId);
     if (activePage) {
         activePage.classList.add('active');
     }
 }
 
-let questions = [
-    { label: "Woodland compartment name", type: "text" , required: true},
-    { label: "Sub Compartment", type: "select", options: ["Compartment1", "Compartment2", "Compartment3"] },
-    { label: "Tree ID", type: "text" },
-    { label: "Tree Species", type: "select", options: ["Oak", "Oak2", "Oak3"] },
-    { label: "Health Condition", type: "select", options: ["Healthy", "Diseased", "Dead"] },
-    { label: "Social Class", type: "select", options: ["1","2","3" , "4", "5"], required: true},
-    // Add remaining 16 questions as per spreadsheet
-];
 
-// extra two for unique ID and positional data
-let answers = Array(questions.length + 3).fill("");
+// Set up container based on length of quesitons to store answers
+let answers = Array(questions.length).fill("");
+// Track what questions we are answering
 let currentQuestion = 0;
 
+// start the proces of logging trees:
 function startLogging() {
     
     //create a unique ID
@@ -35,30 +32,97 @@ function startLogging() {
     loadQuestion();
 }
 
+
+// Load prev/next questions based on the question file. If you add a new type of question type (e.g., multiple checkbox) this section will need to be adapted to deal with the question.
 function loadQuestion() {
+    // Get the current question object from the array
     let question = questions[currentQuestion];
+
+    // Set the visible title of the question
     document.getElementById("questionTitle").textContent = question.label;
+
+    // Get the container where the input will be rendered and clear it
     let container = document.getElementById("questionContainer");
     container.innerHTML = "";
 
-    let input;
+    // If the question has a notes (e.g. explanation), display it
+    if (question.note) {
+        let note = document.createElement("div");
+        note.classList.add("note");
+        note.textContent = question.note;
+        container.appendChild(note);
+    }
+
+    let input; // Will hold the input element (text box, select menu, etc.)
+
+    // Standard text and number fields
     if (question.type === "text" || question.type === "number") {
         input = document.createElement("input");
         input.type = question.type;
+        input.value = answers[currentQuestion] || "";
+        input.oninput = () => answers[currentQuestion] = input.value;
+        container.appendChild(input);
+
+    // Dropdown selection
     } else if (question.type === "select") {
         input = document.createElement("select");
+        // create option list
         question.options.forEach(option => {
             let opt = document.createElement("option");
             opt.value = option;
             opt.textContent = option;
             input.appendChild(opt);
         });
+        input.value = answers[currentQuestion] || "";
+        input.oninput = () => answers[currentQuestion] = input.value;
+        container.appendChild(input);
+
+    // Radio button group
+    } else if (question.type === "radio") {
+        question.options.forEach(option => {
+            let label = document.createElement("label");
+
+            let radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = "question" + currentQuestion; // Group by question
+            radio.value = option;
+            radio.checked = answers[currentQuestion] === option;
+
+            // Update answer on change
+            radio.onchange = () => answers[currentQuestion] = option;
+
+            label.appendChild(radio);
+            label.append(" " + option);
+            container.appendChild(label);
+            container.appendChild(document.createElement("br")); // Line break
+        });
+
+    // Slider input
+    } else if (question.type === "range") {
+        input = document.createElement("input");
+        input.type = "range";
+        input.min = 0;
+        input.max = 100;
+        input.step = 5;
+        input.value = answers[currentQuestion] || 0;
+
+        // Live-updating label for the slider value
+        let rangeLabel = document.createElement("span");
+        rangeLabel.textContent = input.value + "%";
+
+        input.oninput = () => {
+            rangeLabel.textContent = input.value + "%";
+            answers[currentQuestion] = input.value;
+        };
+
+        container.appendChild(input);
+        container.appendChild(rangeLabel);
     }
-    
-    input.classList.add("input-field");
-    input.value = answers[currentQuestion] || "";
-    input.oninput = () => answers[currentQuestion] = input.value;
-    container.appendChild(input);
+
+    // Apply a consistent styling class (if input exists)
+    if (input) input.classList.add("input-field");
+
+    // Update navigation buttons (e.g. Next/Prev state)
     updateButtons();
 }
 

@@ -13,7 +13,9 @@
 </head>
 <body>
 
-    <!-- Splash Page -->
+
+
+    <!-- Splash/Landing Page -->
     <div id="splashPage" class="page active">
         <div id="splashHeader">
     <img src="graphics/icons/icon-512.png" alt="Left Logo" class="splash-logo left">
@@ -21,7 +23,7 @@
     <img src="graphics/aberlogo.png" alt="Right Logo" class="splash-logo right">
         </div>
         <div class="text-container">
-        <p>Capture and log tree health data easily. Start by logging an oak, reporting an error, or exploring our FAQs.</p>
+        <p>Capture and log Oak tree health data easily. Click Start to logging trees. If you have any questions please check our FAQ's, reach out, or report an error.</p>
         </div>
         <div class="button-container">
             <button class="main-btn" onclick="showPage('logOak')">Log an Oak</button>
@@ -32,10 +34,7 @@
     </div>
 
 
-
-
-
-    <!-- Pages -->
+    <!-- Sumbit an oak Page -->
     <div id="logOak" class="page">
     <div class="subpage-header">
         <button class="back-btn" onclick="showPage('splashPage')">
@@ -45,93 +44,110 @@
     </div>
     <p>Here, you can log oak trees and record their health data.</p>
     <button class="nav-btn" onclick="startLogging()">Start</button>
-</div>
-
-
-    <!-- Dynamic Question Page -->
-<div id="questionPage" class="page">
-    <h2 id="questionTitle"></h2>
-    <div id="questionContainer"></div>
-    
-    <div class="button-container">
-        <button id="cancelButton" class="nav-btn cancel-btn" onclick="cancelSubmission()">Cancel</button>
-        <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">Next</button>
-        <button class="nav-btn" id="backBtn" onclick="prevQuestion()">Back</button>
-        <button class="nav-btn" id="submitBtn" onclick="downloadCSV()" style="display:none;">Submit & Download CSV</button>
     </div>
-</div>
 
 
-
-<!-- Report an Error Page -->
-<div id="reportError" class="page">
-    <div class="subpage-header">
-        <button class="back-btn" onclick="showPage('splashPage')">
-            <img src="graphics/arrow.png" alt="Back">
-        </button>
-        <h1 class="subpage-title">Report an Error</h1>
+    <!-- Dynamic Question Page: main section, allows user to sumbit and download information for each tree, logic is managed in the JS file -->
+    <div id="questionPage" class="page">
+        <h2 id="questionTitle"></h2>
+        <div id="questionContainer"></div>
+        
+        <div class="button-container">
+            <button id="cancelButton" class="nav-btn cancel-btn" onclick="cancelSubmission()">Cancel</button>
+            <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+            <button class="nav-btn" id="backBtn" onclick="prevQuestion()">Back</button>
+            <button class="nav-btn" id="submitBtn" onclick="downloadCSV()" style="display:none;">Submit & Download CSV</button>
+        </div>
     </div>
-    <p>If you find an error, please report it here.</p>
-    <a href="mailto:support@example.com?subject=Error Report">Report an Error</a>
-</div>
 
-<!-- FAQ Page -->
-<div id="faq" class="page">
-    <div class="subpage-header">
-        <button class="back-btn" onclick="showPage('splashPage')">
-            <img src="graphics/arrow.png" alt="Back">
-        </button>
-        <h1 class="subpage-title">FAQ</h1>
+
+
+    <!-- Report an Error Page, might make more sense in the future to impliment as a webform to apply structure around reporting -->
+    <div id="reportError" class="page">
+        <div class="subpage-header">
+            <button class="back-btn" onclick="showPage('splashPage')">
+                <img src="graphics/arrow.png" alt="Back">
+            </button>
+            <h1 class="subpage-title">Report an Error</h1>
+        </div>
+        <p>If you think something is not working as it should be, please report it here.</p>
+        <a href="mailto:support@example.com?subject=Error Report for Oak Health Web-App">Report an Error</a>
+        <p>Please include as much detail describing the error and the conditions it occured under.</p>
     </div>
-    <p>Here you can find frequently asked questions about Oak Logger.</p>
-</div>
 
-<!-- Contact Us Page -->
-<div id="contactUs" class="page">
-    <div class="subpage-header">
-        <button class="back-btn" onclick="showPage('splashPage')">
-            <img src="graphics/arrow.png" alt="Back">
-        </button>
-        <h1 class="subpage-title">Contact Us</h1>
+
+    <!-- FAQ Page - general high level faq this is not related to the hints and tips for each questions that is dealt with seperately in the questions section -->
+    <div id="faq" class="page">
+        <div class="subpage-header">
+            <button class="back-btn" onclick="showPage('splashPage')">
+                <img src="graphics/arrow.png" alt="Back">
+            </button>
+            <h1 class="subpage-title">FAQ</h1>
+        </div>
+        <p>Here you can find frequently asked questions about logging Oak trees.</p>
+        <p>1. Question</p>
+        <p>2. Question</p>
+        <p>3. Question</p>
     </div>
-    <p>If you have any questions, reach out to us here.</p>
-    <a href="mailto:support@example.com?subject=">Contact Us</a>
-</div>
 
-    <script src="app.js"></script>
+
+    <!-- Contact Us Page (change contact email and auto subject here) might want to be changed to a webform at some point to apply some structure to feedback/questions from users -->
+
+    <div id="contactUs" class="page">
+        <div class="subpage-header">
+            <button class="back-btn" onclick="showPage('splashPage')">
+                <img src="graphics/arrow.png" alt="Back">
+            </button>
+            <h1 class="subpage-title">Contact Us</h1>
+        </div>
+        <p>If you have any questions that are not covered in our FAQ, reach out by clicking the link below.</p>
+        <a href="mailto:support@example.com?subject=Oak Health Web-App Query">Contact Us</a>
+    </div>
 
     <footer>
         <img src="graphics/footer.png" alt="Footer Image">
     </footer>
 
+
+    <!-- Checks Javascript is available on the users device -->
     <noscript>
         <div class="warning">
-            ⚠️ This site requires JavaScript to log trees. Please enable JavaScript in your browser settings or use a device that supports it.
+            This web app requires JavaScript for you to log trees. Please enable JavaScript in your browser settings or use a device that supports JavaScript.
         </div>
     </noscript>
 
+
+    <!-- Call the main JS file -->
+    <script src="app.js"></script>
+
+
+    <!-- Checks requirments are available on the users device, have tested as much as possible (i.e., turned off/denied access on device and error messages appear) Have not tested with different devices/conditions -->
     <script>
+        
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
-                .then(reg => console.log('✅ Service Worker registered:', reg.scope))
-                .catch(err => console.error('❌ Service Worker registration failed:', err));
+                .then(reg => console.log('Service Worker registered:', reg.scope))
+                .catch(err => console.error('Service Worker registration failed:', err));
+        
         } else {
-            alert('⚠️ This site requires service-workers to log trees.');
+            alert('This site requires service-workers to log trees.');
         }
 
         if (!('geolocation' in navigator)) {
-            alert('⚠️ Geolocation is required.');
+            alert('Geolocation is required to log a tree.');
         }
 
         if (!('localStorage' in window)) {
-            alert('⚠️ Local storage is required.');
+            alert('Local storage is required to download your logged trees to your device.');
         }
 
         if (window.matchMedia('(display-mode: standalone)').matches) {
-            console.log('✅ App is running in PWA mode');
+            console.log('App is running in PWA mode');
+        
         } else {
-            console.log('ℹ️ App is running in browser/tab mode');
+            console.log('App is running in browser/tab mode');
         }
+    
     </script>
 
 </body>
