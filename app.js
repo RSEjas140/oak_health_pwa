@@ -52,8 +52,6 @@ let answers = Array(questions.length).fill("");
 // Track what questions we are answering
 let currentQuestion = 0;
 
-function 
-
 
 // start the proces of logging trees:
 function startLogging() {
