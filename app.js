@@ -47,6 +47,7 @@ const navMap = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Set up navigation buttons from the navMap
     for (const [btnId, handler] of Object.entries(navMap)) {
         const btn = document.getElementById(btnId);
         if (btn) {
@@ -56,10 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    
-
-
-    // Check first before attaching the listener
+    // Set up listener for number of trees to log
     const startBtn = document.getElementById("startLoggingBtn");
     if (startBtn) {
         startBtn.addEventListener("click", () => {
@@ -74,45 +72,47 @@ document.addEventListener("DOMContentLoaded", () => {
             totalTreesToLog = count;
             treesLogged = 0;
 
-            // set up data structure to store all data
-            allAnswers = Array.from({ length: totalTreesToLog }, () => Array(questions.length).fill(""));
+            // Create empty answer arrays for each tree
+            allAnswers = Array.from({ length: totalTreesToLog }, () =>
+                Array(questions.length).fill("")
+            );
 
-            showPage("readyToLog"); // Launch the pre-log page
+            showPage("readyToLog"); // Move to confirmation screen
         });
-
     } else {
         console.warn("startLoggingBtn not found in DOM.");
     }
 
+    // Set up listener for confirming tree position and starting logging
+    const confirmBtn = document.getElementById("confirmTreeBtn");
+    if (confirmBtn) {
+        confirmBtn.addEventListener("click", () => {
+            let metadata = [];
 
+            const timestamp = new Date().toISOString();
+            const uniqueID = crypto.randomUUID();
 
-    document.getElementById("confirmTreeBtn").addEventListener("click", () => {
+            metadata[0] = uniqueID;
+            metadata[1] = timestamp;
 
-    // array for non input data
-    let metadata = [];
+            getUserLocation((lat, long) => {
+                metadata[2] = long;
+                metadata[3] = lat;
 
-    // Generate metadata
-    const timestamp = new Date().toISOString();
-    const uniqueID = crypto.randomUUID();
+                console.log("Metadata array is ready:", metadata);
 
-    metadata[0] = uniqueID;
-    metadata[1] = timestamp;
+                answers = allAnswers[treesLogged];
+                answers.push(...metadata);
 
-    // Wait for geolocation
-    getUserLocation((lat, long) => {
-    metadata[2] = long;
-    metadata[3] = lat;
-
-    console.log("Metadata array is ready:", metadata);
-
-    answers = allAnswers[treesLogged];
-    answers.push(...metadata);
-    
-    startLogging();
-
+                startLogging(); // Now move to questions
+            });
+        });
+    } else {
+        console.warn("confirmTreeBtn not found in DOM.");
+    }
 });
 
-});
+
 
 function getUserLocation(callback) {
     if ("geolocation" in navigator) {
