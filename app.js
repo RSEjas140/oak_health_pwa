@@ -46,7 +46,6 @@ const navMap = {
     logOakBackBtn: () => showPage("splash"),
     faqBackBtn: () => showPage("splash"),
     readyToLogBackBtn: () => showPage("logOak")
-
 };
 
 // check that everything has loaded and then add the user meta input that are not part of the standard questions 
@@ -114,6 +113,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     } else {
         console.warn("confirmTreeBtn not found in DOM.");
+    }
+
+    const cancelBtn = document.getElementById("cancelButton");
+    if (cancelBtn) {
+        cancelBtn.addEventListener("click", cancelSubmission);
+    }
+
+    // Next Button — go to next question
+    const nextBtn = document.getElementById("nextBtn");
+    if (nextBtn) {
+        nextBtn.addEventListener("click", nextQuestion);
+    }
+
+    // Back Button — go to previous question
+    const backBtn = document.getElementById("backBtn");
+    if (backBtn) {
+        backBtn.addEventListener("click", prevQuestion);
+    }
+
+    // Submit Button — finish logging and download CSV
+    const submitBtn = document.getElementById("submitBtn");
+    if (submitBtn) {
+        submitBtn.addEventListener("click", downloadCSV);
     }
 });
 
@@ -311,7 +333,14 @@ function downloadCSV() {
 }
 
 function cancelSubmission() {
-    totalTreesToLog = totalTreesToLog -1;
+    
+    //if we havent logged any trees then cancel everything
+    if (treesLogged == 1){
+
+    //cancel the last tree
+    }else{
+
+    }
     treesLogged = treesLogged - 1;  
 }
 
