@@ -123,9 +123,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // question navigation buttons
 
-    const nextTree = document.getElementById("nextTreeBtn");
-    if (nextTree) {
-        nextTree.addEventListener("click", nextTree);
+    const nextTreebtn = document.getElementById("nextTreeBtn");
+    if (nextTreebtn) {
+        nextTreebtn.addEventListener("click", nextTree);
     }
 
     const cancelBtn = document.getElementById("QcancelButton");
