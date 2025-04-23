@@ -43,7 +43,7 @@ const navMap = {
     contactUsBackBtn: () => showPage("splash"),
     logOakBackBtn: () => showPage("splash"),
     faqBackBtn: () => showPage("splash"),
-    readyToLogBackBtn: () => showPage("logOak"),: 
+    readyToLogBackBtn: () => showPage("logOak")
 };
 
 document.addEventListener("DOMContentLoaded", () => {
