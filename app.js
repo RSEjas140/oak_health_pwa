@@ -264,6 +264,8 @@ function loadQuestion() {
     updateButtons();
 }
 
+function updateButtons() {
+
 const atFirstQuestion = currentQuestion === 0;
     const atLastQuestion = currentQuestion === questions.length - 1;
     const allTreesDone = treesLogged === totalTreesToLog - 1;
@@ -279,6 +281,8 @@ const atFirstQuestion = currentQuestion === 0;
 
     // Next Tree button: only if you're on the last question AND there are more trees to log
     document.getElementById("nextTreeBtn").style.display = (atLastQuestion && !allTreesDone) ? "block" : "none";
+
+}
 
 function nextQuestion() {
     const question = questions[currentQuestion]; // Get the current question
