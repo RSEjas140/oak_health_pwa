@@ -56,6 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    
+
+
     // Check first before attaching the listener
     const startBtn = document.getElementById("startLoggingBtn");
     if (startBtn) {
@@ -74,23 +77,66 @@ document.addEventListener("DOMContentLoaded", () => {
             // set up data structure to store all data
             allAnswers = Array.from({ length: totalTreesToLog }, () => Array(questions.length).fill(""));
 
-            startLogging(); // Launch the questionnaire
+            showPage("readyToLog"); // Launch the pre-log page
         });
 
     } else {
         console.warn("startLoggingBtn not found in DOM.");
     }
+
+
+
+    document.getElementById("confirmTreeBtn").addEventListener("click", () => {
+
+    // array for non input data
+    let metadata = [];
+
+    // Generate metadata
+    const timestamp = new Date().toISOString();
+    const uniqueID = crypto.randomUUID();
+
+    metadata[0] = uniqueID;
+    metadata[1] = timestamp;
+
+    // Wait for geolocation
+    getUserLocation((lat, long) => {
+    metadata[2] = long;
+    metadata[3] = lat;
+
+    console.log("Metadata array is ready:", metadata);
+
+    answers = allAnswers[treesLogged];
+    answers.push(...metadata);
+    
+    startLogging();
+
 });
 
+});
 
+function getUserLocation(callback) {
+    if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const long = position.coords.longitude;
+                console.log(`Latitude: ${lat}, Longitude: ${long}`);
+                callback(lat, long); // pass back to the caller
+            },
+            (error) => {
+                console.error("Error getting location:", error.message);
+                alert("Unable to retrieve location. Please check your permissions.");
+            },
+            { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        );
+    } else {
+        alert("Geolocation is not supported by your browser.");
+    }
+}
 
 // start the proces of logging trees:
 function startLogging() {
     
-    //create a unique ID
-    let uniqueID = crypto.randomUUID();
-    answers[answers.length-1] = uniqueID
-    getUserLocation()
     showPage("questionPage");
     loadQuestion();
 }
@@ -272,25 +318,3 @@ function cancelSubmission() {
 }
 
 
-function getUserLocation() {
-    if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                let lat = position.coords.latitude;
-                let long = position.coords.longitude;
-                console.log(`Latitude: ${lat}, Longitude: ${long}`);
-
-                // Store in answers array (assuming last two slots are for lat/long)
-                answers[answers.length - 3] = lat;
-                answers[answers.length - 2] = long;
-            },
-            (error) => {
-                console.error("Error getting location:", error.message);
-                alert("Unable to retrieve location. Please check your permissions.");
-            },
-            { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-        );
-    } else {
-        alert("Geolocation is not supported by your browser.");
-    }
-}
