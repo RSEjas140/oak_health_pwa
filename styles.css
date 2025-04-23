@@ -179,6 +179,7 @@ footer img {
     border: 2px solid #ccc;
     border-radius: 6px;
     box-sizing: border-box;
+    margin-bottom: 1.5rem;
 }
 
 /* Responsive styles */
