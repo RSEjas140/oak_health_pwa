@@ -178,108 +178,145 @@ function getUserLocation(callback) {
 
 
 // Load prev/next questions based on the question file. If you add a new type of question type (e.g., multiple checkbox) this section will need to be adapted to deal with the question.
-function loadQuestion() {
-    // Get the current question object from the array
-    let question = questions[currentQuestion];
 
-    // Set the visible title of the question
+// some redudnacy in loadquestion and next question needs refactoring (next questions should just deal with index and state)
+function loadQuestion() {
+    const question = questions[currentQuestion];
+    const container = document.getElementById("questionContainer");
+    container.innerHTML = ""; // Clear previous question
+
     document.getElementById("questionTitle").textContent = question.label;
 
-    // Get the container where the input will be rendered and clear it
-    let container = document.getElementById("questionContainer");
-    container.innerHTML = "";
-
-    // If the question has a notes (e.g. explanation), display it
     if (question.note) {
-        let note = document.createElement("div");
+        const note = document.createElement("div");
         note.classList.add("note");
         note.textContent = question.note;
         container.appendChild(note);
     }
 
-    let input; // Will hold the input element (text box, select menu, etc.)
+    let input;
 
-    // Standard text and number fields
-    if (question.type === "text" || question.type === "number") {
+    // TEXT or NUMBER
+    if (["text", "number"].includes(question.type)) {
         input = document.createElement("input");
-        input.id = question.id || `question-${currentQuestion}`;
+        input.id = question.id;
         input.type = question.type;
-        input.value = answers[currentQuestion] || "";
-        input.oninput = () => answers[currentQuestion] = input.value;
-        container.appendChild(input);
+        input.value = answers[question.id] || "";
+    }
 
-    // Dropdown selection
-    } else if (question.type === "select") {
+    // SELECT DROPDOWN
+    else if (question.type === "select") {
         input = document.createElement("select");
-        input.id = question.id || `question-${currentQuestion}`;
-        // set the default as select so they have to choose
-        let placeholder = document.createElement("option");
+        input.id = question.id;
+
+        const placeholder = document.createElement("option");
         placeholder.value = "";
         placeholder.textContent = "-- Select --";
         placeholder.disabled = true;
-        placeholder.selected = true;
+        placeholder.selected = !answers[question.id];
         input.appendChild(placeholder);
 
-
-        // create option list
         question.options.forEach(option => {
-            let opt = document.createElement("option");
+            const opt = document.createElement("option");
             opt.value = option;
             opt.textContent = option;
+            opt.selected = answers[question.id] === option.toString();
             input.appendChild(opt);
         });
-        input.value = answers[currentQuestion] || "";
-        input.oninput = () => answers[currentQuestion] = input.value;
-        if (input) input.classList.add("input-field");
-        container.appendChild(input);
+    }
 
-    // Radio button group
-    } else if (question.type === "radio") {
+    // RADIO
+    else if (question.type === "radio") {
         question.options.forEach(option => {
-            let label = document.createElement("label");
+            const label = document.createElement("label");
+            const radio = document.createElement("input");
 
-            let radio = document.createElement("input");
             radio.type = "radio";
-            radio.name = "question" + currentQuestion; // Group by question
+            radio.name = question.id;
             radio.value = option;
-            radio.checked = answers[currentQuestion] === option;
+            radio.checked = answers[question.id] === option;
 
-            // Update answer on change
-            radio.onchange = () => answers[currentQuestion] = option;
+            radio.onchange = () => answers[question.id] = option;
 
             label.appendChild(radio);
             label.append(" " + option);
             container.appendChild(label);
-            container.appendChild(document.createElement("br")); // Line break
+            container.appendChild(document.createElement("br"));
         });
+    }
 
-    // Slider input
-    } else if (question.type === "range") {
+    // RANGE
+    else if (question.type === "range") {
         input = document.createElement("input");
         input.type = "range";
         input.min = 0;
         input.max = 100;
         input.step = 5;
-        input.value = answers[currentQuestion] || 0;
+        input.value = answers[question.id] || 0;
 
-        // Live-updating label for the slider value
-        let rangeLabel = document.createElement("span");
+        const rangeLabel = document.createElement("span");
         rangeLabel.textContent = input.value + "%";
 
         input.oninput = () => {
             rangeLabel.textContent = input.value + "%";
-            answers[currentQuestion] = input.value;
+            answers[question.id] = input.value;
         };
 
         container.appendChild(input);
         container.appendChild(rangeLabel);
     }
 
-    // Apply a consistent styling class (if input exists)
-    if (input) input.classList.add("input-field");
+    if (input) {
+        input.classList.add("input-field");
+        input.oninput = () => answers[question.id] = input.value;
+        container.appendChild(input);
+    }
 
-    // Update navigation buttons (e.g. Next/Prev state)
     updateButtons();
+}
+
+
+function nextQuestion() {
+    const question = questions[currentQuestion];
+    let answer = null;
+
+    // Handle by input type
+    if (["text", "number", "select"].includes(question.type)) {
+        const input = document.getElementById(question.id);
+        if (input) answer = input.value;
+    }
+
+    if (question.type === "radio") {
+        const selected = document.querySelector(`input[name="${question.id}"]:checked`);
+        if (selected) answer = selected.value;
+    }
+
+    if (question.type === "checkbox") {
+        const selected = document.querySelectorAll(`input[name="${question.id}"]:checked`);
+        answer = Array.from(selected).map(cb => cb.value).join(", ");
+    }
+
+    console.log("Validating:", { id: question.id, type: question.type, answer });
+    // Required check
+    if (question.required && (answer === null || answer === undefined || answer === "")) {
+        alert("This question is compulsory");
+    return;
+    }
+
+    answers[question.id] = answer;
+    console.log("Stored Answers:", answers);
+
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+        loadQuestion();
+    }
+}
+
+function prevQuestion() {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        loadQuestion();
+    }
 }
 
 function updateButtons() {
@@ -302,51 +339,7 @@ const atFirstQuestion = currentQuestion === 0;
 
 }
 
-function nextQuestion() {
-    const question = questions[currentQuestion]; // Get the current question
-    let answer = null;
 
-    if (question.type === "text" || question.type === "number") {
-        // Get text/number input values
-        const inputElement = document.getElementById(question.id);
-        if (inputElement) {
-            answer = inputElement.value;
-        }
-    } else if (question.type === "radio") {
-        // Get selected radio button value
-        const selectedRadio = document.querySelector(`input[name="${question.id}"]:checked`);
-        if (selectedRadio) {
-            answer = selectedRadio.value;
-        }
-    } else if (question.type === "checkbox") {
-        // Get all selected checkboxes
-        const selectedCheckboxes = document.querySelectorAll(`input[name="${question.id}"]:checked`);
-        answer = Array.from(selectedCheckboxes).map(cb => cb.value).join(", "); // Store as comma-separated string
-    }
-
-    if (question.required && (!answer || answer.trim() === "")) {
-        alert(`This question is compulsory`);
-        return; // Prevent moving to next question
-    }
-
-    answers[question.id] = answer; // Store the answer
-
-    console.log("Stored Answers:", answers); // Debugging
-
-    // Move to next question or finish
-    currentQuestion++;
-
-    if (currentQuestion < questions.length) {
-        loadQuestion(currentQuestion);
-    }
-}
-
-function prevQuestion() {
-    if (currentQuestion > 0) {
-        currentQuestion--;
-        loadQuestion();
-    }
-}
 
 function nextTree() {
 
