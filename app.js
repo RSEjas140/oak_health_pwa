@@ -1,8 +1,9 @@
 // questions stored in questions.js
 import { questions } from './questions.js';
+import { headers } from './questions.js';
 //debug check to test if questions have loaded
 console.log("Questions loaded:", questions);
-
+console.log("headers loaded:", headers);
 //GLOBAL VARS
 
 // Set up container based on length of quesitons to store answers
@@ -263,14 +264,21 @@ function loadQuestion() {
     updateButtons();
 }
 
-function updateButtons() {
-    // if you are anywhere except first question show back
-    document.getElementById("backBtn").style.display = currentQuestion > 0 ? "block" : "none";
-    // if you are anywhere except last question show next
-    document.getElementById("nextBtn").style.display = currentQuestion < questions.length - 1 ? "block" : "none";
-    // if you are at last question only show submit
-    document.getElementById("submitBtn").style.display = currentQuestion === questions.length - 1 ? "block" : "none";
-}
+const atFirstQuestion = currentQuestion === 0;
+    const atLastQuestion = currentQuestion === questions.length - 1;
+    const allTreesDone = treesLogged === totalTreesToLog - 1;
+
+    // Back button: only show if you're not on the first question
+    document.getElementById("backBtn").style.display = atFirstQuestion ? "none" : "block";
+
+    // Next button: show only if you're not on the last question
+    document.getElementById("nextBtn").style.display = atLastQuestion ? "none" : "block";
+
+    // Submit button: only if you're on the last question AND all trees are done
+    document.getElementById("submitBtn").style.display = (atLastQuestion && allTreesDone) ? "block" : "none";
+
+    // Next Tree button: only if you're on the last question AND there are more trees to log
+    document.getElementById("nextTreeBtn").style.display = (atLastQuestion && !allTreesDone) ? "block" : "none";
 
 function nextQuestion() {
     const question = questions[currentQuestion]; // Get the current question
@@ -317,21 +325,44 @@ function prevQuestion() {
 
 function downloadCSV() {
 
-    let csvContent = "data:text/csv;charset=utf-8," +
-        questionstemp.map((q, i) => `${q.label},${answers[i]}`).join("\n");
+     // create the CSV header row from imprted headers
+    const headerRow = headers.map(h => h.label).join(",");
+
+    // map each array in answers to a row 
+    const dataRows = allAnswers.map(row => row.join(","));
     
+    // join the header and data rows
+    const csvContent = "data:text/csv;charset=utf-8," +
+        [headerRow, ...dataRows].join("\n");
+    
+    //download    
     let encodedUri = encodeURI(csvContent);
     let link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `oak_tree_data_${answers[answers.length - 1]}.csv`);
+    
+    //generate DDMMYY_HHMM date format for file name
+    const now = new Date();
+    const pad = (num) => num.toString().padStart(2, "0");
+    const day = pad(now.getDate());
+    const month = pad(now.getMonth() + 1); // Months are 0-indexed
+    const year = now.getFullYear().toString().slice(-2); // Last 2 digits
+    const hours = pad(now.getHours());
+    const minutes = pad(now.getMinutes());
+
+    const timestamp = `${day}${month}${year}_${hours}${minutes}`;
+
+    // name the file
+    link.setAttribute("dowwnload", `oak_tree_data_${timestamp}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
 
     // Reset questionnaire data
-    answers = Array(questions.length + 3).fill("");  
+    allAnswers = [];  
+    answers = []
     currentQuestion = 0;  
-
+    totalTreesToLog = 0;  
+    treesLogged = 0;
     // Return to splash page
     showPage("splash");
 }
@@ -339,13 +370,23 @@ function downloadCSV() {
 function cancelSubmission() {
     
     //if we havent logged any trees then cancel everything
-    if (treesLogged == 1){
+    if (treesLogged == 0){
+        allAnswers = [];  
+        answers = []
+        currentQuestion = 0;  
+        totalTreesToLog = 0;  
+        treesLogged = 0;
+        showPage("splash");
 
-    //cancel the last tree
+    //cancel the last tree in the list
     }else{
-
+        allAnswers[treesLogged] = Array(questions.length).fill("")
+        currentQuestion = 0;
+        answers = []
+        treesLogged = treesLogged - 1;
+        showPage("readyToLog");  
     }
-    treesLogged = treesLogged - 1;  
+
 }
 
 
