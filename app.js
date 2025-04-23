@@ -21,7 +21,25 @@ function showPage(pageId) {
     }
 }
 
+// Map button IDs to their click handler functions
+const navMap = {
+    logOakBtn: startLogging,
+    reportErrorBtn: () => showPage("reportError"),
+    faqBtn: () => showPage("faq"),
+    contactUsBtn: () => showPage("contactUs")
+};
 
+// Set up event listeners after the DOM is ready
+document.addEventListener("DOMContentLoaded", () => {
+    for (const [btnId, handler] of Object.entries(navMap)) {
+        const btn = document.getElementById(btnId);
+        if (btn) {
+            btn.addEventListener("click", handler);
+        } else {
+            console.warn(`Button with ID '${btnId}' not found in DOM.`);
+        }
+    }
+});
 
 // Set up container based on length of quesitons to store answers
 let answers = Array(questions.length).fill("");
