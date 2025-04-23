@@ -1,7 +1,9 @@
 // Full set of questions user is asked. Seperated to a different file for readability can be placed into app.js if desired.
 
-export const headers = ['uid','ts','latitude','longitude','compartment_id','compartment name', 'subcompartment_id', 'subcompartment_name' , 'tree_id', 'species', 'social_class', 'crown_obs', 'crown_transpar', 'cross_miss', 'defoli', 'live_crown',
-'tree_height', 'dbh', 'active_bleeds', 'bleed_length', 'staining', 'stain_length', 'fungal_growth']
+
+//order is important that it is same as questions and then final meta data order is (uid,ts,long,lat)
+export const headers = ['compartment_id','compartment name', 'subcompartment_id', 'subcompartment_name' , 'tree_id', 'species', 'social_class', 'crown_obs', 'crown_transpar', 'cross_miss', 'defoli', 'live_crown',
+'tree_height', 'dbh', 'active_bleeds', 'bleed_length', 'staining', 'stain_length', 'fungal_growth' 'uid','ts','longitude', 'latitude']
 
 export const questions = [
     {
@@ -20,7 +22,8 @@ export const questions = [
         "label": "Sub-compartment ID",
         "type": "select",
         "options": [
-            "A-z"
+            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+            "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
         ],
         "required": true
     },
@@ -65,12 +68,12 @@ export const questions = [
     {
         "label": "How much of the tree crown is transparent ?",
         "type": "range",
-        "note": "Sliding scale of 5 % increments"
+        "note": Null
     },
     {
         "label": "How much of tree crown is missing ?",
         "type": "range",
-        "note": "Sliding scale of 5 % increments"
+        "note": Null
     },
     {
         "label": "Are there signs of defoliation",

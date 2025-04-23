@@ -96,8 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
         confirmBtn.addEventListener("click", () => {
             let metadata = [];
 
-            const timestamp = new Date().toISOString();
             const uniqueID = crypto.randomUUID();
+            const timestamp = new Date().toISOString();
+            
 
             metadata[0] = uniqueID;
             metadata[1] = timestamp;
@@ -311,9 +312,12 @@ function nextQuestion() {
         answer = Array.from(selectedCheckboxes).map(cb => cb.value).join(", "); // Store as comma-separated string
     }
 
-    if (answer !== null) {
-        answers[question.id] = answer; // Store the answer
+    if (question.required && (!answer || answer.trim() === "")) {
+        alert(`This question is compulsory`);
+        return; // Prevent moving to next question
     }
+
+    answers[question.id] = answer; // Store the answer
 
     console.log("Stored Answers:", answers); // Debugging
 
