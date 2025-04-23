@@ -123,7 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // question navigation buttons
 
-    const cancelBtn = document.getElementById("cancelButton");
+    const nextTree = document.getElementById("nextTreeBtn");
+    if (cancelBtn) {
+        cancelBtn.addEventListener("click", nextTree);
+    }
+
+    const cancelBtn = document.getElementById("QcancelButton");
     if (cancelBtn) {
         cancelBtn.addEventListener("click", cancelSubmission);
     }
@@ -325,6 +330,15 @@ function prevQuestion() {
         currentQuestion--;
         loadQuestion();
     }
+}
+
+function nextTree() {
+
+    currentQuestion = 0;
+    treesLogged = treesLogged + 1;
+    answers = []
+    showPage("readyToLog");
+
 }
 
 function downloadCSV() {
