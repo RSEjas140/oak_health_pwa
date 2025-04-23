@@ -211,6 +211,7 @@ function loadQuestion() {
     // Dropdown selection
     } else if (question.type === "select") {
         input = document.createElement("select");
+        input.id = question.id || `question-${currentQuestion}`;
         // set the default as select so they have to choose
         let placeholder = document.createElement("option");
         placeholder.value = "";
