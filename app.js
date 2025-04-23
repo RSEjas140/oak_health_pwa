@@ -35,7 +35,7 @@ function showPage(pageId) {
 
 
 
-// Map button IDs to their click handler functions, slightly overkill but allows customisation.
+// Map button IDs to their click handler functions for navigation, slightly overkill but allows customisation.
 const navMap = {
     logOakBtn: () => showPage("logOak"),
     reportErrorBtn: () => showPage("reportError"),
@@ -48,6 +48,7 @@ const navMap = {
     readyToLogBackBtn: () => showPage("logOak")
 };
 
+
 // check that everything has loaded and then add the user meta input that are not part of the standard questions 
 document.addEventListener("DOMContentLoaded", () => {
     // Set up navigation buttons from the navMap
@@ -59,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.warn(`Button with ID '${btnId}' not found in DOM.`);
         }
     }
+
 
     // Set up listener for number of trees to log
     const startBtn = document.getElementById("startLoggingBtn");
@@ -73,9 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             totalTreesToLog = count;
-            treesLogged = 0;
+            treesLogged = 0; //make sure if we are entering the number of trees we want to log again that we are starting from 0
 
-            // Create empty answer arrays for each tree
+            // Create empty answer arrays for each tree (arrays x num of trees)
             allAnswers = Array.from({ length: totalTreesToLog }, () =>
                 Array(questions.length).fill("")
             );
@@ -86,7 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("startLoggingBtn not found in DOM.");
     }
 
-    // Set up listener for confirming tree position and starting logging
+
+    // Set up listener for confirming tree position and starting logging, capture meta data and add to end of answer array
     const confirmBtn = document.getElementById("confirmTreeBtn");
     if (confirmBtn) {
         confirmBtn.addEventListener("click", () => {
@@ -105,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("Metadata array is ready:", metadata);
 
                 answers = allAnswers[treesLogged];
-                answers.unshift(...metadata);
+                answers.push(...metadata); // add meta data to end of the answers
 
                 showPage("question");
                 loadQuestion();
@@ -114,6 +117,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.warn("confirmTreeBtn not found in DOM.");
     }
+
+
+
+    // question navigation buttons
 
     const cancelBtn = document.getElementById("cancelButton");
     if (cancelBtn) {
@@ -257,8 +264,11 @@ function loadQuestion() {
 }
 
 function updateButtons() {
+    // if you are anywhere except first question show back
     document.getElementById("backBtn").style.display = currentQuestion > 0 ? "block" : "none";
+    // if you are anywhere except last question show next
     document.getElementById("nextBtn").style.display = currentQuestion < questions.length - 1 ? "block" : "none";
+    // if you are at last question only show submit
     document.getElementById("submitBtn").style.display = currentQuestion === questions.length - 1 ? "block" : "none";
 }
 
@@ -307,12 +317,6 @@ function prevQuestion() {
 
 function downloadCSV() {
 
-    let questionstemp = [...questions];
-
-    questionstemp.push({ label: "Long"})
-    questionstemp.push({ label: "Lat"})
-    questionstemp.push({ label: "ID"})
-
     let csvContent = "data:text/csv;charset=utf-8," +
         questionstemp.map((q, i) => `${q.label},${answers[i]}`).join("\n");
     
@@ -329,7 +333,7 @@ function downloadCSV() {
     currentQuestion = 0;  
 
     // Return to splash page
-    showPage("splashPage");
+    showPage("splash");
 }
 
 function cancelSubmission() {

@@ -1,11 +1,14 @@
 // Full set of questions user is asked. Seperated to a different file for readability can be placed into app.js if desired.
 
+export const headers = ['uid','ts','latitude','longitude','compartment_id','compartment name', 'subcompartment_id', 'subcompartment_name' , 'tree_id', 'species', 'social_class', 'crown_obs', 'crown_transpar', 'cross_miss', 'defoli', 'live_crown',
+'tree_height', 'dbh', 'active_bleeds', 'bleed_length', 'staining', 'stain_length', 'fungal_growth']
+
 export const questions = [
     {
         "label": "Compartment ID",
         "type": "select",
         "options": [
-            "1 - 9"
+            1,2,3,4,5,6,7,8,9
         ],
         "required": true
     },
