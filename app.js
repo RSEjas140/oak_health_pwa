@@ -338,7 +338,7 @@ function nextTree() {
     treesLogged = treesLogged + 1;
     answers = []
     showPage("readyToLog");
-    alert("Tree ${treesLogged + 1} submitted successfully.\nPlease make sure you are standing at the next tree before you start logging the next tree.");
+    alert(`Tree ${treesLogged + 1} submitted successfully.\nPlease make sure you are standing by the next tree before you start logging again.`);
 
 }
 
