@@ -1,5 +1,7 @@
 // questions stored in questions.js
 import { questions } from './questions.js';
+//debug check to test if questions have loaded
+console.log("Questions loaded:", questions);
 
 // function that controls opening pages
 function showPage(pageId) {
@@ -14,6 +16,11 @@ function showPage(pageId) {
         activePage.classList.add('active');
     }
 }
+
+window.showPage = function(index) {
+    currentQuestion = index;
+    loadQuestion();
+};
 
 
 // Set up container based on length of quesitons to store answers
