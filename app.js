@@ -345,7 +345,7 @@ function nextTree() {
 function downloadCSV() {
 
      // create the CSV header row from imprted headers
-    const headerRow = headers.map(h => h.label).join(",");
+    const headerRow = headers.join(",");
 
     // map each array in answers to a row 
     const dataRows = allAnswers.map(row => row.join(","));
@@ -371,7 +371,7 @@ function downloadCSV() {
     const timestamp = `${day}${month}${year}_${hours}${minutes}`;
 
     // name the file
-    link.setAttribute("dowwnload", `oak_tree_data_${timestamp}.csv`);
+    link.setAttribute("download", `oak_tree_data_${timestamp}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
