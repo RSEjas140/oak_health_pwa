@@ -3,9 +3,7 @@ import { questions } from './questions.js';
 //debug check to test if questions have loaded
 console.log("Questions loaded:", questions);
 
-window.addEventListener('load', () => {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-});
+
 
 // Function that controls opening pages
 function showPage(pageId) {
@@ -27,7 +25,7 @@ function showPage(pageId) {
 
 // Map button IDs to their click handler functions
 const navMap = {
-    logOakBtn: startLogging,
+    logOakBtn: () => showPage("logOak"),
     reportErrorBtn: () => showPage("reportError"),
     faqBtn: () => showPage("faq"),
     contactUsBtn: () => showPage("contactUs"),
@@ -53,6 +51,9 @@ document.addEventListener("DOMContentLoaded", () => {
 let answers = Array(questions.length).fill("");
 // Track what questions we are answering
 let currentQuestion = 0;
+
+function 
+
 
 // start the proces of logging trees:
 function startLogging() {
