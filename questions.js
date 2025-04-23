@@ -1,6 +1,6 @@
 // Full set of questions user is asked. Seperated to a different file for readability can be placed into app.js if desired.
 
-let questions = [
+export const questions = [
     {
         "label": "Compartment ID",
         "type": "select",
