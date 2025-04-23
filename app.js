@@ -35,7 +35,6 @@ const navMap = {
     faqBackBtn: () => showPage("splash"),
 };
 
-// Set up event listeners after the DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
     for (const [btnId, handler] of Object.entries(navMap)) {
         const btn = document.getElementById(btnId);
@@ -46,20 +45,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    document.getElementById("startLoggingBtn").addEventListener("click", () => {
-    const input = document.getElementById("treeCountInput");
-    const count = parseInt(input.value);
+    // ✅ Check first before attaching the listener
+    const startBtn = document.getElementById("startLoggingBtn");
+    if (startBtn) {
+        startBtn.addEventListener("click", () => {
+            const input = document.getElementById("treeCountInput");
+            const count = parseInt(input.value);
 
-    if (isNaN(count) || count < 1) {
-        alert("Please enter a valid number of trees to log.");
-        return;
+            if (isNaN(count) || count < 1) {
+                alert("Please enter a valid number of trees to log.");
+                return;
+            }
+
+            totalTreesToLog = count;
+            treesLogged = 0;
+
+            startLogging(); // Launch the questionnaire
+        });
+    } else {
+        console.warn("startLoggingBtn not found in DOM.");
     }
-
-    totalTreesToLog = count;
-    treesLogged = 0;
-
-    startLogging(); // Launch the questionnaire
-    });
 });
 
 // Set up container based on length of quesitons to store answers
