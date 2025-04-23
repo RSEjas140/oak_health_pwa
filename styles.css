@@ -8,8 +8,14 @@ html, body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
     min-height: 100vh;
     box-sizing: border-box;
     height: 100%;
@@ -29,6 +35,7 @@ footer {
     bottom: 0;
     width: 100%;
     margin-top: auto;
+    flex-shrink: 0;
 }
 
 /* Splash Page */
@@ -37,14 +44,21 @@ footer {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 100vh; /* Ensures full screen height */
     width: 100%;
     text-align: center;
     margin: 0;
     padding: 0;
     position: absolute;
-    top: 0;
-    left: 0;
+    flex: 1 0 auto;
+    padding: 5vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding-top: 70px; /* Space for header/back button */
+    width: 100%;
 }
 
 #splashHeader {
@@ -95,6 +109,7 @@ footer {
     align-items: center;
     text-align: center;
     padding-top: 70px; /* Ensure content starts below back button */
+    overflow-y: auto;
 }
 
 /* Active Page */
