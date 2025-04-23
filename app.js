@@ -202,6 +202,7 @@ function loadQuestion() {
     // Standard text and number fields
     if (question.type === "text" || question.type === "number") {
         input = document.createElement("input");
+        input.id = question.id || `question-${currentQuestion}`;
         input.type = question.type;
         input.value = answers[currentQuestion] || "";
         input.oninput = () => answers[currentQuestion] = input.value;
@@ -228,6 +229,7 @@ function loadQuestion() {
         });
         input.value = answers[currentQuestion] || "";
         input.oninput = () => answers[currentQuestion] = input.value;
+        if (input) input.classList.add("input-field");
         container.appendChild(input);
 
     // Radio button group
@@ -319,13 +321,6 @@ function nextQuestion() {
         // Get all selected checkboxes
         const selectedCheckboxes = document.querySelectorAll(`input[name="${question.id}"]:checked`);
         answer = Array.from(selectedCheckboxes).map(cb => cb.value).join(", "); // Store as comma-separated string
-    }
-
-    if (question.type === "text" || question.type === "number" || question.type === "select") {
-        const inputElement = document.getElementById(question.id);
-        if (inputElement) {
-            answer = inputElement.value;
-        }
     }
 
     if (question.required && (!answer || answer.trim() === "")) {
