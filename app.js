@@ -3,17 +3,21 @@ import { questions } from './questions.js';
 //debug check to test if questions have loaded
 console.log("Questions loaded:", questions);
 
-// function that controls opening pages
+// Function that controls opening pages
 function showPage(pageId) {
-    // Hide existing pages
+    // Hide all pages
     document.querySelectorAll('.page').forEach(page => {
         page.classList.remove('active');
     });
 
-    // Show the new selected page
-    const activePage = document.getElementById(pageId);
+    // Append 'Page' to the pageId to match element ID structure
+    const fullPageId = pageId + 'Page';
+    const activePage = document.getElementById(fullPageId);
+
     if (activePage) {
         activePage.classList.add('active');
+    } else {
+        console.warn(`Page with ID '${fullPageId}' not found.`);
     }
 }
 
