@@ -20,7 +20,8 @@ export const questions = [
         "id": 1,
         "label": "Compartment Name",
         "type": "text",
-        "image": "A compartment name is a descriptive label used to identify a specific area of a woodland or forest for management and surveying purposes. It often corresponds to a geographic or administrative designation and helps in organizing large areas into smaller, manageable units. For example, it might reflect a feature of the terrain (like North Slope or Streamside Block) or relate to a planting year or ownership section.",
+        "image": null 
+        "info":"A compartment name is a descriptive label used to identify a specific area of a woodland or forest for management and surveying purposes. It often corresponds to a geographic or administrative designation and helps in organizing large areas into smaller, manageable units. For example, it might reflect a feature of the terrain (like North Slope or Streamside Block) or relate to a planting year or ownership section.",
         "note": "little note"
     },
     {
