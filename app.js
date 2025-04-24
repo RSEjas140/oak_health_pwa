@@ -317,6 +317,11 @@ function storeAnswer() {
         answer = Array.from(selected).map(cb => cb.value).join(", ");
     }
 
+    if (question.type === "range") {
+        const input = document.getElementById(qId);
+        if (input) answer = input.value;
+    }
+
     // Required field check
     if (question.required && (!answer || answer.trim() === "")) {
         alert("This question is compulsory.");
@@ -356,7 +361,7 @@ function nextTree() {
     treesLogged = treesLogged + 1;
     answers = []
     showPage("readyToLog");
-    alert(`Tree ${treesLogged + 1} submitted successfully.\nPlease make sure you are standing by the next tree before you start logging again.`);
+    alert(`Tree ${treesLogged} submitted successfully.\nPlease make sure you are standing by the next tree before you start logging again.`); //tree is incremented before we show message because we start at 0
 
 }
 

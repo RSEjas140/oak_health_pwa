@@ -2,7 +2,7 @@
 
 
 //order is important that it is same as questions and then final meta data order is (uid,ts,long,lat)
-export const headers = ['compartment_id','compartment name', 'subcompartment_id', 'subcompartment_name' , 'tree_id', 'species', 'social_class', 'crown_obs', 'crown_transpar', 'cross_miss', 'defoli', 'live_crown',
+export const headers = ['compartment_id','compartment_name', 'subcompartment_id', 'subcompartment_name' , 'tree_id', 'species', 'social_class', 'crown_obs', 'crown_transpar', 'cross_miss', 'defoli', 'live_crown',
 'tree_height', 'dbh', 'active_bleeds', 'bleed_length', 'staining', 'stain_length', 'fungal_growth', 'uid','ts','longitude', 'latitude']
 
 export const questions = [
