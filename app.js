@@ -215,7 +215,11 @@ function loadQuestion() {
         infoBtn.addEventListener("click", () => {
             const infoBox = document.getElementById("infoBox");
             if (infoBox) {
-                infoBox.classList.toggle("visible");
+                if (infoBox.style.display === "none") {
+                    infoBox.style.display = "block";
+                } else {
+                    infoBox.style.display = "none";
+                }
             }
         });
 
