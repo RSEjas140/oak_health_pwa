@@ -13,14 +13,16 @@ export const questions = [
         "options": [1, 2, 3, 4, 5, 6, 7, 8, 9],
         "required": true,
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 1,
         "label": "Compartment Name",
         "type": "text",
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 2,
@@ -29,14 +31,16 @@ export const questions = [
         "options": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
         "required": true,
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 3,
         "label": "Sub-compartment Name",
         "type": "text",
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 4,
@@ -44,7 +48,8 @@ export const questions = [
         "type": "text",
         "required": true,
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 5,
@@ -53,7 +58,8 @@ export const questions = [
         "options": ["Quercus robur", "Quercus petraea"],
         "required": true,
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 6,
@@ -62,7 +68,8 @@ export const questions = [
         "options": ["1", "2", "3", "4", "5"],
         "required": true,
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 7,
@@ -70,21 +77,24 @@ export const questions = [
         "type": "radio",
         "options": ["Under Tree", "Away from Tree"],
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 8,
         "label": "How much of the tree crown is transparent ?",
         "type": "range",
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 9,
         "label": "How much of tree crown is missing ?",
         "type": "range",
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 10,
@@ -92,56 +102,64 @@ export const questions = [
         "type": "radio",
         "options": ["Yes", "No"],
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 11,
         "label": "What is the height of the lowest living crown ?",
         "type": "text",
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 12,
         "label": "What is the height of the tree ?",
         "type": "text",
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 13,
         "label": "What is the circumference at your breast height ?",
         "type": "text",
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 14,
         "label": "What is the average number of active bleeds ?",
         "type": "text",
-        "image": "graphics/bleeds.webp",
-        "info": null
+        "image": "graphics/bleed.webp",
+        "info": null,
+        "note": null
     },
     {
         "id": 15,
         "label": "What is the average length of the bleeds in centimetres ?",
         "type": "text",
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 16,
         "label": "What is the average number of black stains ?",
         "type": "text",
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 17,
         "label": "What is the average length of the stains in centimetres ?",
         "type": "text",
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     },
     {
         "id": 18,
@@ -149,6 +167,7 @@ export const questions = [
         "type": "radio",
         "options": ["Yes", "No"],
         "image": null,
-        "info": null
+        "info": null,
+        "note": null
     }
 ];
