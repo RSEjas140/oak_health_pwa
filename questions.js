@@ -31,7 +31,7 @@ export const questions = [
         "options": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
         "required": true,
         "image": null,
-        "info": null,
+        "info": "This is a long info paragraph explaining how to identify the correct sub-compartment name. It may include detailed field tips or guidance",
         "note": null
     },
     {
