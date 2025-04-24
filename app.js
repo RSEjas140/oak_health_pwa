@@ -198,8 +198,33 @@ function loadQuestion() {
     const container = document.getElementById("questionContainer");
     container.innerHTML = ""; // Clear previous
 
-    document.getElementById("questionTitle").textContent = question.label;
+    // ===== Title and Info Button =====
+    const titleContainer = document.createElement("div");
+    titleContainer.classList.add("question-title-container");
 
+    const title = document.createElement("h2");
+    title.textContent = question.label;
+    titleContainer.appendChild(title);
+
+    if (question.info) {
+        const infoBtn = document.createElement("img");
+        infoBtn.src = "graphics/rcqm.png";
+        infoBtn.alt = "More Info";
+        infoBtn.classList.add("info-icon");
+
+        infoBtn.addEventListener("click", () => {
+            const infoBox = document.getElementById("infoBox");
+            if (infoBox) {
+                infoBox.classList.toggle("visible");
+            }
+        });
+
+        titleContainer.appendChild(infoBtn);
+    }
+
+    container.appendChild(titleContainer);
+
+    // ===== Note =====
     if (question.note) {
         const note = document.createElement("div");
         note.classList.add("note");
@@ -207,29 +232,36 @@ function loadQuestion() {
         container.appendChild(note);
     }
 
+    // ===== Info Box =====
+    if (question.info) {
+        const infoBox = document.createElement("div");
+        infoBox.id = "infoBox";
+        infoBox.classList.add("info-box");
+        infoBox.textContent = question.info;
+        infoBox.style.display = "none";
+        container.appendChild(infoBox);
+    }
+
+    // ===== Image =====
     if (question.image) {
         const image = document.createElement("img");
         image.src = question.image;
         image.alt = "Illustration for question";
-        image.classList.add("question-image"); // Add a class for styling
+        image.classList.add("question-image");
         container.appendChild(image);
     }
 
+    // ===== Input Logic =====
     let input;
 
-    // TEXT / NUMBER
     if (["text", "number"].includes(question.type)) {
         input = document.createElement("input");
         input.type = question.type;
         input.id = qId;
-        //do we already have an answer?
         input.value = answers[qId] || "";
         input.classList.add("input-field");
         container.appendChild(input);
-    }
-
-    // SELECT DROPDOWN
-    else if (question.type === "select") {
+    } else if (question.type === "select") {
         input = document.createElement("select");
         input.id = qId;
         input.classList.add("input-field");
@@ -250,10 +282,7 @@ function loadQuestion() {
         });
 
         container.appendChild(input);
-    }
-
-    // RADIO
-    else if (question.type === "radio") {
+    } else if (question.type === "radio") {
         question.options.forEach(option => {
             const label = document.createElement("label");
             const radio = document.createElement("input");
@@ -262,7 +291,6 @@ function loadQuestion() {
             radio.name = qId;
             radio.value = option;
             radio.checked = answers[qId] === option;
-
             radio.onchange = () => answers[qId] = option;
 
             label.appendChild(radio);
@@ -270,10 +298,7 @@ function loadQuestion() {
             container.appendChild(label);
             container.appendChild(document.createElement("br"));
         });
-    }
-
-    // RANGE
-    else if (question.type === "range") {
+    } else if (question.type === "range") {
         input = document.createElement("input");
         input.type = "range";
         input.min = 0;
@@ -295,10 +320,9 @@ function loadQuestion() {
         container.appendChild(rangeLabel);
     }
 
-    // update question and tree tracker
+    // ===== Tree and Question Progress =====
     const questionProgress = document.getElementById("questionProgress");
     questionProgress.textContent = `Tree: ${treesLogged + 1}/${totalTreesToLog}   Question: ${currentQuestion + 1}/${questions.length}`;
-    
 
     updateButtons();
 }
