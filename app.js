@@ -212,15 +212,14 @@ function loadQuestion() {
         infoBtn.alt = "More Info";
         infoBtn.classList.add("info-icon");
 
+        const infoBox = document.createElement("div");
+        infoBox.classList.add("info-box");
+        infoBox.textContent = question.info;
+        infoBox.style.display = "none";
+        container.appendChild(infoBox);
+
         infoBtn.addEventListener("click", () => {
-            const infoBox = document.getElementById("infoBox");
-            if (infoBox) {
-                if (infoBox.style.display === "none") {
-                    infoBox.style.display = "block";
-                } else {
-                    infoBox.style.display = "none";
-                }
-            }
+            infoBox.style.display = infoBox.style.display === "none" ? "block" : "none";
         });
 
         titleContainer.appendChild(infoBtn);
@@ -239,11 +238,11 @@ function loadQuestion() {
     // ===== Info Box =====
     if (question.info) {
         const infoBox = document.createElement("div");
-        infoBox.id = "infoBox";
         infoBox.classList.add("info-box");
         infoBox.textContent = question.info;
         infoBox.style.display = "none";
         container.appendChild(infoBox);
+        console.log("infoBox created with content:", question.info);
     }
 
     // ===== Image =====
