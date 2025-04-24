@@ -133,7 +133,7 @@ export const questions = [
         "label": "What is the circumference at your breast height ?",
         "type": "text",
         "image": null,
-        "info": "Where multiple stems emerge from the same tree, please measure the largest stem. If the stems are seperate at ground level, they should be treated as individual trees."" ,
+        "info": "Where multiple stems emerge from the same tree, please measure the largest stem. If the stems are seperate at ground level, they should be treated as individual trees." ,
         "note": null
     },
     {
