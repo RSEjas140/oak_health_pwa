@@ -14,7 +14,7 @@ export const questions = [
         "required": true,
         "image": null,
         "info": null,
-        "note": null
+        "note": "this is an example note, a short description of the question"
     },
     {
         "id": 1,

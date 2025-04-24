@@ -200,6 +200,13 @@ function loadQuestion() {
 
     document.getElementById("questionTitle").textContent = question.label;
 
+    if (question.note) {
+        const note = document.createElement("div");
+        note.classList.add("note");
+        note.textContent = question.note;
+        container.appendChild(note);
+    }
+
     if (question.image) {
         const image = document.createElement("img");
         image.src = question.image;

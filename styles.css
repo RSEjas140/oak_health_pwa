@@ -64,6 +64,13 @@ footer img {
     border-radius: 8px;
 }
 
+.note {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
 /* Splash header */
 #splashHeader {
     display: flex;
