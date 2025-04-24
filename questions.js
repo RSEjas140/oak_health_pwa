@@ -11,111 +11,144 @@ export const questions = [
         "label": "Compartment ID",
         "type": "select",
         "options": [1, 2, 3, 4, 5, 6, 7, 8, 9],
-        "required": true
+        "required": true,
+        "image": null,
+        "info": null
     },
     {
         "id": 1,
         "label": "Compartment Name",
-        "type": "text"
+        "type": "text",
+        "image": null,
+        "info": null
     },
     {
         "id": 2,
         "label": "Sub-compartment ID",
         "type": "select",
-        "options": [
-            "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-            "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
-        ],
-        "required": true
+        "options": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+        "required": true,
+        "image": null,
+        "info": null
     },
     {
         "id": 3,
         "label": "Sub-compartment Name",
-        "type": "text"
+        "type": "text",
+        "image": null,
+        "info": null
     },
     {
         "id": 4,
         "label": "Tree Identifier",
         "type": "text",
-        "required": true
+        "required": true,
+        "image": null,
+        "info": null
     },
     {
         "id": 5,
         "label": "Species",
         "type": "select",
         "options": ["Quercus robur", "Quercus petraea"],
-        "required": true
+        "required": true,
+        "image": null,
+        "info": null
     },
     {
         "id": 6,
         "label": "Social Class",
         "type": "radio",
         "options": ["1", "2", "3", "4", "5"],
-        "required": true
+        "required": true,
+        "image": null,
+        "info": null
     },
     {
         "id": 7,
         "label": "Where are you standing to collect your data ?",
         "type": "radio",
-        "options": ["Under Tree", "Away from Tree"]
+        "options": ["Under Tree", "Away from Tree"],
+        "image": null,
+        "info": null
     },
     {
         "id": 8,
         "label": "How much of the tree crown is transparent ?",
         "type": "range",
-        "note": ""
+        "image": null,
+        "info": null
     },
     {
         "id": 9,
         "label": "How much of tree crown is missing ?",
         "type": "range",
-        "note": ""
+        "image": null,
+        "info": null
     },
     {
         "id": 10,
         "label": "Are there signs of defoliation",
         "type": "radio",
-        "options": ["Yes", "No"]
+        "options": ["Yes", "No"],
+        "image": null,
+        "info": null
     },
     {
         "id": 11,
         "label": "What is the height of the lowest living crown ?",
-        "type": "text"
+        "type": "text",
+        "image": null,
+        "info": null
     },
     {
         "id": 12,
         "label": "What is the height of the tree ?",
-        "type": "text"
+        "type": "text",
+        "image": null,
+        "info": null
     },
     {
         "id": 13,
         "label": "What is the circumference at your breast height ?",
-        "type": "text"
+        "type": "text",
+        "image": null,
+        "info": null
     },
     {
         "id": 14,
         "label": "What is the average number of active bleeds ?",
-        "type": "text"
+        "type": "text",
+        "image": null,
+        "info": null
     },
     {
         "id": 15,
         "label": "What is the average length of the bleeds in centimetres ?",
-        "type": "text"
+        "type": "text",
+        "image": null,
+        "info": null
     },
     {
         "id": 16,
         "label": "What is the average number of black stains ?",
-        "type": "text"
+        "type": "text",
+        "image": null,
+        "info": null
     },
     {
         "id": 17,
         "label": "What is the average length of the stains in centimetres ?",
-        "type": "text"
+        "type": "text",
+        "image": null,
+        "info": null
     },
     {
         "id": 18,
         "label": "Is there evidence of fungal growth ?",
         "type": "radio",
-        "options": ["Yes", "No"]
+        "options": ["Yes", "No"],
+        "image": null,
+        "info": null
     }
 ];

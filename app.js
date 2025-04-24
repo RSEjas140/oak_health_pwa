@@ -353,7 +353,7 @@ function updateButtons() {
 const atFirstQuestion = currentQuestion === 0;
     const atLastQuestion = currentQuestion === questions.length - 1;
     const allTreesDone = treesLogged === totalTreesToLog - 1;
-    const oneTreePlus = treesLogged > 0;
+    const oneTreePlus = treesLogged >= 1;
 
     // Back button: only show if you're not on the first question
     document.getElementById("backBtn").style.display = atFirstQuestion ? "none" : "block";
