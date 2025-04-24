@@ -281,6 +281,10 @@ function loadQuestion() {
         container.appendChild(rangeLabel);
     }
 
+    // update question and tree tracker
+    const questionProgress = document.getElementById("questionProgress");
+    questionProgress.textContent = `Tree: ${treesLogged + 1}/${totalTreesToLog}   Question: ${currentQuestion + 1}/${questions.length}`;
+
     updateButtons();
 }
 
