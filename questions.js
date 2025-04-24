@@ -20,6 +20,7 @@ export const questions = [
         "id": 1,
         "label": "Compartment Name",
         "type": "text",
+        "required": true,
         "image": null, 
         "info": "A compartment name is a descriptive label used to identify a specific area of a woodland or forest for management and surveying purposes. It often corresponds to a geographic or administrative designation and helps in organizing large areas into smaller, manageable units. For example, it might reflect a feature of the terrain (like 'North Slope' or 'Streamside Block') or relate to a planting year or ownership section.",
         "note": "little note"
@@ -38,6 +39,7 @@ export const questions = [
         "id": 3,
         "label": "Sub-compartment Name",
         "type": "text",
+        "required": true,
         "image": null,
         "info": null,
         "note": null
@@ -76,6 +78,7 @@ export const questions = [
         "label": "Where are you standing to collect your data?",
         "type": "radio",
         "options": ["Under Tree", "Away from Tree"],
+        "required": true,
         "image": null,
         "info": null,
         "note": "Your positioning is important for the following question related to crown transparency."
@@ -84,6 +87,7 @@ export const questions = [
         "id": 8,
         "label": "How much of the tree crown is transparent ?",
         "type": "range",
+        "required": true,
         "image": null,
         "info": "Select a representative area of foliage in the crown. Treat the foliage as opaque and everything else (including the branches, sky, etc.) is treated as transparent. You are then estimate what percentage of the area is transparent.",
         "note": null
@@ -92,6 +96,7 @@ export const questions = [
         "id": 9,
         "label": "How much of tree crown is missing ?",
         "type": "range",
+        "required": true,
         "image": null,
         "info": "Treat this as a 3D assessment; please walk around the tree (wherever possible) and note the outline of the crown, look at areas within for branches that are dead or missing",
         "note": null
@@ -101,6 +106,7 @@ export const questions = [
         "label": "Are there signs of defoliation",
         "type": "radio",
         "options": ["Yes", "No"],
+        "required": true,
         "image": null,
         "info": null,
         "note": "Check for areas where leaves are sparse or missing, or abnormal in their colour, texture or shape."
@@ -109,6 +115,7 @@ export const questions = [
         "id": 11,
         "label": "What is the height of the lowest living crown ?",
         "type": "text",
+        "required": true,
         "image": null,
         "info": "Measure the height of the lowest living crown, please ignore branches that do not form part of the crown.",
         "note": null
@@ -133,7 +140,8 @@ export const questions = [
         "id": 14,
         "label": "What is the average number of active bleeds ?",
         "type": "text",
-        "image": "graphics/bleed.webp",
+        "required": true,
+        "image": null,
         "info": "Ensure you are ignoring any bleeds below 1m. Look at the whole stem and branches. How many cracks or holes in the bark are actively exuding a dark, viscous substance?",
         "note": "Ignore bleeds below 1m"
     },
@@ -141,6 +149,7 @@ export const questions = [
         "id": 15,
         "label": "What is the average length of the bleeds in centimetres ?",
         "type": "text",
+        "required": true,
         "image": null,
         "info": "Measure from the top of the crack to the lowest point at which the dark substance has bled.",
         "note": null
@@ -149,6 +158,7 @@ export const questions = [
         "id": 16,
         "label": "What is the average number of black stains ?",
         "type": "text",
+        "required": true,
         "image": null,
         "info": "Ignoring anything below 1m, look at the whole stem and branches. How many cracks or holes in the bark are stained black?",
         "note": "Ignore stains below 1m"
@@ -157,6 +167,7 @@ export const questions = [
         "id": 17,
         "label": "What is the average length of the stains in centimetres ?",
         "type": "text",
+        "required": true,
         "image": null,
         "info": "Measure from the top of the crack to the lowest point at which the bark is stained black.",
         "note": null
@@ -166,6 +177,7 @@ export const questions = [
         "label": "Is there evidence of fungal growth ?",
         "type": "radio",
         "options": ["Yes", "No"],
+        "required": true,
         "image": null,
         "info": null,
         "note": "Assess the whole tree. Can you see fungal fruiting bodies emerging from the bark?"
