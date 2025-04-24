@@ -14,7 +14,7 @@ export const questions = [
         "required": true,
         "image": null,
         "info": null,
-        "note": "this is an example note, a short description of the question"
+        "note": null
     },
     {
         "id": 1,
@@ -22,8 +22,8 @@ export const questions = [
         "type": "text",
         "required": true,
         "image": null, 
-        "info": "A compartment name is a descriptive label used to identify a specific area of a woodland or forest for management and surveying purposes. It often corresponds to a geographic or administrative designation and helps in organizing large areas into smaller, manageable units. For example, it might reflect a feature of the terrain (like 'North Slope' or 'Streamside Block') or relate to a planting year or ownership section.",
-        "note": "little note"
+        "info": null,
+        "note": null,
     },
     {
         "id": 2,
@@ -32,7 +32,7 @@ export const questions = [
         "options": ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
         "required": true,
         "image": null,
-        "info": "This is a long info paragraph explaining how to identify the correct sub-compartment name. It may include detailed field tips or guidance",
+        "info": null,
         "note": null
     },
     {
@@ -81,7 +81,7 @@ export const questions = [
         "required": true,
         "image": null,
         "info": null,
-        "note": "Your positioning is important for the following question related to crown transparency."
+        "note": "Your position is important for the next question on crown transparency. Please stay in place until it’s completed.",
     },
     {
         "id": 8,

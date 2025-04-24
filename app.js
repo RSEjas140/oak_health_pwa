@@ -412,6 +412,7 @@ const atFirstQuestion = currentQuestion === 0;
 
 function nextTree() {
 
+    if (!storeAnswer()) return;
     currentQuestion = 0;
     treesLogged = treesLogged + 1;
     answers = []
@@ -423,6 +424,8 @@ function nextTree() {
 
 function downloadCSV() {
 
+    // make sure last answer was input
+    if (!storeAnswer()) return;
      // create the CSV header row from imprted headers
     const headerRow = headers.join(",");
 
