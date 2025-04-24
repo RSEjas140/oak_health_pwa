@@ -46,7 +46,7 @@ const navMap = {
     contactUsBackBtn: () => showPage("splash"),
     logOakBackBtn: () => showPage("splash"),
     faqBackBtn: () => showPage("splash"),
-    readyToLogBackBtn: () => showPage("logOak")
+    //readyToLogBackBtn: () => showPage("logOak")
 };
 
 
@@ -127,6 +127,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextTreebtn = document.getElementById("nextTreeBtn");
     if (nextTreebtn) {
         nextTreebtn.addEventListener("click", nextTree);
+    }
+
+    const LcancelBtn = document.getElementById("readyToLogBackBtn");
+    if (LcancelBtn) {
+        LcancelBtn.addEventListener("click", quitQ);
     }
 
     const cancelBtn = document.getElementById("QcancelButton");
@@ -413,12 +418,7 @@ function cancelSubmission() {
     
     //if we havent logged any trees then cancel everything
     if (treesLogged === 0){
-        allAnswers = [];  
-        answers = []
-        currentQuestion = 0;  
-        totalTreesToLog = 0;  
-        treesLogged = 0;
-        showPage("splash");
+        quitQ();
 
     //cancel the last tree in the list
     }else{
@@ -429,6 +429,16 @@ function cancelSubmission() {
         showPage("readyToLog");  
     }
 
+}
+
+function quitQ() {
+
+    allAnswers = [];  
+    answers = []
+    currentQuestion = 0;  
+    totalTreesToLog = 0;  
+    treesLogged = 0;
+    showPage("splash");
 }
 
 
