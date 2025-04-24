@@ -199,7 +199,7 @@ function loadQuestion() {
     container.innerHTML = ""; // Clear previous
 
     document.getElementById("questionTitle").textContent = question.label;
-    
+
     if (question.image) {
         const image = document.createElement("img");
         image.src = question.image;
@@ -292,7 +292,7 @@ function loadQuestion() {
     const questionProgress = document.getElementById("questionProgress");
     questionProgress.textContent = `Tree: ${treesLogged + 1}/${totalTreesToLog}   Question: ${currentQuestion + 1}/${questions.length}`;
     
-    
+
     updateButtons();
 }
 
@@ -442,7 +442,6 @@ function cancelSubmission() {
         allAnswers[treesLogged] = Array(questions.length).fill("")
         currentQuestion = 0;
         answers = []
-        treesLogged = treesLogged - 1;
         showPage("readyToLog");  
     }
 
