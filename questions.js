@@ -119,7 +119,7 @@ export const questions = [
         "id": 14,
         "label": "What is the average number of active bleeds ?",
         "type": "text",
-        "image": null,
+        "image": "graphics/bleeds.png",
         "info": null
     },
     {

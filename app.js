@@ -199,12 +199,13 @@ function loadQuestion() {
     container.innerHTML = ""; // Clear previous
 
     document.getElementById("questionTitle").textContent = question.label;
-
-    if (question.note) {
-        const note = document.createElement("div");
-        note.classList.add("note");
-        note.textContent = question.note;
-        container.appendChild(note);
+    
+    if (question.image) {
+        const image = document.createElement("img");
+        image.src = question.image;
+        image.alt = "Illustration for question";
+        image.classList.add("question-image"); // Add a class for styling
+        container.appendChild(image);
     }
 
     let input;
@@ -290,7 +291,8 @@ function loadQuestion() {
     // update question and tree tracker
     const questionProgress = document.getElementById("questionProgress");
     questionProgress.textContent = `Tree: ${treesLogged + 1}/${totalTreesToLog}   Question: ${currentQuestion + 1}/${questions.length}`;
-
+    
+    
     updateButtons();
 }
 
