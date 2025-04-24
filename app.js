@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             totalTreesToLog = count;
-            treesLogged = 0; //make sure if we are entering the number of trees we want to log again that we are starting from 0
+            //treesLogged = 0; //make sure if we are entering the number of trees we want to log again that we are starting from 0
 
             // Create empty answer arrays for each tree (arrays x num of trees)
             allAnswers = Array.from({ length: totalTreesToLog }, () =>
