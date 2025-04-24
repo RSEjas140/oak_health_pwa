@@ -379,6 +379,7 @@ function nextTree() {
     currentQuestion = 0;
     treesLogged = treesLogged + 1;
     answers = []
+    updateButtons();
     showPage("readyToLog");
     alert(`Tree ${treesLogged} submitted successfully.\nPlease make sure you are standing by the next tree before you start logging again.`); //tree is incremented before we show message because we start at 0
 
