@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
             allAnswers = Array.from({ length: totalTreesToLog }, () =>
                 Array(questions.length).fill("")
             );
-
+            updateButtons();
             showPage("readyToLog"); // Move to confirmation screen
         });
     } else {
