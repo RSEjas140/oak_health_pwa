@@ -88,7 +88,7 @@ export const questions = [
         "label": "How much of the tree crown is transparent ?",
         "type": "range",
         "required": true,
-        "image": null,
+        "image": "graphics/Transparencyguide.png",
         "info": "Select a representative area of foliage in the crown. Treat the foliage as opaque and everything else (including the branches, sky, etc.) is treated as transparent. You are then estimate what percentage of the area is transparent.",
         "note": null
     },
