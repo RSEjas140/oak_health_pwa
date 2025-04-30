@@ -411,7 +411,7 @@ function storeAnswer() {
     }
 
     // Required field check
-    if (question.required && (!answer || answer.toString().trim() === "")) {
+    if (question.required && (answer === null || answer === undefined || answer.toString().trim() === "")) {
         alert("This question is compulsory.");
         return false;
     }
