@@ -310,12 +310,14 @@ function loadQuestion() {
     } else if (question.type === "range") {
         input = document.createElement("input");
         input.type = "range";
-        input.min = 0;
-        input.max = 100;
-        input.step = 5;
         input.id = qId;
         input.value = answers[qId] || 0;
         input.classList.add("input-field");
+
+        input.min = question.min !== undefined ? question.rmin : 0;
+        input.max = question.max !== undefined ? question.rmax : 100;
+        input.step = question.step !== undefined ? question.rstep : 5;
+        input.value = answers[qId] !== undefined ? answers[qId] : input.min;
 
         const rangeLabel = document.createElement("span");
         rangeLabel.textContent = input.value + "%";
