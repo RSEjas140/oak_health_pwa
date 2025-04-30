@@ -152,7 +152,8 @@ export const questions = [
         "required": true,
         "image": null,
         "info": "Measure from the top of the crack to the lowest point at which the dark substance has bled.",
-        "note": null
+        "note": null,
+        "showIf": (answers) => parseFloat(answers[14]) > 0
     },
     {
         "id": 16,
@@ -172,7 +173,8 @@ export const questions = [
         "required": true,
         "image": null,
         "info": "Measure from the top of the crack to the lowest point at which the bark is stained black.",
-        "note": "Please enter your answer in cm"
+        "note": "Please enter your answer in cm",
+        "showIf": (answers) => parseFloat(answers[16]) > 0
     },
     {
         "id": 18,

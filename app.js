@@ -337,19 +337,32 @@ function loadQuestion() {
 }
 
 
-function nextQuestion() {
-    // Validate and store current answer before moving forward
-    if (!storeAnswer()) return;
+function prevQuestion() {
+    do {
+        currentQuestion--;
+    } while (
+        currentQuestion >= 0 &&
+        questions[currentQuestion].showIf &&
+        !questions[currentQuestion].showIf(answers)
+    );
 
-    currentQuestion++;
-    if (currentQuestion < questions.length) {
+    if (currentQuestion >= 0) {
         loadQuestion();
     }
 }
 
-function prevQuestion() {
-    if (currentQuestion > 0) {
-        currentQuestion--;
+function nextQuestion() {
+    if (!storeAnswer()) return;
+
+    do {
+        currentQuestion++;
+    } while (
+        currentQuestion < questions.length &&
+        questions[currentQuestion].showIf &&
+        !questions[currentQuestion].showIf(answers)
+    );
+
+    if (currentQuestion < questions.length) {
         loadQuestion();
     }
 }

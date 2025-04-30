@@ -1,3 +1,0 @@
-compartment_id,compartment_name,subcompartment_id,subcompartment_name,tree_id,species,social_class,crown_obs,crown_transpar,cross_miss,defoli,live_crown,tree_height,dbh,active_bleeds,bleed_length,staining,stain_length,fungal_growth,uid,ts,longitude,latitude
-1,1,a,1,1,Quercus robur,1,Under Tree,35,45,Yes,1,1,1,1,1,1,1,Yes,190b6430-7a1b-4fd2-9a7d-a1c867f13bb0,2025-04-24T00:52:19.359Z,-2.2904832,52.117504
-,,,,,,,,,,,,,,,,,,
