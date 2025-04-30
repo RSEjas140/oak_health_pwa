@@ -468,9 +468,7 @@ function downloadCSV({ validate = true } = {}) {
 
 function completeCSV() {
 
-    // make sure last answer was input
-    if (!storeAnswer()) return;
-     // create the CSV header row from imprted headers
+    // create the CSV header row from imprted headers
     const headerRow = headers.join(",");
 
     // map each array in answers to a row 
