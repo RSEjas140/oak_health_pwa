@@ -157,10 +157,10 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.addEventListener("click", downloadCSV);
     }
 
-    // Submit Button — finish logging and download CSV
+    
     const lgsubmitBtn = document.getElementById("LogsubmitBtn");
     if (lgsubmitBtn) {
-        lgsubmitBtn.addEventListener("click", downloadCSV);
+        lgsubmitBtn.addEventListener("click", downloadCSV({ validate: false }));
     }
 });
 
@@ -459,7 +459,14 @@ function nextTree() {
 
 }
 
-function downloadCSV() {
+function downloadCSV({ validate = true } = {}) {
+
+    if (validate && !storeAnswer()) return;
+    completeCSV();
+}
+
+
+function completeCSV() {
 
     // make sure last answer was input
     if (!storeAnswer()) return;
