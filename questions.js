@@ -180,7 +180,7 @@ export const questions = [
         "min": 0,
         "max": 100,
         "required": true,
-        "image": "graphics/blackstain.jpg",
+        "image": "graphics/blackstain.JPG",
         "info": "Ignoring anything below 1m, look at the whole stem and branches. How many cracks or holes in the bark are stained black?",
         "note": "Ignore stains below 1m"
     },
@@ -191,7 +191,7 @@ export const questions = [
         "min": 1,
         "max": 140,
         "required": true,
-        "image": "graphics/blackstain.jpg",
+        "image": "graphics/blackstain.JPG",
         "info": "Measure from the top of the crack to the lowest point at which the bark is stained black.",
         "note": "Please enter your answer in cm",
         "showIf": (answers) => parseFloat(answers[16]) > 0
