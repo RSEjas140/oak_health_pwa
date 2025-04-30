@@ -264,6 +264,12 @@ function loadQuestion() {
         input.value = answers[qId] || "";
         input.classList.add("input-field");
         container.appendChild(input);
+
+        if (question.type === "number") {
+        if (question.min !== undefined) input.min = question.min;
+        if (question.max !== undefined) input.max = question.max;
+    }
+
     } else if (question.type === "select") {
         input = document.createElement("select");
         input.id = qId;
@@ -353,7 +359,25 @@ function storeAnswer() {
     const qId = question.id;
     let answer = null;
 
-    if (["text", "number", "select"].includes(question.type)) {
+    if (question.type === "number") {
+        const input = document.getElementById(qId);
+        if (input) {
+            const value = parseFloat(input.value);
+            if (isNaN(value)) {
+                alert("Please enter a valid number.");
+                return false;
+            }
+            if (question.min !== undefined && value < question.min) {
+                alert(`Value must be at least ${question.min}.`);
+                return false;
+            }
+            if (question.max !== undefined && value > question.max) {
+                alert(`Value must not exceed ${question.max}.`);
+                return false;
+            }
+            answer = value;
+        }
+    } else if (["text", "select"].includes(question.type)) {
         const input = document.getElementById(qId);
         if (input) answer = input.value;
     }
@@ -374,7 +398,7 @@ function storeAnswer() {
     }
 
     // Required field check
-    if (question.required && (!answer || answer.trim() === "")) {
+    if (question.required && (!answer || answer.toString().trim() === "")) {
         alert("This question is compulsory.");
         return false;
     }

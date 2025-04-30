@@ -165,16 +165,18 @@ export const questions = [
     },
     {
         "id": 17,
-        "label": "What is the average length of the stains in centimetres ?",
-        "type": "text",
+        "label": "What is the average length of the stains?",
+        "type": "number",
+        "min": 1,
+        "max": 140,
         "required": true,
         "image": null,
         "info": "Measure from the top of the crack to the lowest point at which the bark is stained black.",
-        "note": null
+        "note": "Please enter your answer in cm"
     },
     {
         "id": 18,
-        "label": "Is there evidence of fungal growth ?",
+        "label": "Is there evidence of fungal growth?",
         "type": "radio",
         "options": ["Yes", "No"],
         "required": true,
