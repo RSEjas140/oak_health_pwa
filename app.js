@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const lgsubmitBtn = document.getElementById("LogsubmitBtn");
     if (lgsubmitBtn) {
-        lgsubmitBtn.addEventListener("click", downloadCSV({ validate: false }));
+        lgsubmitBtn.addEventListener("click", () => downloadCSV({ validate: false }));
     }
 });
 
