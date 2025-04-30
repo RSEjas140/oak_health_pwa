@@ -1,6 +1,6 @@
 // Service-worker is a background script that controls network requestes and cache responses ; enables offline functionality 
 
-const CACHE_NAME = 'oakLogger-v1';
+const CACHE_NAME = 'oaktreehealthapp-v1';
 
 // What we have access to in offline mode
 const STATIC_ASSETS = [
@@ -8,7 +8,8 @@ const STATIC_ASSETS = [
     './index.html',
     './styles.css',
     './app.js',
-    './manifest.json'
+    './manifest.json',
+    './questions.js'
 ];
 
 //intialises on install
