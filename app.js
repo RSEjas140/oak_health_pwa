@@ -333,9 +333,9 @@ function loadQuestion() {
         input.classList.add("input-field");
 
         //set range
-        input.min = question.min !== undefined ? question.rmin : 1;
-        input.max = question.max !== undefined ? question.rmax : 10;
-        input.step = question.step !== undefined ? question.rstep : 1;
+        input.min = question.rmin !== undefined ? question.rmin : 1;
+        input.max = question.rmax !== undefined ? question.rmax : 10;
+        input.step = question.rstep !== undefined ? question.rstep : 1;
         input.value = answers[qId] !== undefined ? answers[qId] : input.min;
 
         const rangeLabel = document.createElement("span");
