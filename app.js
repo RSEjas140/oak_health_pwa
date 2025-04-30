@@ -1,19 +1,23 @@
 // questions stored in questions.js
+
 import { questions } from './questions.js';
 import { headers } from './questions.js';
+
 //debug check to test if questions have loaded
 console.log("Questions loaded:", questions);
 console.log("headers loaded:", headers);
+
+
 //GLOBAL VARS
 
 // Set up container based on length of quesitons to store answers
 let allAnswers = [];
 let answers = [];
+
 // Track what questions we are answering
 let currentQuestion = 0;
 let totalTreesToLog = 0;   // How many trees the user plans to log
 let treesLogged = 0;       // Counter to track how many have been logged so far
-
 
 
 // Function that controls opening pages
@@ -38,10 +42,9 @@ function showPage(pageId) {
 
 // Map button IDs to their click handler functions for navigation, slightly overkill but allows customisation.
 const navMap = {
+    
     logOakBtn: () => showPage("logOak"),
-    reportErrorBtn: () => showPage("reportError"),
     faqBtn: () => showPage("faq"),
-    contactUsBtn: () => showPage("contactUs"),
     reportErrorBackBtn: () => showPage("splash"),
     contactUsBackBtn: () => showPage("splash"),
     logOakBackBtn: () => showPage("splash"),
@@ -52,6 +55,7 @@ const navMap = {
 
 // check that everything has loaded and then add the user meta input that are not part of the standard questions 
 document.addEventListener("DOMContentLoaded", () => {
+    
     // Set up navigation buttons from the navMap
     for (const [btnId, handler] of Object.entries(navMap)) {
         const btn = document.getElementById(btnId);
@@ -76,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             totalTreesToLog = count;
-            //treesLogged = 0; //make sure if we are entering the number of trees we want to log again that we are starting from 0
 
             // Create empty answer arrays for each tree (arrays x num of trees)
             allAnswers = Array.from({ length: totalTreesToLog }, () =>
@@ -122,18 +125,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    // question navigation buttons
-
+    // next tree
     const nextTreebtn = document.getElementById("nextTreeBtn");
     if (nextTreebtn) {
         nextTreebtn.addEventListener("click", nextTree);
     }
 
+    // reset sub cancel button
     const LcancelBtn = document.getElementById("readyToLogBackBtn");
     if (LcancelBtn) {
         LcancelBtn.addEventListener("click", quitQ);
     }
 
+    // cancel during questions - rolls back to last submitted tree
     const cancelBtn = document.getElementById("QcancelButton");
     if (cancelBtn) {
         cancelBtn.addEventListener("click", cancelSubmission);
@@ -157,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submitBtn.addEventListener("click", downloadCSV);
     }
 
-    
+    //submit button from log page (validation false because we are not submitting from the final question)
     const lgsubmitBtn = document.getElementById("LogsubmitBtn");
     if (lgsubmitBtn) {
         lgsubmitBtn.addEventListener("click", () => downloadCSV({ validate: false }));
@@ -165,7 +169,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
 // get user location
+
 function getUserLocation(callback) {
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
@@ -190,15 +196,16 @@ function getUserLocation(callback) {
 
 // Load prev/next questions based on the question file. If you add a new type of question type (e.g., multiple checkbox) this section will need to be adapted to deal with the question.
 
-// some redudnacy in loadquestion and next question needs refactoring (next questions should just deal with index and state)
 function loadQuestion() {
+    
+    // get question
     const question = questions[currentQuestion];
     const qId = question.id;
 
     const container = document.getElementById("questionContainer");
     container.innerHTML = ""; // Clear previous
 
-    // ===== Title and Info Button =====
+    // Title and Info Button
     const titleContainer = document.createElement("div");
     titleContainer.classList.add("question-title-container");
 
@@ -206,7 +213,11 @@ function loadQuestion() {
     title.textContent = question.label;
     titleContainer.appendChild(title);
 
+   
+    // if there is info set up the box to store and the ? to indicate it can be activated
+
     if (question.info) {
+        // set up the "?" button to reveal info
         const infoBtn = document.createElement("img");
         infoBtn.src = "graphics/rcqm.png";
         infoBtn.alt = "More Info";
@@ -227,7 +238,7 @@ function loadQuestion() {
 
     container.appendChild(titleContainer);
 
-    // ===== Note =====
+    //  Notes are short details about the question that allways show
     if (question.note) {
         const note = document.createElement("div");
         note.classList.add("note");
@@ -235,7 +246,7 @@ function loadQuestion() {
         container.appendChild(note);
     }
 
-    // ===== Info Box =====
+    // info is long faq about question, they only show when the ? is clicked
     if (question.info) {
         const infoBox = document.createElement("div");
         infoBox.classList.add("info-box");
@@ -245,7 +256,8 @@ function loadQuestion() {
         console.log("infoBox created with content:", question.info);
     }
 
-    // ===== Image =====
+    // IF there is an Image display it
+
     if (question.image) {
         const image = document.createElement("img");
         image.src = question.image;
@@ -254,9 +266,10 @@ function loadQuestion() {
         container.appendChild(image);
     }
 
-    // ===== Input Logic =====
+    // Input checks and Logic
     let input;
 
+    // text or numeric inputs
     if (["text", "number"].includes(question.type)) {
         input = document.createElement("input");
         input.type = question.type;
@@ -270,6 +283,7 @@ function loadQuestion() {
         if (question.max !== undefined) input.max = question.max;
     }
 
+    // selection questions
     } else if (question.type === "select") {
         input = document.createElement("select");
         input.id = qId;
@@ -291,6 +305,8 @@ function loadQuestion() {
         });
 
         container.appendChild(input);
+
+    // radio button questions
     } else if (question.type === "radio") {
         question.options.forEach(option => {
             const label = document.createElement("label");
@@ -307,6 +323,8 @@ function loadQuestion() {
             container.appendChild(label);
             container.appendChild(document.createElement("br"));
         });
+
+    //range button questions
     } else if (question.type === "range") {
         input = document.createElement("input");
         input.type = "range";
@@ -314,6 +332,7 @@ function loadQuestion() {
         input.value = answers[qId] || 0;
         input.classList.add("input-field");
 
+        //set range
         input.min = question.min !== undefined ? question.rmin : 0;
         input.max = question.max !== undefined ? question.rmax : 100;
         input.step = question.step !== undefined ? question.rstep : 5;
@@ -331,14 +350,15 @@ function loadQuestion() {
         container.appendChild(rangeLabel);
     }
 
-    // ===== Tree and Question Progress =====
+    // Tree and Question Progress counter
     const questionProgress = document.getElementById("questionProgress");
     questionProgress.textContent = `Tree: ${treesLogged + 1}/${totalTreesToLog}   Question: ${currentQuestion + 1}/${questions.length}`;
 
+    //update buttons to support correct options
     updateButtons();
 }
 
-
+//load previous question
 function prevQuestion() {
     do {
         currentQuestion--;
@@ -353,6 +373,7 @@ function prevQuestion() {
     }
 }
 
+//load next question
 function nextQuestion() {
     if (!storeAnswer()) return;
 
@@ -369,6 +390,7 @@ function nextQuestion() {
     }
 }
 
+// checks for storing answers if they are valid
 function storeAnswer() {
     const question = questions[currentQuestion];
     const qId = question.id;
@@ -423,6 +445,7 @@ function storeAnswer() {
     return true;
 }
 
+// buttons will change depending on question progress (submit, next, back etc.)
 function updateButtons() {
 
 const atFirstQuestion = currentQuestion === 0;
@@ -448,7 +471,7 @@ const atFirstQuestion = currentQuestion === 0;
 }
 
 
-
+// logic for what happens at the end of completing a tree with warning not to move onto next tree before physcially being in that location
 function nextTree() {
 
     if (!storeAnswer()) return;
@@ -461,6 +484,7 @@ function nextTree() {
 
 }
 
+// download csv logic to allow validating and not
 function downloadCSV({ validate = true } = {}) {
 
     if (validate && !storeAnswer()) return;
@@ -468,6 +492,7 @@ function downloadCSV({ validate = true } = {}) {
 }
 
 
+// donwload csv with timestamp in name
 function completeCSV() {
 
     // create the CSV header row from imprted headers
@@ -512,6 +537,7 @@ function completeCSV() {
     showPage("splash");
 }
 
+// logic when user leaves questions 
 function cancelSubmission() {
     
     //if we havent logged any trees then cancel everything
@@ -528,6 +554,7 @@ function cancelSubmission() {
 
 }
 
+// reset logic
 function quitQ() {
 
     allAnswers = [];  

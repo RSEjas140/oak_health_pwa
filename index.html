@@ -1,4 +1,4 @@
-<!-- Index page: Controls blurb for main pages (faq,report,contact) and general layout/pos/buttons-->
+<!-- Index page: Controls blurb for faq and general layout/pos/buttons-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#103012">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
-    <title>Oak Logger</title>
+    <title>Oak Tree Health App</title>
     <link rel="icon" href="graphics/icons/icon-192.png" sizes="192x192">
     <link rel="icon" href="graphics/icons/icon-512.png" sizes="512x512">
     <link rel="icon" href="graphics/icons/favicon.ico" type="image/x-icon">
@@ -21,16 +21,15 @@
 <div class="wrapper">
     
 
-
-    <!-- Splash Page: main page, has logo defs -->
+    <!-- Splash Page: main page, defines logos and intro text -->
     <div id="splashPage" class="page active">
         <div id="splashHeader">
             <img src="graphics/icons/icon-512.png" alt="Left Logo" class="splash-logo left">
-            <h1>Oak Logger</h1>
+            <h1>Oak Tree Health App</h1>
             <img src="graphics/aberlogo.png" alt="Right Logo" class="splash-logo right">
         </div>
         <div class="text-container">
-            <p>Capture and log Oak tree health data easily. Click Start to begin logging trees. If you have any questions, please check our FAQs, reach out, or report an error.</p>
+            <p>Capture Oak tree health data. Click Start to begin capturing tree details. If you have any questions, please check our FAQs </p>
         </div>
         <div class="button-container">
             <button class="main-btn" id="logOakBtn">Log an Oak</button>
@@ -39,8 +38,7 @@
     </div>
 
 
-
-    <!-- Log Oak Page -->
+    <!-- Submit an Oak Page -->
     <div id="logOakPage" class="page">
         <div class="subpage-header">
             <button class="back-btn" id="logOakBackBtn">
@@ -48,25 +46,28 @@
             </button>
             <h1 class="subpage-title">Log an Oak</h1>
         </div>
-        <p>To start logging Oaks, please enter how many trees you intend to log in total:</p>
+        <p>To start capturing Oak details, please enter how many Oak trees you intend to capture in total:</p>
 
-         <input type="number" id="treeCountInput" class="input-field" min="1" max="100" placeholder="e.g. 5">
-
+        <input type="number" id="treeCountInput" class="input-field" min="1" max="100" placeholder="e.g. 5">
         <button class="nav-btn" id="startLoggingBtn">Start</button>
     </div>
 
-    <!-- Ready to log page - ensures that GEO/TS/UID are collected at the correct time. -->
+
+
+    <!-- Ready to submit page - ensures that GEO/TS/UID are collected at the correct time. -->
     <div id="readyToLogPage" class="page">
-    <div class="subpage-header">
-        <button class="cancel-btn" id="readyToLogBackBtn">Quit</button>
-        <h1 class="subpage-title">Before you start</h1>
+      <div class="subpage-header">
+          <button class="cancel-btn" id="readyToLogBackBtn">Quit</button>
+          <h1 class="subpage-title">Before you start</h1>
+      </div>
+      <p>Please ensure you're standing NEXT to the Oak you wish to capture. Starting will record your GEO LOCATION and begin the capture process. If you Quit you will lose all progress up until this point. Once you have submited a tree you will be able to download the CSV here.</p>
+      <div class="button-container">
+        <button class="nav-btn" id="confirmTreeBtn">Start Logging Next Tree</button>
+        <button class="nav-btn" id="LogsubmitBtn" style="display:none;">Download CSV</button>
+      </div>
     </div>
-    <p>Please ensure you're standing NEXT to the tree you wish to log. Starting will record your LOCATION and begin the logging process. If you Quit you will lose all progress up until this point. If you submited one tree but have not completed all trees you can download the CSV here.</p>
-    <div class="button-container">
-    <button class="nav-btn" id="confirmTreeBtn">Start Logging Next Tree</button>
-    <button class="nav-btn" id="LogsubmitBtn" style="display:none;">Download CSV</button>
-    </div>
-</div>
+
+
 
     <!-- Dynamic Question Page -->
     <div id="questionPage" class="page">
@@ -75,18 +76,17 @@
 
         <div id="infoBox" class="info-box" style="display: none;"></div>
         <div id="questionContainer"></div>
-        <div class="button-container">
-            <button class="cancel-btn" id="QcancelButton">Cancel</button>
-            <button class="nav-btn" id="nextTreeBtn" style="display:none;">Finish Tree</button>
-            <button class="nav-btn" id="submitBtn" style="display:none;">Download CSV</button>
-            <button class="nav-btn" id="nextBtn" >Next</button>
-            <button class="nav-btn" id="backBtn" >Back</button>
-            
-
-        </div>
+            <div class="button-container">
+              <button class="cancel-btn" id="QcancelButton">Cancel</button>
+              <button class="nav-btn" id="nextTreeBtn" style="display:none;">Finish Tree</button>
+              <button class="nav-btn" id="submitBtn" style="display:none;">Download CSV</button>
+              <button class="nav-btn" id="nextBtn" >Next</button>
+              <button class="nav-btn" id="backBtn" >Back</button>
+            </div>
     </div>
 
-    <!-- FAQ Page (probably makes sense to import text from a file if FAQs are large)-->
+
+    <!-- FAQ Page (probably makes sense to import text from a file if FAQs get large, currently holds generated questions)-->
     <div id="faqPage" class="page">
         <div class="subpage-header">
             <button class="back-btn" id="faqBackBtn">
@@ -94,6 +94,7 @@
             </button>
             <h1 class="subpage-title">FAQ</h1>
         </div>
+        
         <p>Below you'll find answers to common questions about using the Oak Logger app. For tips and guidance on individual questions during logging, tap the “?” icon next to each prompt.</p>
         <p><strong>1. What should I do if I can’t get a GPS signal?</strong><br>If GPS isn't working, try moving to an open area. If it still doesn’t work, you can continue logging, but location data may be incomplete.</p>
         <p><strong>2. Can I edit a tree entry after I’ve submitted it?</strong><br>Currently, the app does not support editing after submission. If a mistake was made, re-log the tree with corrected details.</p>
@@ -101,9 +102,11 @@
         <p><strong>4. I’ve found a bug. How do I report it?</strong><br>Use the “Report an Error” option from the home screen and include as much detail as possible.</p>
     </div>
 
+    <!-- Footer indicates end of page, could be replaced with logo/details -->
     <footer>
         <img src="graphics/footer.png" alt="Footer Image">
     </footer>
+
 </div>
 
 

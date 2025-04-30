@@ -1,6 +1,6 @@
 {
-    "name": "OakLogger",
-    "short_name": "OakLogger",
+    "name": "Oak Tree Health App",
+    "short_name": "OTHA",
     "start_url": "/oak_health_pwa/",  
     "display": "standalone",  
     "background_color": "#ffffff",  
