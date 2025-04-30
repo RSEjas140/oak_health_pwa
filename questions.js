@@ -113,17 +113,21 @@ export const questions = [
     },
     {
         "id": 11,
-        "label": "What is the height of the lowest living crown ?",
-        "type": "text",
+        "label": "What is the height of the lowest living crown?",
+        "type": "number",
+        "min": 1,
+        "max": 40,
         "required": true,
         "image": null,
         "info": "Measure the height of the lowest living crown, please ignore branches that do not form part of the crown.",
-        "note": null
+        "note": "Please provide your answer in metres"
     },
     {
         "id": 12,
-        "label": "What is the height of the tree ?",
-        "type": "text",
+        "label": "What is the height of the tree?",
+        "type": "number",
+        "min": 1,
+        "max": 50,
         "image": null,
         "info": "Measure the total height of the tree from it's base to the tip of the crown.",
         "note": null
@@ -131,7 +135,9 @@ export const questions = [
     {
         "id": 13,
         "label": "What is the circumference at your breast height ?",
-        "type": "text",
+        "type": "number",
+        "min": 50,
+        "max": 1000,
         "image": null,
         "info": "Where multiple stems emerge from the same tree, please measure the largest stem. If the stems are seperate at ground level, they should be treated as individual trees." ,
         "note": null
@@ -139,7 +145,9 @@ export const questions = [
     {
         "id": 14,
         "label": "What is the average number of active bleeds ?",
-        "type": "text",
+        "type": "number",
+        "min": 0,
+        "max": 100,
         "required": true,
         "image": null,
         "info": "Ensure you are ignoring any bleeds below 1m. Look at the whole stem and branches. How many cracks or holes in the bark are actively exuding a dark, viscous substance?",
@@ -148,7 +156,9 @@ export const questions = [
     {
         "id": 15,
         "label": "What is the average length of the bleeds in centimetres ?",
-        "type": "text",
+        "type": "number",
+        "min": 1,
+        "max": 140,
         "required": true,
         "image": null,
         "info": "Measure from the top of the crack to the lowest point at which the dark substance has bled.",
@@ -158,7 +168,9 @@ export const questions = [
     {
         "id": 16,
         "label": "What is the average number of black stains ?",
-        "type": "text",
+        "type": "number",
+        "min": 0,
+        "max": 100,
         "required": true,
         "image": null,
         "info": "Ignoring anything below 1m, look at the whole stem and branches. How many cracks or holes in the bark are stained black?",
