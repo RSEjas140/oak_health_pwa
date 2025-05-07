@@ -183,12 +183,14 @@ function getUserLocation(callback) {
             },
             (error) => {
                 console.error("Error getting location:", error.message);
-                alert("Unable to retrieve location. Please check your permissions.");
+                alert("Unable to retrieve location. Please check your permissions or location will not be captured.");
+                callback(0, 0);
             },
             { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
         );
     } else {
-        alert("Geolocation is not supported by your browser.");
+        alert("Geolocation is not supported by your browser, no location data can be captured.");
+        callback(0,0)
     }
 }
 
