@@ -59,7 +59,7 @@ export const questions = [
         "id": 5,
         "label": "Species",
         "type": "select",
-        "options": ["Quercus robur", "Quercus petraea"],
+        "options": ["Quercus robur", "Quercus petraea", "Hybid", "Unknown Native Oak"],
         "required": true,
         "image": null,
         "info": null,
@@ -69,7 +69,7 @@ export const questions = [
         "id": 6,
         "label": "Social Class",
         "type": "radio",
-        "options": ["1", "2", "3", "4", "5"],
+        "options": ["1. Dominant (No neighbour is taller)", "2. Co-dominant (Neighbours are the same height)", "3. Sub-dominant (Neighbours taller, but not shaded)", "4 - Suppressed (Shaded out by neighbours)"],
         "required": true,
         "image": null,
         "info": "This question is asking you to consider what is the stature of the tree in relation to its neighbours? A dominant tree (Score: 1) will rise above the average canopy height. A suppressed tree (Score: 5) will be overshadowed by other trees and may have a weak, poorly formed crown.",
@@ -111,7 +111,7 @@ export const questions = [
     },
     {
         "id": 10,
-        "label": "Are there signs of defoliation",
+        "label": "Are there signs of insect defoliation?",
         "type": "radio",
         "options": ["Yes", "No"],
         "required": true,
@@ -142,7 +142,7 @@ export const questions = [
     },
     {
         "id": 13,
-        "label": "What is the circumference at your breast height ?",
+        "label": "What is the circumference at 1.3m from the ground? ",
         "type": "number",
         "min": 50,
         "max": 1000,
@@ -152,18 +152,18 @@ export const questions = [
     },
     {
         "id": 14,
-        "label": "What is the average number of active bleeds ?",
+        "label": "What is the average number of active bleeds (liquid currently running out of bark crack) ?",
         "type": "number",
         "min": 0,
         "max": 100,
         "required": true,
         "image": "graphics/activebleed.jpg",
-        "info": "Ensure you are ignoring any bleeds below 1m. Look at the whole stem and branches. How many cracks or holes in the bark are actively exuding a dark, viscous substance?",
-        "note": "Ignore bleeds below 1m"
+        "info": "Look at the whole stem and branches. How many cracks or holes in the bark are actively exuding a dark, viscous substance?",
+        "note": null
     },
     {
         "id": 15,
-        "label": "What is the average length of the bleeds in centimetres ?",
+        "label": "What is the average length of the bleeds (in centimetres) ?",
         "type": "number",
         "min": 1,
         "max": 140,
@@ -175,7 +175,19 @@ export const questions = [
     },
     {
         "id": 16,
-        "label": "What is the average number of black stains ?",
+        "label": "What is the height of the highest bleed (in metres) ?",
+        "type": "number",
+        "min": 1,
+        "max": 50,
+        "required": true,
+        "image": "graphics/activebleed.jpg",
+        "info": null,
+        "note": null,
+        "showIf": (answers) => parseFloat(answers[14]) > 0
+    },
+    {
+        "id": 17,
+        "label": "What is the average number of dry black stains?",
         "type": "number",
         "min": 0,
         "max": 100,
@@ -185,7 +197,7 @@ export const questions = [
         "note": "Ignore stains below 1m"
     },
     {
-        "id": 17,
+        "id": 18,
         "label": "What is the average length of the stains?",
         "type": "number",
         "min": 1,
@@ -194,10 +206,10 @@ export const questions = [
         "image": "graphics/blackstain.JPG",
         "info": "Measure from the top of the crack to the lowest point at which the bark is stained black.",
         "note": "Please enter your answer in cm",
-        "showIf": (answers) => parseFloat(answers[16]) > 0
+        "showIf": (answers) => parseFloat(answers[17]) > 0
     },
     {
-        "id": 18,
+        "id": 19,
         "label": "Is there evidence of fungal growth?",
         "type": "radio",
         "options": ["Yes", "No"],
@@ -205,5 +217,35 @@ export const questions = [
         "image": null,
         "info": null,
         "note": "Assess the whole tree. Can you see fungal fruiting bodies emerging from the bark?"
+    },
+    {
+        "id": 20,
+        "label": "Are there signs of mildew?",
+        "type": "radio",
+        "options": ["Yes", "No"],
+        "required": true,
+        "image": null,
+        "info": null,
+        "note": null,
+    }
+    {
+        "id": 21,
+        "label": "Are there signs of fungal fruiting bodies near the roots?",
+        "type": "radio",
+        "options": ["Yes", "No"],
+        "required": true,
+        "image": null,
+        "info": null,
+        "note": null,
+    }
+    {
+        "id": 22,
+        "label": "Please take supporting photos of any stem symptoms and indicate if you have here.",
+        "type": "radio",
+        "options": ["Yes", "No"],
+        "required": true,
+        "image": null,
+        "info": null,
+        "note": null,
     }
 ];
