@@ -59,7 +59,7 @@ export const questions = [
         "id": 5,
         "label": "Species",
         "type": "select",
-        "options": ["Quercus robur", "Quercus petraea", "Hybid", "Unknown Native Oak"],
+        "options": ["Quercus robur", "Quercus petraea", "Hybrid", "Unknown Native Oak"],
         "required": true,
         "image": null,
         "info": null,
