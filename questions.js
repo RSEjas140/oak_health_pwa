@@ -109,18 +109,9 @@ export const questions = [
         "info": "Treat this as a 3D assessment; please walk around the tree (wherever possible) and note the outline of the crown, look at areas within for branches that are dead or missing",
         "note": null
     },
+    
     {
         "id": 10,
-        "label": "Are there signs of insect defoliation?",
-        "type": "radio",
-        "options": ["Yes", "No"],
-        "required": true,
-        "image": null,
-        "info": null,
-        "note": "Check for areas where leaves are sparse or missing, or abnormal in their colour, texture or shape."
-    },
-    {
-        "id": 11,
         "label": "What is the height of the lowest living crown?",
         "type": "number",
         "min": 1,
@@ -131,7 +122,7 @@ export const questions = [
         "note": "Please provide your answer in metres"
     },
     {
-        "id": 12,
+        "id": 11,
         "label": "What is the height of the tree?",
         "type": "number",
         "min": 1,
@@ -141,7 +132,7 @@ export const questions = [
         "note": null
     },
     {
-        "id": 13,
+        "id": 12,
         "label": "What is the circumference at 1.3m from the ground? ",
         "type": "number",
         "min": 50,
@@ -151,7 +142,7 @@ export const questions = [
         "note": null
     },
     {
-        "id": 14,
+        "id": 13,
         "label": "What is the average number of active bleeds (liquid currently running out of bark crack) ?",
         "type": "number",
         "min": 0,
@@ -162,7 +153,7 @@ export const questions = [
         "note": null
     },
     {
-        "id": 15,
+        "id": 14,
         "label": "What is the average length of the bleeds (in centimetres) ?",
         "type": "number",
         "min": 1,
@@ -171,10 +162,10 @@ export const questions = [
         "image": "graphics/activebleed.jpg",
         "info": "Measure from the top of the crack to the lowest point at which the dark substance has bled.",
         "note": null,
-        "showIf": (answers) => parseFloat(answers[14]) > 0
+        "showIf": (answers) => parseFloat(answers[13]) > 0
     },
     {
-        "id": 16,
+        "id": 15,
         "label": "What is the height of the highest bleed (in metres) ?",
         "type": "number",
         "min": 1,
@@ -183,10 +174,10 @@ export const questions = [
         "image": "graphics/activebleed.jpg",
         "info": null,
         "note": null,
-        "showIf": (answers) => parseFloat(answers[14]) > 0
+        "showIf": (answers) => parseFloat(answers[13]) > 0
     },
     {
-        "id": 17,
+        "id": 16,
         "label": "What is the average number of dry black stains?",
         "type": "number",
         "min": 0,
@@ -197,7 +188,7 @@ export const questions = [
         "note": "Ignore stains below 1m"
     },
     {
-        "id": 18,
+        "id": 17,
         "label": "What is the average length of the stains?",
         "type": "number",
         "min": 1,
@@ -206,7 +197,17 @@ export const questions = [
         "image": "graphics/blackstain.JPG",
         "info": "Measure from the top of the crack to the lowest point at which the bark is stained black.",
         "note": "Please enter your answer in cm",
-        "showIf": (answers) => parseFloat(answers[17]) > 0
+        "showIf": (answers) => parseFloat(answers[16]) > 0
+    },
+    {
+        "id": 18,
+        "label": "Are there signs of insect defoliation?",
+        "type": "radio",
+        "options": ["Yes", "No"],
+        "required": true,
+        "image": null,
+        "info": null,
+        "note": "Check for areas where leaves are sparse or missing, or abnormal in their colour, texture or shape."
     },
     {
         "id": 19,
@@ -219,16 +220,6 @@ export const questions = [
         "note": "Assess the whole tree. Can you see fungal fruiting bodies emerging from the bark?"
     },
     {
-        "id": 20,
-        "label": "Are there signs of mildew?",
-        "type": "radio",
-        "options": ["Yes", "No"],
-        "required": true,
-        "image": null,
-        "info": null,
-        "note": null,
-    },
-    {
         "id": 21,
         "label": "Are there signs of fungal fruiting bodies near the roots?",
         "type": "radio",
@@ -238,6 +229,17 @@ export const questions = [
         "info": null,
         "note": null,
     },
+    {
+        "id": 20,
+        "label": "Are there signs of mildew?",
+        "type": "radio",
+        "options": ["Yes", "No"],
+        "required": true,
+        "image": null,
+        "info": null,
+        "note": null,
+    },
+    
     {
         "id": 22,
         "label": "Please take supporting photos of any stem symptoms and indicate if you have here.",
