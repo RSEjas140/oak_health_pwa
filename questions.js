@@ -227,7 +227,7 @@ export const questions = [
         "image": null,
         "info": null,
         "note": null,
-    }
+    },
     {
         "id": 21,
         "label": "Are there signs of fungal fruiting bodies near the roots?",
@@ -237,7 +237,7 @@ export const questions = [
         "image": null,
         "info": null,
         "note": null,
-    }
+    },
     {
         "id": 22,
         "label": "Please take supporting photos of any stem symptoms and indicate if you have here.",
