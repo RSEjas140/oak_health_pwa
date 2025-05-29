@@ -113,7 +113,7 @@ export const questions = [
         "type": "number",
         "min": 1,
         "max": 40,
-        "required": true,
+        "required": false,
         "image": null,
         "info": "Measure the height of the lowest living crown, ignoring branches that do not form part of the crown. ",
         "note": "Please provide your answer in metres"
@@ -124,18 +124,19 @@ export const questions = [
         "type": "number",
         "min": 1,
         "max": 50,
+        "required": false.
         "image": null,
         "info": "Measure the total height of the tree from it's base to the tip of the crown.",
         "note": null
     },
     {
         "id": 11,
-        "label": "What is the circumference at 1.3m from the ground? ",
+        "label": "What is the circumference(cm) at 1.3m from the ground? ",
         "type": "number",
         "min": 50,
         "max": 1000,
         "image": null,
-        "info": "Measure at 1.3m on the stem. Where multiple stems emerge from the same tree, measure the largest stem. If the stems are seperate at ground level, treat them as individual trees. ",
+        "info": "Measure at 1.3m on the stem in cm. Where multiple stems emerge from the same tree, measure the largest stem. If the stems are seperate at ground level, treat them as individual trees. ",
         "note": null
     },
     {
