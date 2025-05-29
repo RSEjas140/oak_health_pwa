@@ -124,7 +124,7 @@ export const questions = [
         "type": "number",
         "min": 1,
         "max": 50,
-        "required": false.
+        "required": false,
         "image": null,
         "info": "Measure the total height of the tree from it's base to the tip of the crown.",
         "note": null
