@@ -58,30 +58,9 @@ export const questions = [
         "info": "What is the stature of the tree in relation to it's neighbours? 1. Dominant (no neighbour is taller) 2. Co-dominant (neighbours are same height) 3.Sub-dominant (Neighbours taller, but not shaded) 4.Suppressed (shaded out by neighbours)",
         "note": "Score the tree's stature from dominant(1) to suppressed(5)"
     },
+
     {
         "id": 5,
-        "label": "Where are you standing to collect your data?",
-        "type": "radio",
-        "options": ["Under Tree", "Away from Tree"],
-        "required": true,
-        "image": null,
-        "info": null,
-        "note": "Your position is important for the next question on crown transparency. Please stay in place until it’s completed.",
-    },
-    {
-        "id": 6,
-        "label": "How much of the tree crown is transparent ?",
-        "type": "range",
-        "rmin": 5,
-        "rmax": 100,
-        "rstep": 5,
-        "required": true,
-        "image": "graphics/Transparencyguide.png",
-        "info": "Select a representative area of foliage in the crown you are surveying. The foliage is treated as opaque; everything else, including the branches is treated as transparent.",
-        "note": null
-    },
-    {
-        "id": 7,
         "label": "How much of tree crown is missing ?",
         "type": "range",
         "rmin": 5,
@@ -92,6 +71,30 @@ export const questions = [
         "info": "This is a 3D assessment; walk around the tree and note the outline of the crown, looking for areas within where branches are dead or missing.",
         "note": null
     },
+
+    {
+        "id": 6,
+        "label": "Where are you standing to collect your data?",
+        "type": "radio",
+        "options": ["Under Tree", "Away from Tree"],
+        "required": true,
+        "image": null,
+        "info": null,
+        "note": "Your position is important for the next question on crown transparency. Please stay in place until it’s completed.",
+    },
+    {
+        "id": 7,
+        "label": "How much of the tree crown is transparent ?",
+        "type": "range",
+        "rmin": 5,
+        "rmax": 100,
+        "rstep": 5,
+        "required": true,
+        "image": "graphics/Transparencyguide.png",
+        "info": "Select a representative area of foliage in the crown you are surveying. The foliage is treated as opaque; everything else, including the branches is treated as transparent.",
+        "note": null
+    },
+    
 
     {
         "id": 8,
