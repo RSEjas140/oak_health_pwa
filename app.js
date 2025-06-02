@@ -392,8 +392,8 @@ function nextQuestion() {
     }
 }
 
-// checks for storing answers if they are valid
-function storeAnswer() {
+// checks for storing answers if they are valid, issues with logic for this function JAS140 can be removed after testing
+function storeAnswer_old() {
     const question = questions[currentQuestion];
     const qId = question.id;
     let answer = null;
@@ -440,6 +440,84 @@ function storeAnswer() {
     if (question.required && (answer === null || answer === undefined || answer.toString().trim() === "")) {
         alert("This question is compulsory.");
         return false;
+    }
+
+    answers[qId] = answer;
+    console.log("Stored Answers:", answers);
+    return true;
+}
+
+
+// should allow skipping for questions that required verification
+function storeAnswer() {
+    const question = questions[currentQuestion];
+    const qId = question.id;
+    let answer = null;
+
+    // Retrieve value based on question type
+    if (question.type === "number") {
+        const input = document.getElementById(qId);
+        if (input) {
+            const rawValue = input.value.trim();
+            if (rawValue === "") {
+                if (question.required) {
+                    alert("This question is compulsory.");
+                    return false;
+                } else {
+                    answers[qId] = ""; // Store blank if not required
+                    return true;
+                }
+            }
+
+            const value = parseFloat(rawValue);
+            if (isNaN(value)) {
+                alert("Please enter a valid number.");
+                return false;
+            }
+            if (question.min !== undefined && value < question.min) {
+                alert(`Value must be at least ${question.min}.`);
+                return false;
+            }
+            if (question.max !== undefined && value > question.max) {
+                alert(`Value must not exceed ${question.max}.`);
+                return false;
+            }
+            answer = value;
+        }
+
+    } else if (["text", "select"].includes(question.type)) {
+        const input = document.getElementById(qId);
+        if (input) {
+            const rawValue = input.value.trim();
+            if (question.required && rawValue === "") {
+                alert("This question is compulsory.");
+                return false;
+            }
+            answer = rawValue;
+        }
+
+    } else if (question.type === "radio") {
+        const selected = document.querySelector(`input[name="${qId}"]:checked`);
+        if (!selected && question.required) {
+            alert("This question is compulsory.");
+            return false;
+        }
+        answer = selected ? selected.value : "";
+
+    } else if (question.type === "checkbox") {
+        const selected = document.querySelectorAll(`input[name="${qId}"]:checked`);
+        answer = Array.from(selected).map(cb => cb.value).join(", ");
+        if (question.required && !answer) {
+            alert("This question is compulsory.");
+            return false;
+        }
+
+    } else if (question.type === "range") {
+        const input = document.getElementById(qId);
+        if (input) {
+            const value = input.value;
+            answer = value;
+        }
     }
 
     answers[qId] = answer;
