@@ -392,61 +392,6 @@ function nextQuestion() {
     }
 }
 
-// checks for storing answers if they are valid, issues with logic for this function JAS140 can be removed after testing
-function storeAnswer_old() {
-    const question = questions[currentQuestion];
-    const qId = question.id;
-    let answer = null;
-
-    if (question.type === "number") {
-        const input = document.getElementById(qId);
-        if (input) {
-            const value = parseFloat(input.value);
-            if (isNaN(value)) {
-                alert("Please enter a valid number.");
-                return false;
-            }
-            if (question.min !== undefined && value < question.min) {
-                alert(`Value must be at least ${question.min}.`);
-                return false;
-            }
-            if (question.max !== undefined && value > question.max) {
-                alert(`Value must not exceed ${question.max}.`);
-                return false;
-            }
-            answer = value;
-        }
-    } else if (["text", "select"].includes(question.type)) {
-        const input = document.getElementById(qId);
-        if (input) answer = input.value;
-    }
-
-    if (question.type === "radio") {
-        const selected = document.querySelector(`input[name="${qId}"]:checked`);
-        if (selected) answer = selected.value;
-    }
-
-    if (question.type === "checkbox") {
-        const selected = document.querySelectorAll(`input[name="${qId}"]:checked`);
-        answer = Array.from(selected).map(cb => cb.value).join(", ");
-    }
-
-    if (question.type === "range") {
-        const input = document.getElementById(qId);
-        if (input) answer = input.value;
-    }
-
-    // Required field check
-    if (question.required && (answer === null || answer === undefined || answer.toString().trim() === "")) {
-        alert("This question is compulsory.");
-        return false;
-    }
-
-    answers[qId] = answer;
-    console.log("Stored Answers:", answers);
-    return true;
-}
-
 
 // should allow skipping for questions that required verification
 function storeAnswer() {

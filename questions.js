@@ -135,6 +135,7 @@ export const questions = [
         "type": "number",
         "min": 50,
         "max": 1000,
+        "required": true,
         "image": null,
         "info": "Measure at 1.3m on the stem in cm. Where multiple stems emerge from the same tree, measure the largest stem. If the stems are seperate at ground level, treat them as individual trees. ",
         "note": null
