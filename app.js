@@ -392,16 +392,29 @@ function nextQuestion() {
     }
 }
 
-// checks for storing answers if they are valid
+
+// should allow skipping for questions that required verification
 function storeAnswer() {
     const question = questions[currentQuestion];
     const qId = question.id;
     let answer = null;
 
+    // Retrieve value based on question type
     if (question.type === "number") {
         const input = document.getElementById(qId);
         if (input) {
-            const value = parseFloat(input.value);
+            const rawValue = input.value.trim();
+            if (rawValue === "") {
+                if (question.required) {
+                    alert("This question is compulsory.");
+                    return false;
+                } else {
+                    answers[qId] = ""; // Store blank if not required
+                    return true;
+                }
+            }
+
+            const value = parseFloat(rawValue);
             if (isNaN(value)) {
                 alert("Please enter a valid number.");
                 return false;
@@ -416,30 +429,40 @@ function storeAnswer() {
             }
             answer = value;
         }
+
     } else if (["text", "select"].includes(question.type)) {
         const input = document.getElementById(qId);
-        if (input) answer = input.value;
-    }
+        if (input) {
+            const rawValue = input.value.trim();
+            if (question.required && rawValue === "") {
+                alert("This question is compulsory.");
+                return false;
+            }
+            answer = rawValue;
+        }
 
-    if (question.type === "radio") {
+    } else if (question.type === "radio") {
         const selected = document.querySelector(`input[name="${qId}"]:checked`);
-        if (selected) answer = selected.value;
-    }
+        if (!selected && question.required) {
+            alert("This question is compulsory.");
+            return false;
+        }
+        answer = selected ? selected.value : "";
 
-    if (question.type === "checkbox") {
+    } else if (question.type === "checkbox") {
         const selected = document.querySelectorAll(`input[name="${qId}"]:checked`);
         answer = Array.from(selected).map(cb => cb.value).join(", ");
-    }
+        if (question.required && !answer) {
+            alert("This question is compulsory.");
+            return false;
+        }
 
-    if (question.type === "range") {
+    } else if (question.type === "range") {
         const input = document.getElementById(qId);
-        if (input) answer = input.value;
-    }
-
-    // Required field check
-    if (question.required && (answer === null || answer === undefined || answer.toString().trim() === "")) {
-        alert("This question is compulsory.");
-        return false;
+        if (input) {
+            const value = input.value;
+            answer = value;
+        }
     }
 
     answers[qId] = answer;
