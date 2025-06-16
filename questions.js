@@ -52,7 +52,7 @@ export const questions = [
         "id": 4,
         "label": "Social Class",
         "type": "radio",
-        "options": ["1. Dominant (No neighbour is taller)", "2. Co-dominant (Neighbours are the same height)", "3. Sub-dominant (Neighbours taller, but not shaded)", "4 - Suppressed (Shaded out by neighbours)"],
+        "options": ["1. Dominant (No neighbour is taller)", "2. Co-dominant (Neighbours are the same height)", "3. Sub-dominant (Neighbours taller but not shaded)", "4 - Suppressed (Shaded out by neighbours)"],
         "required": true,
         "image": null,
         "info": "What is the stature of the tree in relation to it's neighbours? 1. Dominant (no neighbour is taller) 2. Co-dominant (neighbours are same height) 3.Sub-dominant (Neighbours taller, but not shaded) 4.Suppressed (shaded out by neighbours)",
