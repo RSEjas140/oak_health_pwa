@@ -4,7 +4,7 @@
 //order is important that it is same as questions and then final meta data order is (uid,ts,long,lat)
 // custom question skipping based on user answers to questions. If question order modified question skip params need to be updated
 
-export const headers = ['tree_id', 'species', 'social_class', 'crown_obs', 'crown_transpar', 'cross_miss',  'live_crown',
+export const headers = ['tree_id', 'species', 'social_class',  'crown_obs', 'crown_transpar', 'cross_miss', 'defoli', 'live_crown',
 'tree_height', 'dbh', 'active_bleeds', 'bleed_length', 'staining', 'stain_length', 'highest_stain_bleed', 'agrilus_emergence_holes', 'defoli', 'fungal_growth_tree',  'fungal_growth_roots', 'mildew',
  'photos_taken', 'uid','ts','longitude', 'latitude']
 
@@ -42,19 +42,6 @@ export const questions = [
 
     {
         "id": 3,
-        "label": "How much of tree crown is missing ?",
-        "type": "range",
-        "rmin": 5,
-        "rmax": 95,
-        "rstep": 5,
-        "required": true,
-        "image": null,
-        "info": "This is a 3D assessment; walk around the tree and note the outline of the crown, looking for areas within where branches are dead or missing.",
-        "note": null
-    },
-
-    {
-        "id": 4,
         "label": "Where are you standing to collect your data?",
         "type": "radio",
         "options": ["Under Tree", "Away from Tree"],
@@ -63,8 +50,10 @@ export const questions = [
         "info": null,
         "note": "Your position is important for the next question on crown transparency. Please stay in place until it’s completed.",
     },
+
+    
     {
-        "id": 5,
+        "id": 4,
         "label": "How much of the tree crown is transparent ?",
         "type": "range",
         "rmin": 5,
@@ -73,6 +62,18 @@ export const questions = [
         "required": true,
         "image": "graphics/Transparencyguide.png",
         "info": "Select a representative area of foliage in the crown you are surveying. The foliage is treated as opaque; everything else, including the branches is treated as transparent.",
+        "note": null
+    },
+    {
+        "id": 5,
+        "label": "How much of tree crown is missing ?",
+        "type": "range",
+        "rmin": 5,
+        "rmax": 95,
+        "rstep": 5,
+        "required": true,
+        "image": null,
+        "info": "This is a 3D assessment; walk around the tree and note the outline of the crown, looking for areas within where branches are dead or missing.",
         "note": null
     },
     
