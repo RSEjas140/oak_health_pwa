@@ -112,8 +112,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 console.log("Metadata array is ready:", metadata);
 
-                answers = allAnswers[treesLogged];
-                answers.push(...metadata); // add meta data to end of the answers
+
+                // error where lat and long can be added to wrong list - I think this is occuring because long and lat are 
+                // taking longer than expected and then being added to wrong answer list but I am not 100% sure
+                // this should force the call to only change the current answer list
+                
+                const answersForTree = allAnswers[treeIndex];
+                answersForTree.length = questions.length; // pad in case not filled yet
+                answersForTree.push(...metadata);
+
+                // Now update global 'answers' reference
+                answers = answersForTree;
 
                 showPage("question");
                 loadQuestion();
