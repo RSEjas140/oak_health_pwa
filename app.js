@@ -107,8 +107,8 @@ document.addEventListener("DOMContentLoaded", () => {
             metadata[1] = timestamp;
 
             getUserLocation((lat, long) => {
-                metadata[2] = long;
-                metadata[3] = lat;
+                metadata[2] = lat;
+                metadata[3] = long;
 
                 console.log("Metadata array is ready:", metadata);
 

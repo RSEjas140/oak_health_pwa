@@ -5,8 +5,8 @@
 // custom question skipping based on user answers to questions. If question order modified question skip params need to be updated
 
 export const headers = ['tree_id', 'species', 'social_class',  'crown_obs', 'crown_transpar', 'cross_miss', 'defoli', 'live_crown',
-'tree_height', 'dbh', 'active_bleeds', 'bleed_length', 'staining', 'stain_length', 'highest_stain_bleed', 'agrilus_emergence_holes', 'defoli', 'fungal_growth_tree',  'fungal_growth_roots', 'mildew',
- 'photos_taken', 'uid','ts','longitude', 'latitude']
+'tree_height', 'dbh', 'active_bleeds', 'bleed_length', 'staining', 'stain_length', 'highest_stain_bleed', 'fungal_growth_tree', 'agrilus_emergence_holes' 'fungal_growth_roots', 'mildew', 
+'photos_taken', 'uid','ts', 'latitude', 'longitude']
 
 export const questions = [
     
@@ -181,20 +181,9 @@ export const questions = [
         "note": null,
         "showIf": (answers) => parseFloat(answers[10]) > 0 || parseFloat(answers[12]) > 0
     },
+        
     {
         "id": 15,
-        "label": "Are there D-shaped Agrilus emergence holes?",
-        "type": "radio",
-        "options": ["Yes", "No"],
-        "required": true,
-        "image": null,
-        "info": null,
-        "note": "Look at the stem- can you see distinctive D-shaped emergence holes of the Agrilus beetle?"
-    },
-
-    
-    {
-        "id": 16,
         "label": "Is there evidence of fungal growth?",
         "type": "radio",
         "options": ["Yes", "No"],
@@ -202,6 +191,16 @@ export const questions = [
         "image": null,
         "info": null,
         "note": "Assess the whole tree. Can you see fungal fruiting bodies emerging from the bark?"
+    },
+    {
+        "id": 16,
+        "label": "Are there D-shaped Agrilus emergence holes?",
+        "type": "radio",
+        "options": ["Yes", "No"],
+        "required": true,
+        "image": null,
+        "info": null,
+        "note": "Look at the stem- can you see distinctive D-shaped emergence holes of the Agrilus beetle?"
     },
     {
         "id": 17,
