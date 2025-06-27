@@ -97,7 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirmBtn = document.getElementById("confirmTreeBtn");
     if (confirmBtn) {
         confirmBtn.addEventListener("click", () => {
-            let metadata = [];
+            const treeIndex = treesLogged;
+            const metadata = [];
 
             const uniqueID = crypto.randomUUID();
             const timestamp = new Date().toISOString();
