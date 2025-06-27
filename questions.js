@@ -4,9 +4,7 @@
 //order is important that it is same as questions and then final meta data order is (uid,ts,long,lat)
 // custom question skipping based on user answers to questions. If question order modified question skip params need to be updated
 
-export const headers = ['tree_id', 'species', 'social_class',  'crown_obs', 'crown_transpar', 'cross_miss', 'defoli', 'live_crown',
-'tree_height', 'dbh', 'active_bleeds', 'bleed_length', 'staining', 'stain_length', 'highest_stain_bleed', 'fungal_growth_tree', 'agrilus_emergence_holes' 'fungal_growth_roots', 'mildew', 
-'photos_taken', 'uid','ts', 'latitude', 'longitude']
+export const headers = ['tree_id', 'species', 'social_class',  'crown_obs', 'crown_transpar', 'cross_miss', 'defoli', 'live_crown','tree_height', 'dbh', 'active_bleeds', 'bleed_length', 'staining', 'stain_length', 'highest_stain_bleed', 'fungal_growth_tree', 'agrilus_emergence_holes', 'fungal_growth_roots', 'mildew', 'photos_taken', 'uid','ts', 'latitude', 'longitude']
 
 export const questions = [
     
